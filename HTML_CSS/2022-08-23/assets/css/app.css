@@ -15,11 +15,14 @@ ul {
     list-style-type: none;
 }
 
-
-img {
-    height: 6px;
+.trucks {
+    height: 7px;
 }
 
-li {
+.close {
+    height: 24px;
+}
+
+.hamburger-elem {
     height: 10px;
 }
