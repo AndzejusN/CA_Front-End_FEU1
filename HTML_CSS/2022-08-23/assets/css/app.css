@@ -1,0 +1,25 @@
+section {
+    display: flex;
+}
+
+h1 {
+    align-items: center;
+}
+
+hr {
+    width: 2px;
+    background-color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+img {
+    height: 6px;
+}
+
+li {
+    height: 10px;
+}
