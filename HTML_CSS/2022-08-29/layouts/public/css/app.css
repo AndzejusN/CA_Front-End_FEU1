@@ -3,12 +3,14 @@
   height: 100vh;
   width: 100%;
   flex-direction: row;
-  gap: 3px;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .container {
   height: 25%;
-  width: 20%;
+  width: calc(20% - 4px);
   background-color: powderblue;
   display: flex;
   flex-direction: row;
@@ -210,4 +212,284 @@
 
 .container-5 .child .fourth-fourth {
   background-color: navy;
+}
+
+.container-6 .first {
+  height: 50%;
+  width: 100%;
+}
+
+.container-6 .second,
+.container-6 .third,
+.container-6 .fourth {
+  height: 50%;
+  width: 33.333%;
+}
+
+.container-6 .second {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-6 .second .second-first,
+.container-6 .second .second-second {
+  height: 50%;
+  width: 50%;
+}
+
+.container-6 .second .second-third {
+  height: 50%;
+  width: 100%;
+}
+
+.container-6 .second .second-first {
+  background-color: aqua;
+}
+
+.container-6 .second .second-second {
+  background-color: navy;
+}
+
+.container-6 .second .second-third {
+  background-color: chartreuse;
+}
+
+.container-7 .child {
+  height: 50%;
+}
+
+.container-7 .first,
+.container-7 .fourth {
+  width: 80%;
+}
+
+.container-7 .second,
+.container-7 .third {
+  width: 20%;
+}
+
+.container-7 .second .child-two {
+  height: 50%;
+}
+
+.container-7 .second .second-first,
+.container-7 .third .third-first {
+  background-color: lightgreen;
+}
+
+.container-7 .second .second-second,
+.container-7 .third .third-second {
+  background-color: lightsteelblue;
+}
+
+.container-7 .third .child-two {
+  height: 50%;
+}
+
+.container-8 .child {
+  height: 50%;
+}
+
+.container-8 .first {
+  width: 100%;
+}
+
+.container-8 .second,
+.container-8 .third,
+.container-8 .fourth {
+  width: 33.333%;
+}
+
+.container-8 .second .child-two,
+.container-8 .fourth .child-two {
+  height: 50%;
+  width: 50%;
+}
+
+.container-8 .second .second-first,
+.container-8 .fourth .fourth-first {
+  background-color: lightpink;
+}
+
+.container-8 .second .second-second,
+.container-8 .fourth .fourth-second {
+  background-color: purple;
+}
+
+.container-9 {
+  flex-direction: column;
+}
+
+.container-9 .first,
+.container-9 .second,
+.container-9 .third {
+  width: 25%;
+}
+
+.container-9 .first {
+  height: 50%;
+}
+
+.container-9 .second {
+  display: flex;
+  height: 20%;
+}
+
+.container-9 .third {
+  height: 30%;
+}
+
+.container-9 .fourth,
+.container-9 .fifth,
+.container-9 .sixth {
+  width: 75%;
+}
+
+.container-9 .fourth {
+  height: 20%;
+}
+
+.container-9 .fifth {
+  height: 50%;
+}
+
+.container-9 .sixth {
+  height: 30%;
+}
+
+.container-9 .second .child-two {
+  height: 100%;
+  width: 50%;
+}
+
+.container-9 .second .second-first {
+  background-color: peru;
+}
+
+.container-9 .second .second-second {
+  background-color: darkgrey;
+}
+
+.container-9 .fourth .child-two {
+  height: 100%;
+  width: 33.333%;
+}
+
+.container-9 .fourth {
+  display: flex;
+}
+
+.container-9 .fourth .fourth-first,
+.container-9 .sixth .sixth-first {
+  background-color: darkred;
+}
+
+.container-9 .fourth .fourth-second,
+.container-9 .sixth .sixth-second {
+  background-color: darkolivegreen;
+}
+
+.container-9 .fourth .fourth-third,
+.container-9 .sixth .sixth-third {
+  background-color: indigo;
+}
+
+.container-9 .sixth {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.container-9 .sixth .sixth-first {
+  width: 70%;
+  height: 100%;
+}
+
+.container-9 .sixth .sixth-second,
+.container-9 .sixth .sixth-third {
+  width: 30%;
+  height: 50%;
+}
+
+.container-10 {
+  flex-direction: column;
+}
+
+.container-10 .child {
+  height: 33%;
+  width: 50%;
+}
+
+.container-10 .second,
+.container-10 .fourth,
+.container-10 .sixth {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.container-10 .second .second-first {
+  background-color: tomato;
+  height: 100%;
+  width: 70%;
+}
+
+.container-10 .second .second-second,
+.container-10 .second .second-third {
+  height: 50%;
+  width: 30%;
+}
+
+.container-10 .second .second-second {
+  background-color: darkgreen;
+}
+
+.container-10 .second .second-third {
+  background-color: brown;
+}
+
+.container-10 .fourth .fourth-first,
+.container-10 .fourth .fourth-second {
+  height: 50%;
+  width: 30%;
+}
+
+.container-10 .fourth .fourth-third {
+  height: 100%;
+  width: 70%;
+}
+
+.container-10 .fourth .fourth-first {
+  background-color: brown;
+}
+
+.container-10 .fourth .fourth-second {
+  background-color: indigo;
+}
+
+.container-10 .fourth .fourth-third {
+  background-color: peru;
+}
+
+.container-10 .sixth .sixth-first,
+.container-10 .sixth .sixth-second {
+  height: 50%;
+  width: 30%;
+}
+
+.container-10 .sixth .sixth-third {
+  height: 100%;
+  width: 70%;
+}
+
+.container-10 .sixth .sixth-first {
+  background-color: brown;
+}
+
+.container-10 .sixth .sixth-second {
+  background-color: indigo;
+}
+
+.container-10 .sixth .sixth-third {
+  background-color: peru;
 }
