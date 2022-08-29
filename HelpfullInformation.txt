@@ -4,8 +4,9 @@ https://github.com/
 https://youtu.be/hJHvdBlSxug
 https://youtu.be/4r6WdaY3SOA
 https://threejs.org/
-https://fremtidensuddannelser.dk/
 https://flukeout.github.io
 https://andersjensen.org/solutions-to-css-diner/ 
 https://fonts.google.com/
 https://specifishity.com/
+https://www.befunky.com/create/
+https://flexboxfroggy.com/

@@ -1,12 +1,16 @@
 @import "~bootstrap";
 
-* {
-    font-family: 'Montserrat', sans-serif;
-}
-
 :root {
     --color-secondary: #333333;
     --color-third: darkslategray;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -21,7 +25,7 @@ header {
     margin: 20px 0;
 }
 
-img {
+.header-photo img {
     border-radius: 20px;
 }
 
@@ -36,9 +40,9 @@ img {
 
 .grid-container {
     display: grid;
-    gap: 2vw;
+    gap: 2%;
     justify-items: start;
-    grid-template-columns: 29vw 68vw;
+    grid-template-columns: calc(30% - 40px) calc(68% - 40px);
     grid-template-rows: auto auto;
     margin: 40px;
 }
@@ -82,7 +86,7 @@ ul {
 }
 
 p {
-    max-width: 68%;
+    max-width: 70%;
     line-height: 20px;
     font-size: 16px;
 }
