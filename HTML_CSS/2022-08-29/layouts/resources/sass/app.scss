@@ -1,0 +1,215 @@
+.grand-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.container {
+  height: 25%;
+  width: 20%;
+  background-color: powderblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.child {
+  height: 100px;
+  width: 100px;
+}
+
+.first {
+  background-color: yellow;
+}
+
+.second {
+  background-color: green;
+}
+
+.third {
+  background-color: red;
+}
+
+.fourth {
+  background-color: blue;
+}
+
+.fifth {
+  background-color: olive;
+}
+
+.sixth {
+  background-color: sandybrown;
+}
+
+.seventh {
+  background-color: yellow;
+}
+
+.eighth {
+  background-color: blueviolet;
+}
+
+.ninth {
+  background-color: navy;
+}
+
+.container-1 .child {
+  height: 33.333%;
+}
+
+.container-1 .child:nth-of-type(even) {
+  width: 30%;
+}
+
+.container-1 .child:nth-of-type(odd) {
+  width: 70%;
+}
+
+.container-1 .child:nth-of-type(3) {
+  width: 30%;
+}
+
+.container-1 .child:nth-of-type(4) {
+  width: 70%;
+}
+
+.container-2 {
+  flex-direction: column;
+}
+
+.container-2 .child {
+  width: 33.333%;
+}
+
+.container-2 .child:nth-of-type(2),
+.container-2 .child:nth-of-type(3),
+.container-2 .child:nth-of-type(6) {
+  height: 70%;
+}
+
+.container-2 .child:nth-of-type(1),
+.container-2 .child:nth-of-type(4),
+.container-2 .child:nth-of-type(5) {
+  height: 30%;
+}
+
+.container-3 .child {
+  height: 33%;
+}
+
+.container-3 .child.first,
+.container-3 .child.second {
+  height: 66.666%;
+}
+
+.container-3 .child .second-first,
+.container-3 .child .second-second {
+  height: 50%
+}
+
+.container-3 .child {
+  width: 33.333%;
+}
+
+.container-3 .child:nth-of-type(1) {
+  width: 66.666%
+}
+
+.container-3 .child .second-first {
+  background-color: springgreen;
+}
+
+.container-3 .child .second-second {
+  background-color: cornflowerblue;
+}
+
+.container-4 .child:nth-of-type(1),
+.container-4 .child:nth-of-type(2),
+.container-4 .child:nth-of-type(3),
+.container-4 .child:nth-of-type(7),
+.container-4 .child:nth-of-type(8),
+.container-4 .child:nth-of-type(9) {
+  height: 25%;
+}
+
+.container-4 .child:nth-of-type(4),
+.container-4 .child:nth-of-type(5),
+.container-4 .child:nth-of-type(6) {
+  height: 50%;
+}
+
+.container-4 .fourth div,
+.container-4 .sixth div {
+  height: 50%;
+}
+
+.container-4 .child:nth-of-type(odd) {
+  width: 40%;
+}
+
+.container-4 .child:nth-of-type(even) {
+  width: 20%;
+}
+
+.container-4 .child:nth-of-type(5) {
+  width: 60%;
+}
+
+.container-4 .fourth .fourth-first {
+  background-color: darkgoldenrod;
+}
+
+.container-4 .fourth .fourth-second {
+  background-color: lightpink;
+}
+
+.container-4 .sixth .sixth-first {
+
+  background-color: chartreuse;
+}
+
+.container-4 .sixth .sixth-second {
+  background-color: slateblue;
+}
+
+.container-5 .child {
+  height: 33.333%;
+  width: 33.333%;
+}
+
+.container-5 .child:nth-of-type(2),
+.container-5 .child:nth-of-type(6) {
+  width: 66.666%;
+}
+
+.container-5 .fourth {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-5 .fourth .child-two {
+  height: 50%;
+  width: 50%;
+}
+
+.container-5 .child .fourth-first{
+  background-color: magenta;
+}
+
+.container-5 .child .fourth-second {
+  background-color: slateblue;
+}
+
+.container-5 .child .fourth-third {
+  background-color: olivedrab;
+}
+
+.container-5 .child .fourth-fourth {
+  background-color: navy;
+}
+

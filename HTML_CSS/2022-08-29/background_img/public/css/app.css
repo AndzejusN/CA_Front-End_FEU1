@@ -1,0 +1,9 @@
+header {
+  color: white;
+  padding: 50px 25px;
+  background-color: sandybrown;
+  background-image: url("/public/img/cat.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 25%;
+}

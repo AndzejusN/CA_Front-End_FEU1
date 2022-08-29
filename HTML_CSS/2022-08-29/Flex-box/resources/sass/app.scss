@@ -1,0 +1,46 @@
+.container {
+  height: 300px;
+  background-color: powderblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  //align-content: flex-start;
+}
+
+.child {
+  height: 100px;
+  width: 100px;
+}
+
+.first {
+  background-color: yellow;
+}
+
+.second {
+  background-color: green;
+}
+
+.third {
+  background-color: red;
+}
+
+.fourth {
+  background-color: blue;
+  align-self: flex-end;
+}
+
+.fifth {
+  background-color: olive;
+  align-self: center;
+}
+
+.sixth {
+  background-color: sandybrown;
+  order: -1;
+}
+
+.seventh {
+  background-color: orange;
+}
