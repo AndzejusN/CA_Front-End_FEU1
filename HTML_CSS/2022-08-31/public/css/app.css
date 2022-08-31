@@ -11,6 +11,15 @@ body {
   margin: 0;
 }
 
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 a.button {
   display: inline-block;
   background: blue;
@@ -22,12 +31,13 @@ a.button {
 }
 
 .main-header {
+  background-color: white;
+}
+
+.main-header .main-header-content-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1230px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .main-header .main-navigation {
@@ -57,10 +67,10 @@ a.button {
 .hero-box {
   background-color: black;
   color: white;
+}
+
+.hero-box .hero-box-content-wrapper {
   padding: 100px;
-  max-width: 1230px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .hero-box .title-wrapper {
@@ -88,4 +98,50 @@ a.button {
 .hero-box .service-list .service-item:last-child {
   border-left: 1px solid white;
   padding-left: 100px;
+}
+
+.facts {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.facts .facts-header-wrapper {
+  margin-bottom: 100px;
+}
+
+.facts .facts-header-wrapper .facts-header {
+  font-size: 80px;
+}
+
+.facts .facts-header-wrapper p {
+  margin: 0;
+  max-width: 470px;
+  margin-left: 200px;
+}
+
+.facts .facts-list-wrapper {
+  margin-left: 200px;
+  margin-right: 65px;
+}
+
+.facts .facts-list-wrapper .facts-list {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 80px;
+}
+
+.facts .facts-list-wrapper .facts-list .facts-item {
+  width: calc(50% - 40px);
+  font-weight: 600;
+}
+
+.facts .facts-list-wrapper .facts-list .facts-item .facts-value {
+  font-size: 100px;
+}
+
+.facts .facts-list-wrapper .facts-list .facts-item .facts-value.medium-size {
+  font-size: 72px;
 }
