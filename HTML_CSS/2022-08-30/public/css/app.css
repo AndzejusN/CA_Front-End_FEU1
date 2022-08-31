@@ -1,0 +1,272 @@
+:root {
+  --color-primary: blue;
+  --color-secondary: #5ad148;
+  --color-third: darkblue;
+  --color-four: lightblue;
+  --color-five: cornflowerblue;
+  --color-black: black;
+  --color-white: white;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+header,
+main {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+header .child-one {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100px;
+  width: 20%;
+  background-color: var(--color-black);
+}
+
+header .child-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 80%;
+  background-color: var(--color-third);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+header .child-three {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 60vh;
+  flex-direction: column;
+  color: var(--color-white);
+  justify-content: center;
+  background-color: var(--color-black);
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+
+a.button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin: 5px 20px;
+  border: 2px solid var(--color-primary);
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  text-decoration: none;
+  height: 40px;
+}
+
+a.button:hover {
+  background-color: var(--color-four);
+  color: var(--color-primary);
+}
+
+a[href] {
+  text-decoration: none;
+  color: white;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+header .child-four {
+  display: flex;
+  color: white;
+  justify-content: center;
+  background-color: var(--color-black);
+  height: 400px;
+  width: 100%;
+}
+
+header .child-four div {
+  height: 300px;
+  width: 50%;
+  color: white;
+  padding: 0 10%;
+}
+
+header .child-four .studentams {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-right: white 2px solid;
+}
+
+header .child-four .verslui {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+main .child-one {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-white);
+}
+
+main .child-one .section-1-1,
+main .child-one .section-1-2 {
+  width: 100%;
+  height: 25%;
+}
+
+main .child-one .section-1-1 {
+  display: flex;
+  padding: 0 20vh;
+  align-content: flex-end;
+}
+
+main .child-one .section-1-2 {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 40vh;
+  align-content: center;
+}
+
+main .child-one .section-1-3 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50%;
+}
+
+main .child-one .section-1-3 div {
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+}
+
+main .child-one .section-1-3 div h1,
+main .child-one .section-1-3 div p {
+  text-align: center;
+}
+
+main .child-two {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  width: 100%;
+  height: 500px;
+}
+
+main .child-two .section-2-1,
+main .child-two .section-2-2 {
+  height: 100%;
+  width: 50%;
+}
+
+main .child-two .section-2-1 {
+  padding-left: 30vh;
+}
+
+main .child-two .section-2-1 .button {
+  background-color: var(--color-five);
+}
+
+main .child-two .section-2-2 {
+  background: var(--color-primary) url("/public/img/professionals.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: bottom;
+}
+
+main .child-three {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+main .child-three .section-3-1 {
+  background-color: #5ad148;
+  width: 50%;
+  height: 70%;
+}
+
+main .child-four {
+  display: flex;
+  flex-wrap: wrap;
+  height: 800px;
+  width: 100%;
+}
+
+main .child-four div {
+  width: 100%;
+  height: 800px;
+}
+
+main .child-four .section-4-1 {
+  height: 200px;
+  padding: 0 10vw;
+  align-self: center;
+}
+
+main .child-four .section-4-2 {
+  height: 200px;
+  padding: 0 20vw;
+  align-self: center;
+}
+
+main .child-four .section-4-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+table td {
+  padding: 20px 5px;
+}
+
+table tr td {
+  border-bottom: 1px solid darkgrey;
+}
+
+tr td:nth-child(2) {
+  background-color: var(--color-third);
+  color: var(--color-white);
+}
+
+table tr:nth-child(1) td:nth-child(2) {
+  border-radius: 5px 5px 0 0;
+}
+
+table tr:last-of-type td:nth-child(2) {
+  border-radius: 0 0 5px 5px;
+}
+
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4),
+tr td:nth-child(5) {
+  width: 18%;
+  text-align: center;
+}
