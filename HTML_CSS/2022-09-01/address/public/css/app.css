@@ -1,0 +1,63 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.main-container .container .main-content-wrapper {
+  display: flex;
+}
+
+.main-container .container .main-content-wrapper .first-block {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  gap: 20px;
+  padding: 20px;
+}
+
+.main-container .container .main-content-wrapper .first-block .first-block-1 {
+  width: 100%;
+}
+
+.main-container .container .main-content-wrapper .first-block .first-block-2,
+.main-container .container .main-content-wrapper .first-block .first-block-3,
+.main-container .container .main-content-wrapper .first-block .first-block-4,
+.main-container .container .main-content-wrapper .first-block .first-block-5 {
+  width: calc(50% - 20px);
+  box-shadow: 2px 2px 5px black;
+}
+
+.main-container .container .main-content-wrapper .second-block {
+  display: flex;
+  width: 50%;
+}

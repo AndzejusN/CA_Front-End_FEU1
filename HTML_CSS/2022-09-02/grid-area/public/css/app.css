@@ -1,0 +1,72 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.container .grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  grid-template-areas: "one  one  two" "one  one  three" "four five six";
+}
+
+.container .grid-wrapper .one {
+  grid-area: one;
+}
+
+.container .grid-wrapper .two {
+  grid-area: two;
+}
+
+.container .grid-wrapper .three {
+  grid-area: three;
+}
+
+.container .grid-wrapper .four {
+  grid-area: four;
+}
+
+.container .grid-wrapper .five {
+  grid-area: five;
+}
+
+.container .grid-wrapper .six {
+  grid-area: six;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.orange {
+  background-color: orange;
+}

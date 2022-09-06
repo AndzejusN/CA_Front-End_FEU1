@@ -43,8 +43,7 @@ a.button {
 .main-header .main-navigation {
   display: flex;
   align-items: center;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  column-gap: 30px;
   margin-left: 60px;
 }
 
@@ -55,8 +54,7 @@ a.button {
   list-style-type: none;
   padding-left: 0;
   row-gap: 20px;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  column-gap: 30px;
 }
 
 .main-header .main-navigation ul.main-menu li a {

@@ -1,0 +1,346 @@
+:root {
+  --color-white: white;
+  --color-black: black;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.background-header-container {
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+a.button {
+  display: inline-block;
+  background: blue;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.main-header {
+  background-color: white;
+}
+
+.main-header .main-header-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header .main-navigation {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  margin-left: 60px;
+}
+
+.main-header .main-navigation ul.main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding-left: 0;
+  row-gap: 20px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+
+.main-header .main-navigation ul.main-menu li a {
+  color: black;
+  text-decoration: none;
+}
+
+.background-main-container {
+  background-color: #f0f0f0;
+}
+
+.main-part .main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  min-height: 250px;
+  height: auto;
+  margin-top: 50px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+
+.main-part .main-content .news-wrapper {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.main-part .main-content .podcasts-wrapper {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.main-part .main-content .news-wrapper .top-news {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: auto;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.main-part .main-content .news-wrapper .top-news:nth-of-type(1) {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.main-part .main-content .news-wrapper .top-news:nth-of-type(2) {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.image-top-news {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.upper-case {
+  text-transform: uppercase;
+}
+
+.top-news-text {
+  padding: 20px;
+}
+
+.black-text {
+  color: var(--color-black);
+}
+
+.white-text {
+  color: var(--color-white);
+}
+
+.bold-text {
+  font-weight: 700;
+}
+
+.text-decoration {
+  text-decoration: none;
+}
+
+.black {
+  background-color: var(--color-black);
+}
+
+.pink {
+  background-color: deeppink;
+}
+
+.white {
+  background-color: var(--color-white);
+}
+
+.main-part .main-content .news-wrapper .bottom-news {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: auto;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  row-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.main-part .main-content .news-wrapper .bottom-news:nth-of-type(1) {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.main-part .main-content .news-wrapper .bottom-news:nth-of-type(2) {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.main-part .main-content .news-wrapper .bottom-news:nth-of-type(3) {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.main-part .main-content .news-wrapper .bottom-news:nth-of-type(4) {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.main-part .main-content .news-wrapper .bottom-news .bottom-news-box {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+
+.main-part .main-content .news-wrapper .bottom-news .bottom-news-box:nth-of-type(1) {
+  width: 100%;
+}
+
+.main-part .main-content .news-wrapper .bottom-news .bottom-news-box:nth-of-type(2) {
+  width: 100%;
+}
+
+.bottom-news-header {
+  margin: 0;
+}
+
+.image-bottom-news {
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+}
+
+.main-part .main-content .podcasts-wrapper .podcast {
+  margin-bottom: 40px;
+}
+
+.main-part .main-content .podcasts-wrapper .podcast .podcast-track {
+  display: flex;
+  align-items: center;
+}
+
+.main-part .main-content .podcasts-wrapper .podcast-track .image-podcast {
+  height: 70px;
+  width: 70px;
+}
+
+.track-play {
+  background-color: var(--color-white);
+  width: 68px;
+  height: 100%;
+}
+
+.track-link {
+  height: 70px;
+  width: 70px;
+  border: 1px solid black;
+}
+
+.main-part .main-content .podcasts-wrapper .podcast .podcast-track .track-long {
+  display: flex;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 0;
+}
+
+.main-part .main-content .podcasts-wrapper .podcast .podcast-text {
+  height: 100%;
+  background-color: var(--color-white);
+  padding: 20px;
+}
+
+.main-part .main-content .podcasts-wrapper .podcast .podcast-text p {
+  margin-top: 0;
+}
+
+.more-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 40px;
+  border-radius: 10px;
+  font-size: 30px;
+  background-color: var(--color-white);
+}
+
+.more-info .more-symbol {
+  font-size: 60px;
+}
+
+.promo-testcon {
+  width: 100%;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.promo-text {
+  padding: 15px;
+}
+
+.event {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.promo-date {
+  background-color: green;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80px;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 200;
+  position: absolute;
+  top: -30px;
+}
+
+.promo-number {
+  width: 100%;
+  text-align: center;
+  border-left: 2px;
+  border-top: 2px;
+  border-right: 2px;
+  border-color: black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px 5px;
+}
+
+.promo-month {
+  width: 100%;
+  text-align: center;
+  border-left: 2px;
+  border-bottom: 2px;
+  border-right: 2px;
+  border-color: black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px;
+}
+
+.promo-number h2,
+.promo-month h4 {
+  margin: 5px;
+}
+
+.floating-image {
+  position: fixed;
+  height: 110px;
+  width: 110px;
+  bottom: 30px;
+  right: 30px;
+}

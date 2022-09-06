@@ -10,3 +10,7 @@ https://fonts.google.com/
 https://specifishity.com/
 https://www.befunky.com/create/
 https://flexboxfroggy.com/
+https://cssgridgarden.com/
+https://www.frontendmentor.io/challenges?difficulties=2,1&languages=HTML|CSS&types=free,free-plus
+https://www.awwwards.com/
+
