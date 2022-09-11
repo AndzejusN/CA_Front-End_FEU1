@@ -263,7 +263,6 @@ a.button {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100px;
   padding: 40px;
   border-radius: 10px;
   font-size: 30px;
@@ -337,4 +336,51 @@ a.button {
   width: 110px;
   bottom: 30px;
   right: 30px;
+}
+
+@media screen and (max-width: 1140px) {
+  body {
+    background-color: lightgreen;
+  }
+
+  .main-part .main-content .news-wrapper .bottom-news {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  body {
+    background-color: powderblue;
+  }
+
+  .main-part .main-content .news-wrapper .top-news {
+    grid-template-columns: 1fr;
+  }
+
+  .main-part .main-content {
+    grid-template-columns: 57fr 43fr;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    background-color: violet;
+  }
+
+  .main-part .main-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+  }
+
+  .main-part .main-content .podcasts-wrapper {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  body {
+    background-color: bisque;
+  }
 }
