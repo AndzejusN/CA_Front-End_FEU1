@@ -22,3 +22,18 @@ body {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.carousel img,
+.carousel svg {
+  vertical-align: middle;
+  height: 500px;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+#special-button.btn.btn-primary {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  z-index: 100;
+}

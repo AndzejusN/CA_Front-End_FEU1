@@ -1,0 +1,121 @@
+@import "~bootstrap";
+
+:root {
+  --color-secondary: #333333;
+  --color-third: darkslategray;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  margin: 20px 0;
+  text-align: center;
+  line-height: 50%;
+}
+
+.header-photo {
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.header-photo img {
+  border-radius: 20px;
+}
+
+.header-title,
+.header-info {
+  margin: 20px 0;
+}
+
+.header-info {
+  color: var(--color-secondary);
+}
+
+.grid-container {
+  display: grid;
+  gap: 2%;
+  justify-items: start;
+  grid-template-columns: calc(30% - 40px) calc(68% - 40px);
+  grid-template-rows: auto auto;
+  margin: 40px;
+}
+
+.content {
+  margin-bottom: 30px;
+}
+
+.content-header {
+  margin-bottom: 20px;
+}
+
+.svg-modification {
+  margin-bottom: 5px;
+  margin-right: 10px;
+  fill: grey;
+  transition: fill 2s ease-out;
+}
+
+.svg-modification:hover {
+  fill: darkblue;
+}
+
+.content-info {
+  transition: all 1s ease-out;
+}
+
+.content-info:hover {
+  margin-left: 30px;
+  font-weight: 500;
+  transform: scale(1.15);
+}
+
+ul {
+  list-style: none;
+}
+
+.list li::before {
+  color: var(--color-third);
+  margin-right: 5px;
+}
+
+.list.bird li::before {
+  content: '\2714';
+}
+
+.list.flower li::before {
+  content: '\2756';
+}
+
+.list.romb li::before {
+  content: '\25C8';
+}
+
+p {
+  max-width: 70%;
+  font-size: 18px;
+}
+
+p::before {
+  content: '';
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.marked {
+  color: var(--color-secondary);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

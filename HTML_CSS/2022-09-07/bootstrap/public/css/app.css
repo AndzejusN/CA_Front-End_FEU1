@@ -7,8 +7,6 @@ body {
   margin: 0;
 }
 
-//For separate parts of page - for example header / main / footer (Please rename, example: .background-header-container)
-
 .background-container {
   width: 100%;
   background-color: #f0f0f0;
@@ -21,4 +19,21 @@ body {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.carousel img,
+.carousel svg {
+  vertical-align: middle;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 25%;
+     object-position: 50% 25%;
+}
+
+#special-button.btn.btn-primary {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  z-index: 100;
 }
