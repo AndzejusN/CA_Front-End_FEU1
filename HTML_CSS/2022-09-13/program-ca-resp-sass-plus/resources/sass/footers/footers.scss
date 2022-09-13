@@ -1,0 +1,147 @@
+.footer-wrapper {
+  background-color: $color-black;
+  width: 100%;
+
+  .image-logo-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 300px
+  }
+
+  .image-logo-wrapper img {
+    height: 42px;
+    width: 137px;
+  }
+
+  .footer-menu {
+    background-image: url('/public/img/footer.svg');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: right bottom;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    row-gap: 200px;
+    column-gap: 30px;
+  }
+
+  .footer-menu {
+
+    .menu-list {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+
+      ul {
+        padding-left: 0;
+
+        .menu-item {
+          list-style-type: none;
+          padding-bottom: 15px;
+          font-size: 17px;
+
+          a {
+            text-decoration: none;
+            color: grey;
+
+            &:hover {
+              color: $color-white;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .addresses-list {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: 50%;
+      line-height: 1.5;
+
+      .city {
+        text-transform: uppercase;
+        color: $color-white;
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      address {
+
+        .address {
+          text-decoration: none;
+          font-style: normal;
+          color: grey;
+        }
+
+        &:hover {
+          .address {
+            color: $color-white;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .social-media {
+      display: flex;
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+      justify-content: flex-start;
+
+      .top-logos {
+        fill: grey;
+        margin: 0 10px;
+
+        &:hover {
+          fill: $color-white;
+        }
+      }
+    }
+
+    .ca-kids {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+
+      span {
+        color: grey;
+        font-size: 17px;
+      }
+
+      img {
+        display: block;
+        height: 44px;
+        width: 97px;
+        margin-top: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $color-white;
+        font-size: 17px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .private-policy {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+      justify-self: end;
+
+      a {
+        text-decoration: none;
+        color: grey;
+        font-size: 17px;
+
+        &:hover {
+          text-decoration: underline;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

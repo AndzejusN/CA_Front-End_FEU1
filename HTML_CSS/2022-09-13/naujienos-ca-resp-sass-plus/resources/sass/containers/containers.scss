@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+
+  &::before {
+    box-sizing: border-box;
+  }
+
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.background-header-container {
+  background-color: $color-white;
+}
+
+.background-main-container {
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}

@@ -1,0 +1,49 @@
+@import 'variables';
+@import 'containers';
+
+.wrapper {
+  padding: $spacing-30;
+
+  p {
+    &:not(.empty) {
+      &::before {
+        content: '- ';
+        color: $color-red;
+      }
+
+      &:first-of-type {
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.half-width {
+    width: 50%;
+
+    .container-spec {
+      width: 70%;
+      margin: $spacing-30 auto;
+    }
+  }
+
+  &.bg-dark-spec {
+    background-color: grey;
+  }
+
+  h2 {
+    font-size: 40px;
+
+    &.color-red {
+      color: $color-red;
+      cursor: pointer;
+    }
+
+    &.color-red:hover {
+      color: $color-green;
+    }
+  }
+}

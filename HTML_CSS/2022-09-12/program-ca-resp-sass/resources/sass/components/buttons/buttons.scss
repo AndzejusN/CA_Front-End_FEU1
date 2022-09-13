@@ -1,0 +1,76 @@
+button,
+a.button {
+  background-color: $color-primary;
+  color: $color-white;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $color-primary;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+a.button {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+button:hover,
+a.button:hover {
+  background-color: transparent;
+  color: $color-primary;
+}
+
+button.secondary,
+a.button.secondary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+}
+
+button.secondary:hover,
+a.button.secondary:hover {
+  background-color: transparent;
+  color: $color-secondary;
+}
+
+button.outline,
+a.button.outline {
+  background-color: transparent;
+  color: $color-primary;
+}
+
+button.outline:hover,
+a.button.outline:hover {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+button.outline.secondary,
+a.button.outline.secondary {
+  color: $color-secondary;
+}
+
+button.outline.secondary:hover,
+a.button.outline.secondary:hover {
+  background-color: $color-secondary;
+  color: $color-white;
+}
+
+button.spec {
+  background-color: $color-white;
+  text-transform: uppercase;
+  border-radius: 20px;
+  border: blue solid 1px;
+  color: blue;
+  width: 100%;
+  height: 40px;
+  font-weight: 500;
+}
+
+button.spec:hover {
+  color: cornflowerblue;
+}
