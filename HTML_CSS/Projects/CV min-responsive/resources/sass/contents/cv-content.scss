@@ -1,0 +1,125 @@
+.content-background-container {
+  width: 100%;
+  background-color: $color-background-secondary;
+
+  .container {
+    width: 100%;
+    max-width: 1230px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 25px;
+    padding-left: 25px;
+
+    .grid-container {
+      background-color: $color-background-primary;
+      display: grid;
+      justify-items: start;
+      grid-template-columns: 2fr 3fr;
+      grid-template-rows: auto auto;
+
+      .flex-container-first {
+        padding: 0 30px;
+
+        .content {
+          margin-bottom: 30px;
+
+          a {
+            text-decoration: none;
+            color: $color-black;
+          }
+
+          .svg-modification {
+            margin-bottom: 5px;
+            margin-right: 10px;
+            fill: grey;
+            transition: fill 2s ease-out;
+
+            &:hover {
+              fill: $color-primary;
+            }
+          }
+
+          .content-info {
+            transition: all 1s ease-out;
+
+            &:hover {
+              margin-left: 30px;
+              font-weight: 500;
+              transform: scale(1.15);
+            }
+          }
+
+          .content-header {
+            margin-bottom: 20px;
+          }
+
+          .list {
+            list-style: none;
+
+            li {
+              &::before {
+                color: var(--color-third);
+                margin-right: 5px;
+              }
+            }
+
+            &.bird {
+
+              li {
+                &::before {
+                  content: '\2714';
+                }
+              }
+            }
+
+            &.flower {
+              li {
+                &::before {
+                  content: '\2756';
+                }
+              }
+            }
+
+            &.romb {
+              li {
+                &::before {
+                  content: '\25C8';
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.grid-container .flex-container-second {
+  padding: 0 30px;
+
+  .content {
+    margin-bottom: 30px;
+
+    p {
+      max-width: 100%;
+      font-size: 18px;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        margin-left: 40px;
+      }
+    }
+
+    .marked {
+      color: $color-secondary;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .content-header {
+      margin-bottom: 20px;
+    }
+  }
+}

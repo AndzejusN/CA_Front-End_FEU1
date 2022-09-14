@@ -1,0 +1,43 @@
+.main-header {
+  background-color: $color-white;
+
+  .main-header-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .main-navigation {
+      display: flex;
+      align-items: center;
+      column-gap: 30px;
+      margin-left: 60px;
+
+      .button {
+        display: inline-block;
+        background: blue;
+        color: $color-white;
+        padding: 10px 40px;
+        border-radius: 25px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .main-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        list-style-type: none;
+        padding-left: 0;
+        row-gap: 20px;
+        column-gap: 30px;
+
+        li {
+          a {
+            color: $color-black;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -15,6 +15,7 @@ https://www.frontendmentor.io/challenges?difficulties=2,1&languages=HTML|CSS&typ
 https://www.awwwards.com/
 https://caniuse.com/ciu/comparison
 https://sass-lang.com/
+https://cssgradient.io/
 
 
 "Ne toks klaustrofobiškas header'is" autorius Romanas Venckus

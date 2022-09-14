@@ -1,0 +1,29 @@
+@import '~bootstrap';
+@import 'variables/cv-variables';
+@import 'headers/cv-header';
+@import 'contents/cv-content';
+
+@mixin xxl {
+  @media screen and (max-width: $screen-xxl) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+
+  &::before {
+    box-sizing: border-box;
+  }
+
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+@include xxl {
+  .content-background-container .container .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
