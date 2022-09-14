@@ -1,3 +1,4 @@
+
 .footer-background-container {
   width: 100%;
   background-color: #f0f0f0;
@@ -8,12 +9,93 @@
     max-width: 1230px;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 25px;
-    padding-left: 25px;
-    min-height: 600px;
+    padding: 140px;
 
     .footer {
+      .footer-wrapper {
+        .first-column-wrapper {
+          .content-wrapper {
+            .logo-wrapper {
 
+            }
+
+            span {
+              color: #4F4F4F;
+            }
+
+            span:nth-of-type(1) {
+            }
+
+            span:nth-of-type(2) {
+            }
+
+            span:nth-of-type(3) {
+            }
+
+            .social-media {
+              .top-logos {
+                svg {
+                  path {
+                    fill: #647B64;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .second-column-wrapper,
+        .third-column-wrapper {
+          h5 {
+            color: #647B64;
+          }
+
+          ul {
+            li {
+              color: #333333;
+            }
+          }
+        }
+
+        .fourth-column-wrapper {
+          h5 {
+            color: #647B64;
+          }
+
+          a {
+            text-decoration: none;
+
+            .button-wrapper {
+              background: rgb(5, 88, 42);
+              background: linear-gradient(90deg, rgba(5, 88, 42, 1) 0%, rgba(24, 154, 100, 1) 100%);
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 15px 25px;
+              border-radius: 3px;
+              width: 300px;
+
+              .button-text {
+                font-size: 16px;
+                color: $color-white;
+              }
+
+              .arrow-symbol {
+                font-size: 24px;
+                color: $color-white;
+                transition: color .7s ease-in-out;
+              }
+
+              &:hover {
+                .button-text,
+                .arrow-symbol {
+                  color: $color-secondary;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
