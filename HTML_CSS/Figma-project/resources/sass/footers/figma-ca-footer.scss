@@ -9,11 +9,13 @@
     max-width: 1230px;
     margin-right: auto;
     margin-left: auto;
-    padding: 140px;
+    padding: 100px;
 
     .footer {
       .footer-wrapper {
         .first-column-wrapper {
+          min-height: 300px;
+
           .content-wrapper {
             .logo-wrapper {
 
@@ -23,20 +25,22 @@
               color: #4F4F4F;
             }
 
-            span:nth-of-type(1) {
-            }
-
-            span:nth-of-type(2) {
-            }
-
-            span:nth-of-type(3) {
-            }
-
             .social-media {
+
               .top-logos {
-                svg {
-                  path {
-                    fill: #647B64;
+                a {
+                  &:hover {
+                    svg {
+                      path {
+                        fill: $color-black;
+                      }
+                    }
+                  }
+
+                  svg {
+                    path {
+                      fill: #647B64;
+                    }
                   }
                 }
               }
@@ -46,20 +50,34 @@
 
         .second-column-wrapper,
         .third-column-wrapper {
+          min-height: 300px;
+
           h5 {
             color: #647B64;
           }
 
           ul {
             li {
-              color: #333333;
+              a {
+                color: $color-text;
+              }
             }
           }
         }
 
         .fourth-column-wrapper {
+          min-height: 300px;
+
           h5 {
             color: #647B64;
+          }
+
+          .text-area {
+            width: 300px;
+
+            #floatingTextarea {
+              min-height: 100px;
+            }
           }
 
           a {
@@ -78,6 +96,7 @@
               .button-text {
                 font-size: 16px;
                 color: $color-white;
+                transition: color .7s ease-in-out;
               }
 
               .arrow-symbol {

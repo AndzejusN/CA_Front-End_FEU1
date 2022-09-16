@@ -1,8 +1,32 @@
+@font-face {
+  font-family: Metropolis;
+  font-weight: 400;
+  src: url("/public/fonts/Metropolis/Metropolis-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 500;
+  src: url("/public/fonts/Metropolis/Metropolis-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 600;
+  src: url("/public/fonts/Metropolis/Metropolis-SemiBold.otf") format("opentype");
+}
+
+@mixin screen-responsive($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
 $color-white: white;
 $color-black: black;
 $color-background: #E5E5E5;
 $color-primary: green;
-$color-secondary: blue;
+$color-secondary: #F3B562;
 $color-text: #333333;
 
 $screen-xxl: 1320px;
@@ -10,4 +34,3 @@ $screen-xl: 1140px;
 $screen-lg: 960px;
 $screen-md: 720px;
 $screen-sm: 540px;
-

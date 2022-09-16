@@ -60,20 +60,24 @@
         </header>
     </div>
 </div>
-
 <div class="main-background-container">
     <div class="container">
         <main class="main-content-wrapper">
             <section class="section-first">
                 <div class="section-first-wrapper">
-                    <h1 class="heading-text">Lorem ipsum dolor sit amet, consectetur</h1>
-                    <span class="content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue et eros, pellentesque et. Tristique ullamcorper ac pharetra in nisi sit vivamus lorem. </span>
-                    <a href="#">
-                        <div class="button-wrapper">
-                            <div class="button-text">get started</div>
-                            <div class="arrow-symbol">→</div>
-                        </div>
-                    </a>
+                    <div class="content-side">
+                        <h1 class="heading-text">Lorem ipsum dolor sit amet, consectetur</h1>
+                        <span class="content-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue et eros, pellentesque et. Tristique ullamcorper ac pharetra in nisi sit vivamus lorem. </span>
+                        <a href="#">
+                            <div class="button-wrapper">
+                                <div class="button-text">get started</div>
+                                <div class="arrow-symbol">→</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="picture-side">
+                        <div class="img-girl"></div>
+                    </div>
                 </div>
             </section>
             <section class="section-second">
@@ -177,6 +181,8 @@
                         <h1>amet,consectet</h1>
                     </div>
                     <div class="section-third-grid">
+                        <div class="corner"></div>
+                        <div class="linear-design-element"></div>
                         <a href="#" class="box-wrapper left-box-wrapper">
                             <div class="picture-wrapper">
                                 <svg width="54" height="54" viewBox="0 0 54 54" fill="none"
@@ -189,6 +195,7 @@
                             </div>
                             <span> mot consectet</span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit quis vitae </p>
+
                         </a>
                         <a href="#" class="box-wrapper center-box-wrapper">
                             <div class="picture-wrapper">
@@ -217,6 +224,7 @@
             </section>
             <section class="section-fourth">
                 <div class="section-fourth-grid">
+                    <div class="linear-big-design-element"></div>
                     <div class="picture-wrapper">
                         <img src="img/meeting.png" alt="Meeting in office">
                     </div>
@@ -324,12 +332,11 @@
         </main>
     </div>
 </div>
-
 <div class="footer-background-container">
     <div class="container">
         <footer class="footer">
             <div class="footer-wrapper row">
-                <div class="first-column-wrapper col-4">
+                <div class="first-column-wrapper d-flex col-sm-12 col-md-8 col-lg-6 col-xl-4">
                     <div class="content-wrapper d-flex flex-wrap">
                         <div class="logo-wrapper d-flex align-items-center">
                             <div class="logo-main pe-3">
@@ -365,96 +372,105 @@
                                 </svg>
                             </div>
                         </div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit quis vitae nullam aliquet</span>
+                        <span class="w-75">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit quis vitae nullam aliquet</span>
                         <span>Copyright © 2021 AWESOME.</span>
                         <span>All rights reserved</span>
-                        <div class="social-media d-inline-flex justify-content-between">
+                        <div class="social-media d-inline-flex justify-content-around w-100">
                             <div class="instagram-logo top-logos">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                     x="0px" y="0px"
-                                     width="30px" height="30px" viewBox="0 0 169.063 169.063"
-                                     style="enable-background:new 0 0 169.063 169.063;"
-                                     xml:space="preserve">
-                            <g>
-	                            <path d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
-		                                c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
-		                                c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
-		                                c17.455,0,31.656,14.201,31.656,31.655V122.407z"/>
-                                <path d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
-		                                C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
-		                                c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"/>
-                                <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
-		                                c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
-		                                C135.661,29.421,132.821,28.251,129.921,28.251z"/>
-                            </g>
-                        </svg>
+                                <a href="#">
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         x="0px" y="0px"
+                                         width="30px" height="30px" viewBox="0 0 169.063 169.063"
+                                         style="enable-background:new 0 0 169.063 169.063;"
+                                         xml:space="preserve">
+                                        <g>
+                                            <path d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
+		                                    c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
+		                                    c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
+		                                    c17.455,0,31.656,14.201,31.656,31.655V122.407z"/>
+                                            <path d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
+		                                    C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
+		                                    c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"/>
+                                            <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
+		                                    c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
+		                                    C135.661,29.421,132.821,28.251,129.921,28.251z"/>
+                                        </g>
+                                    </svg>
+                                </a>
                             </div>
                             <div class="facebook-logo top-logos">
-                                <svg width="30px" height="30px" viewBox="0 0 24 24" role="img"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
+                                <a href="#">
+                                    <svg width="30px" height="30px" viewBox="0 0 24 24" role="img"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </a>
                             </div>
                             <div class="linkedin-logo top-logos">
-                                <?xml version="1.0" encoding="iso-8859-1"?>
-                                <svg width="30px" height="30px" version="1.1" id="Layer_1"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     x="0px" y="0px"
-                                     viewBox="0 0 504.4 504.4" style="enable-background:new 0 0 504.4 504.4;"
-                                     xml:space="preserve">
-	                        <g>
-		                        <path d="M377.6,0.2H126.4C56.8,0.2,0,57,0,126.6v251.6c0,69.2,56.8,126,126.4,126H378c69.6,0,126.4-56.8,126.4-126.4V126.6
-			                      C504,57,447.2,0.2,377.6,0.2z M168,408.2H96v-208h72V408.2z M131.6,168.2c-20.4,0-36.8-16.4-36.8-36.8c0-20.4,16.4-36.8,36.8-36.8
-			                      c20.4,0,36.8,16.4,36.8,36.8C168,151.8,151.6,168.2,131.6,168.2z M408.4,408.2H408h-60V307.4c0-24.4-3.2-55.6-36.4-55.6
-			                      c-34,0-39.6,26.4-39.6,54v102.4h-60v-208h56v28h1.6c8.8-16,29.2-28.4,61.2-28.4c66,0,77.6,38,77.6,94.4V408.2z"/>
-	                        </g>
-                        </svg>
+                                <a href="#">
+                                    <?xml version="1.0" encoding="iso-8859-1"?>
+                                    <svg width="30px" height="30px" version="1.1" id="Layer_1"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         x="0px" y="0px"
+                                         viewBox="0 0 504.4 504.4" style="enable-background:new 0 0 504.4 504.4;"
+                                         xml:space="preserve">
+	                                     <g>
+		                                 <path d="M377.6,0.2H126.4C56.8,0.2,0,57,0,126.6v251.6c0,69.2,56.8,126,126.4,126H378c69.6,0,126.4-56.8,126.4-126.4V126.6
+			                             C504,57,447.2,0.2,377.6,0.2z M168,408.2H96v-208h72V408.2z M131.6,168.2c-20.4,0-36.8-16.4-36.8-36.8c0-20.4,16.4-36.8,36.8-36.8
+			                             c20.4,0,36.8,16.4,36.8,36.8C168,151.8,151.6,168.2,131.6,168.2z M408.4,408.2H408h-60V307.4c0-24.4-3.2-55.6-36.4-55.6
+			                             c-34,0-39.6,26.4-39.6,54v102.4h-60v-208h56v28h1.6c8.8-16,29.2-28.4,61.2-28.4c66,0,77.6,38,77.6,94.4V408.2z"/>
+	                                     </g>
+                                    </svg>
+                                </a>
                             </div>
                             <div class="twitter-logo top-logos">
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                     width="30px" height="30px"
-                                     viewBox="0 0 24 24"
-                                     style=" fill:#000000;">
-                                    <path d="M22,3.999c-0.78,0.463-2.345,1.094-3.265,1.276c-0.027,0.007-0.049,0.016-0.075,0.023c-0.813-0.802-1.927-1.299-3.16-1.299
-                                     c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.353,0-5.905-1.756-7.735-4c-0.199,0.5-0.286,1.29-0.286,2.032 c0,1.401,
-                                     1.095,2.777,2.8,3.63c-0.314,0.081-0.66,0.139-1.02,0.139c-0.581,0-1.196-0.153-1.759-0.617c0,0.017,0,0.033,0,0.051 c0,1.958,2.078,
-                                     3.291,3.926,3.662c-0.375,0.221-1.131,0.243-1.5,0.243c-0.26,0-1.18-0.119-1.426-0.165 c0.514,1.605,2.368,2.507,4.135,2.539c-1.382,
-                                     1.084-2.341,1.486-5.171,1.486H2C3.788,19.145,6.065,20,8.347,20 C15.777,20,20,14.337,20,8.999c0-0.086-0.002-0.266-0.005-0.447C19.995,
-                                     8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.79-0.57,1.475-1.281,2.017-2.091c-0.725,
-                                     0.322-1.503,0.538-2.32,0.636 C20.514,6.135,21.699,4.943,22,3.999z"></path>
-                                </svg>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                         width="30px" height="30px"
+                                         viewBox="0 0 24 24"
+                                         style=" fill:#000000;">
+                                        <path d="M22,3.999c-0.78,0.463-2.345,1.094-3.265,1.276c-0.027,0.007-0.049,0.016-0.075,0.023c-0.813-0.802-1.927-1.299-3.16-1.299
+                                        c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.353,0-5.905-1.756-7.735-4c-0.199,0.5-0.286,1.29-0.286,2.032 c0,1.401,
+                                        1.095,2.777,2.8,3.63c-0.314,0.081-0.66,0.139-1.02,0.139c-0.581,0-1.196-0.153-1.759-0.617c0,0.017,0,0.033,0,0.051 c0,1.958,2.078,
+                                        3.291,3.926,3.662c-0.375,0.221-1.131,0.243-1.5,0.243c-0.26,0-1.18-0.119-1.426-0.165 c0.514,1.605,2.368,2.507,4.135,2.539c-1.382,
+                                        1.084-2.341,1.486-5.171,1.486H2C3.788,19.145,6.065,20,8.347,20 C15.777,20,20,14.337,20,8.999c0-0.086-0.002-0.266-0.005-0.447C19.995,
+                                        8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.79-0.57,1.475-1.281,2.017-2.091c-0.725,
+                                        0.322-1.503,0.538-2.32,0.636 C20.514,6.135,21.699,4.943,22,3.999z"></path>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="second-column-wrapper col-2">
-                    <h5>Company</h5>
-                    <ul class="list-group list-unstyled">
-                        <li>Lorem Ipsum 1</li>
-                        <li>Lorem 2</li>
-                        <li>Lorem 3</li>
-                        <li>Lorem 4</li>
-                        <li>Lorem 5</li>
+                <div class="second-column-wrapper d-flex flex-wrap col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                    <h5 class="align-self-center w-100">Company</h5>
+                    <ul class="list-group list-unstyled d-flex justify-content-between">
+                        <li><a class="text-decoration-none" href="#">Lorem Ipsum 1</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem 2</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem 3</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem 4</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem 5</a></li>
                     </ul>
                 </div>
-                <div class="third-column-wrapper col-2">
-                    <h5>Support</h5>
-                    <ul class="list-group list-unstyled">
-                        <li>Lorem Ipsum 6</li>
-                        <li>Lorem Ipsum 7</li>
-                        <li>Lorem Ipsum 8</li>
-                        <li>Lorem Ipsum 9</li>
-                        <li>Lorem Ipsum 10</li>
+                <div class="third-column-wrapper d-flex flex-wrap col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                    <h5 class="align-self-center w-100">Support</h5>
+                    <ul class="list-group list-unstyled d-flex justify-content-between">
+                       <li><a class="text-decoration-none" href="#">Lorem Ipsum 6</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem Ipsum 7</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem Ipsum 8</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem Ipsum 9</a></li>
+                        <li><a class="text-decoration-none" href="#">Lorem Ipsum 10</a></li>
                     </ul>
                 </div>
-                <div class="fourth-column-wrapper col-4">
-                    <h5 class="text-uppercase">send message</h5>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                  style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Your email address</label>
+                <div class="fourth-column-wrapper d-flex flex-wrap col-sm-12 col-md-8 col-lg-6 col-xl-4">
+                    <h5 class="text-uppercase align-self-end w-100">send message</h5>
+                    <div class="text-area form-floating align-self-end mw-100">
+                        <textarea class="form-control" placeholder="Leave a comment here"
+                                  id="floatingTextarea">
+                        </textarea>
+                        <label for="floatingTextarea">Your email address</label>
                     </div>
-                    <a href="#">
+                    <a class="align-self-end" href="mailto:some@some.lt">
                         <div class="button-wrapper">
                             <div class="button-text text-uppercase">get started</div>
                             <div class="arrow-symbol">→</div>
