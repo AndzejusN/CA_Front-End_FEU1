@@ -1,7 +1,6 @@
 @include screen-responsive($screen-xxl) {
   .main-background-container {
     .container {
-      background-color: rebeccapurple;
     }
   }
 }
@@ -9,8 +8,6 @@
 @include screen-responsive($screen-xl) {
   .main-background-container {
     .container {
-      background-color: green;
-
       .main-content-wrapper {
         .section-second {
           .section-second-wrapper {
@@ -18,7 +15,6 @@
               grid-template-rows: auto 1fr;
               grid-template-columns: 1fr;
               row-gap: 50px;
-
 
               .content-wrapper {
                 grid-row: 1 / 2;
@@ -58,9 +54,19 @@
 }
 
 @include screen-responsive($screen-lg) {
+
+  .header-background-container {
+    .container {
+      .header {
+        .header-content-wrapper {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
   .main-background-container {
     .container {
-      background-color: hotpink;
 
       .main-content-wrapper {
         .section-second {
@@ -129,17 +135,6 @@
       }
     }
   }
-
-  .header-background-container {
-    .container {
-      .header {
-        .header-content-wrapper {
-          flex-wrap: wrap;
-        }
-      }
-    }
-  }
-
 }
 
 @include screen-responsive($screen-md) {
@@ -168,7 +163,6 @@
 
   .main-background-container {
     .container {
-      background-color: tomato;
 
       .main-content-wrapper {
         .section-first {
@@ -191,6 +185,7 @@
             }
           }
         }
+
         .section-second {
           .section-second-wrapper {
             .section-second-grid {
@@ -216,7 +211,6 @@
     }
   }
 }
-
 
 @include screen-responsive($screen-sm) {
   .header-background-container {
@@ -244,17 +238,14 @@
 
   .main-background-container {
     .container {
-      background-color: darkturquoise;
-
       .main-content-wrapper {
-
         .section-second {
-
           .section-second-wrapper {
             .section-second-grid {
-              .content-wrapper{
+              .content-wrapper {
                 padding: unset;
               }
+
               .services-wrapper {
                 .service {
                   width: 100%;

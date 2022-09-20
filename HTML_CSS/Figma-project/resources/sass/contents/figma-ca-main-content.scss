@@ -125,7 +125,7 @@
 
               .heading-text {
                 position: relative;
-                padding: 25px 50px;
+                padding: 25px 0;
                 z-index: 100;
 
                 span {
@@ -149,7 +149,7 @@
                   background: linear-gradient(90deg, rgba(223, 200, 149, 1) 0%, rgba(231, 224, 215, 1) 100%);
                   position: absolute;
                   height: 120px;
-                  width: 550px;
+                  width: 500px;
                   top: 0;
                   left: -125px;
                 }
@@ -472,7 +472,12 @@
                 }
 
                 &:hover {
-                  .button-text, .arrow-symbol {
+
+                  .arrow-symbol {
+                    color: $color-secondary;
+                  }
+
+                  .button-text {
                     color: $color-secondary;
                   }
                 }
