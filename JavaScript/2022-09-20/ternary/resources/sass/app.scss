@@ -1,0 +1,96 @@
+@import 'variables/variables';
+@import 'components/buttons';
+
+* {
+  box-sizing: border-box;
+  color: $color-primary;
+  text-shadow: -1px 0 $color-primary-dark, 0 1px $color-primary-dark, 1px 0 $color-primary-dark, 0 -1px $color-primary-dark;
+  font-family: Palatino, serif;
+
+  &::before {
+    box-sizing: border-box;
+  }
+
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+hr {
+  background-color: $color-primary-dark;
+  border: 0 none;
+  color: $color-primary-dark;
+  height: 3px;
+  margin-bottom: 30px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.main-background-container {
+  width: 100%;
+  background-image: url('/public/img/background-img-one.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $color-primary-lighter;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.inputs-wrapper {
+  margin-bottom: 20px;
+}
+
+body .main-background-container .container .answer {
+  display: none;
+}
+
+body .main-background-container .container .answer .result {
+}
+
+
+body .main-background-container .container .answer .wrong-answer {
+}
+
+body .main-background-container .container .answer .next-level {
+  display: none;
+}
+
+body .main-background-container .container .answer .try-again {
+  display: none;
+}
+
+
+@media screen and (max-width: 1320px) {
+
+}
+
+@media screen and (max-width: 1140px) {
+
+}
+
+@media screen and (max-width: 960px) {
+
+}
+
+@media screen and (max-width: 720px) {
+
+}
+
+@media screen and (max-width: 540px) {
+
+}

@@ -46,19 +46,23 @@ function cleanFormValues() {
     document.getElementById('isBirthday').checked = false;
 }
 
+let form = document.getElementById('userLogForm');
 
-document.addEventListener('DOMContentLoaded', (function () {
-    document.addEventListener('submit', (function (e) {
-            e.preventDefault();
-            let personName = document.getElementById('name').value;
-            let isLogged = document.getElementById('isLogged').value;
-            let isBirthday = document.getElementById('isBirthday').checked;
 
-            let dateNow = new Date();
-            let time = dateNow.getHours();
+form.addEventListener('submit', (function (e) {
+        e.preventDefault();
 
-            document.getElementById('text').innerText = helloUser(isLogged, personName, time, isBirthday);
-            document.getElementById('userLogForm').style.display = "none";
-        }
-    ))
-}))
+        let dateNow = new Date();
+        let time = dateNow.getHours();
+
+        let personName = e.target.elements.name.value;
+        let isLogged = e.target.elements.isLogged.value;
+        let isBirthday = e.target.elements.isBirthday.checked;
+
+        document.getElementById('text').innerText = helloUser(isLogged, personName, time, isBirthday);
+
+        cleanFormValues();
+
+        // document.getElementById('userLogForm').style.display = "none";
+    }
+))
