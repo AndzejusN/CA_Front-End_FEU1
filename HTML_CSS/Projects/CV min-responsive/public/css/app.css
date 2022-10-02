@@ -10933,7 +10933,7 @@ textarea.form-control-lg {
 }
 .header-background-container .container header .header-info {
   color: #333333;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 .header-background-container .container header .header-info h4, .header-background-container .container header .header-info .h4 {
   margin-bottom: 0;
@@ -10971,7 +10971,7 @@ textarea.form-control-lg {
 .content-background-container .container .grid-container .flex-container-first .content .svg-modification {
   margin-bottom: 5px;
   margin-right: 10px;
-  fill: grey;
+  fill: black;
   transition: fill 2s ease-out;
 }
 .content-background-container .container .grid-container .flex-container-first .content .svg-modification:hover {
