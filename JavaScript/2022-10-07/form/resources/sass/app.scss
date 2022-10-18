@@ -31,7 +31,8 @@ body {
         .contact-form {
           display: flex;
           flex-wrap: wrap;
-          gap: 30px;
+          column-gap: 30px;
+          row-gap: 10px;
 
           .fname-input-wrapper {
             width: calc(50% - 15px);
@@ -130,6 +131,10 @@ body {
 
           .radio-input-wrapper {
             width: calc(50% - 15px);
+
+            fieldset, legend {
+              all: revert;
+            }
           }
 
           .buttons-wrapper {

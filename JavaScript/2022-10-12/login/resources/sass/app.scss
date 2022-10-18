@@ -1,0 +1,144 @@
+@import 'components/variables';
+@import 'components/buttons';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-background;
+  margin: 0;
+
+  .background-container-form {
+    width: 100%;
+    background-color: $color-background;
+
+    .container {
+      background-color: $color-background;
+      width: 100%;
+      max-width: 1230px;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 25px;
+      border-radius: 5px;
+      padding-right: 25px;
+      padding-left: 25px;
+
+      .form-wrapper {
+        min-width: 500px;
+        padding: 25px;
+
+        .login-form {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          row-gap: 20px;
+
+          .name-input-wrapper {
+            width: 100%;
+            display: grid;
+            place-items: center;
+
+            input {
+              width: 50%;
+              line-height: 3;
+              padding-left: 20px;
+              margin-bottom: 5px;
+              border-radius: 5px;
+              border: none;
+            }
+          }
+
+          .password-input-wrapper {
+            width: 100%;
+            display: grid;
+            place-items: center;
+
+            input {
+              width: 50%;
+              line-height: 3;
+              padding-left: 20px;
+              margin-bottom: 5px;
+              border-radius: 5px;
+              border: none;
+            }
+          }
+
+          .checkbox-input-wrapper {
+            width: 100%;
+            display: grid;
+            place-items: center;
+
+            div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 50%;
+            }
+          }
+
+          .buttons-wrapper {
+            width: 100%;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+
+            button {
+              background-color: $color-secondary;
+              color: $color-white;
+              border-width: 2px;
+              border-style: solid;
+              border-color: $color-secondary;
+              border-radius: 15px;
+              padding: 10px 15px;
+              font-weight: 600;
+              font-size: 14px;
+              transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+              width: 200px;
+            }
+
+            input {
+              background-color: $color-primary;
+              color: $color-white;
+              border-width: 2px;
+              border-style: solid;
+              border-color: $color-primary;
+              border-radius: 15px;
+              padding: 10px 15px;
+              font-weight: 600;
+              font-size: 14px;
+              transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+              width: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+h1 {
+  background-color: $color-primary-light;
+  color: $color-white;
+}
+
+@media screen and (max-width: 1320px) {
+
+}
+
+@media screen and (max-width: 1140px) {
+
+}
+
+@media screen and (max-width: 960px) {
+
+}
+
+@media screen and (max-width: 720px) {
+
+}
+
+@media screen and (max-width: 540px) {
+
+}

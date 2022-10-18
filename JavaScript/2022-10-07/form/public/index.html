@@ -13,26 +13,33 @@
 <div class="background-container-form">
     <div class="container">
         <div class="form-wrapper">
-            <form class="contact-form">
+            <form class="filter-form" novalidate>
+                <div class="search-text">
+                    <label for="searchText">Įveskite paieškos frazę:</label>
+                    <input type="text" id="searchText" name="searchText">
+                </div>
+                <button type="submit">Paieška</button>
+            </form>
+            <form class="contact-form" novalidate>
                 <div class="fname-input-wrapper">
                     <label for="fname"></label>
-                    <input type="text" id="fname" name="fname" placeholder="Vardas" required autofocus>
+                    <input type="text" id="fname" name="fname" placeholder="Vardas" class="required" autofocus>
                 </div>
                 <div class="lname-input-wrapper">
                     <label for="lname"></label>
-                    <input type="text" id="lname" name="lname" placeholder="Pavardė" required>
+                    <input type="text" id="lname" name="lname" placeholder="Pavardė" class="required">
                 </div>
                 <div class="tel-input-wrapper">
                     <label for="tel"> </label>
-                    <input type="tel" id="tel" name="tel" placeholder="Tel.numeris" required>
+                    <input type="tel" id="tel" name="tel" placeholder="Tel.numeris" class="required">
                 </div>
                 <div class="mail-input-wrapper">
                     <label for="mail"></label>
-                    <input type="email" id="mail" name="mail" placeholder="El.paštas">
+                    <input type="email" id="mail" name="mail" placeholder="El.paštas" class="required">
                 </div>
                 <div class="age-input-wrapper">
                     <label for="age"></label>
-                    <input type="number" id="age" name="age" placeholder="Amžius">
+                    <input type="number" id="age" name="age" placeholder="Amžius" class="required">
                 </div>
                 <div class="experience-input-wrapper">
                     <label for="experience"></label>
@@ -41,15 +48,6 @@
                 <div class="textarea-input-wrapper">
                     <label for="text"></label>
                     <textarea placeholder="Jūsų informacija:" rows="4" cols="50" id="text" name="text"></textarea>
-                </div>
-                <div class="range-input-wrapper">
-                    <div>
-                        <label for="volume">Įvertinimas</label>
-                    </div>
-                    <div>
-                        <input type="range" id="volume" name="volume" min="1" max="10" step="1" value="1">
-                    </div>
-                    <div class="volume-result"></div>
                 </div>
                 <div class="radio-input-wrapper">
                     <fieldset>
@@ -67,6 +65,38 @@
                             <input type="radio" id="third" name="group" value="third">
                         </div>
                     </fieldset>
+                    <fieldset>
+                        <legend>Studentas moka</legend>
+                        <div>
+                            <label for="one">First</label>
+                            <input type="checkbox" id="one" name="groupCheckbox" value="C++">
+                        </div>
+                        <div>
+                            <label for="two">Second</label>
+                            <input type="checkbox" id="two" name="groupCheckbox" value="JS">
+                        </div>
+                        <div>
+                            <label for="three">Third</label>
+                            <input type="checkbox" id="three" name="groupCheckbox" value="PHP">
+                        </div>
+                        <div>
+                            <label for="four">Fourth</label>
+                            <input type="checkbox" id="four" name="groupCheckbox" value="CSS">
+                        </div>
+                        <div>
+                            <label for="five">Fifth</label>
+                            <input type="checkbox" id="five" name="groupCheckbox" value="HTML">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="range-input-wrapper">
+                    <div>
+                        <label for="volume">Įvertinimas</label>
+                    </div>
+                    <div>
+                        <input type="range" id="volume" name="volume" min="1" max="10" step="1" value="1">
+                    </div>
+                    <div class="volume-result"></div>
                 </div>
                 <div class="buttons-wrapper">
                     <button type="submit" class="primary outline">Submit</button>
@@ -74,6 +104,7 @@
                 </div>
             </form>
         </div>
+        <div class="alerts"></div>
         <div class="info-output"></div>
     </div>
 </div>

@@ -16,7 +16,9 @@ https://www.awwwards.com/
 https://caniuse.com/ciu/comparison
 https://sass-lang.com/
 https://cssgradient.io/
-
+https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator
 
 "Ne toks klaustrofobiškas header'is" autorius Romanas Venckus
 
