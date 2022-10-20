@@ -1,7 +1,35 @@
 let form = document.querySelector('.contact-form');
+let filterForm = document.querySelector('.filter-form');
 let output = document.querySelector('.info-output');
+let volume = document.querySelector('#volume');
+let volumeResult = document.querySelector('.volume-result');
+let inputs = document.querySelectorAll('input, select');
+let reset = document.querySelector('button[type="reset"]');
+let radioBox = document.querySelectorAll('input[type=radio]');
 
 let data = [];
+
+let allFields = [
+    'Vardas',
+    'Pavardė',
+    'Telefonas',
+    'Elektr.pašto adresas',
+    'Amžius',
+    'Patirtis',
+    'Aprašymas',
+    'Grupė',
+    'Žinias',
+    'Įvertinimas'
+];
+
+
+let studentList = document.createElement('div');
+studentList.setAttribute('id', 'students-list');
+studentList.style.display = 'flex';
+studentList.style.flexWrap = 'wrap';
+studentList.style.gap = '20px';
+studentList.style.width = '100%';
+output.appendChild(studentList);
 
 let divAlert = document.createElement('div');
 divAlert.classList.add('alert', 'alert-success');
@@ -20,53 +48,66 @@ alerts.appendChild(divAlert);
 alerts.appendChild(divAlertDelete);
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    let fname = document.querySelector('input[name=fname]').value;
-    let lname = document.querySelector('input[name=lname]').value;
-    let tel = document.querySelector('input[name=tel]').value;
-    let mail = document.querySelector('input[name=mail]').value;
-    let age = document.querySelector('input[name=age]').value;
-    let experience = document.querySelector('input[name=experience]').value;
-    let text = document.querySelector('#text').value;
-    let volume = document.querySelector('input[name=volume]').value;
-    let groupRadio = document.querySelector('input[name=group]:checked');
-    let groupCheckbox = document.querySelector('input[name=groupCheckbox]:checked').value;
+        e.preventDefault();
+        let fname = document.querySelector('input[name=fname]').value;
+        let lname = document.querySelector('input[name=lname]').value;
+        let tel = document.querySelector('input[name=tel]').value;
+        let mail = document.querySelector('input[name=mail]').value;
+        let age = document.querySelector('input[name=age]').value;
+        let experience = document.querySelector('input[name=experience]').value;
+        let text = document.querySelector('#text').value;
+        let groupRadio = document.querySelector('input[name=group]:checked');
+        let groupCheckbox = document.querySelector('input[name=groupCheckbox]:checked').value;
+        let volume = document.querySelector('input[name=volume]').value;
 
-    let validation = document.querySelectorAll('.required');
+        let validation = document.querySelectorAll('.required');
 
-    let response = formValidation(validation);
+        let response = formValidation(validation);
 
-    if (response) {
-        return;
+        if (response) {
+            return;
+        }
+
+        let dataToStorage =
+            {
+                firstName: fname,
+                secondName: lname,
+                phoneNumber: tel,
+                emailAddress: mail,
+                studentAge: age,
+                studentExperience: experience,
+                studentInformation: text,
+                studentGroup: groupRadio,
+                studentStack: groupCheckbox,
+                knowledgeRating: volume
+            }
+
+        let dataFromLocalStorage = JSON.parse(localStorage.getItem('student-data'));
+        dataFromLocalStorage.push(dataToStorage);
+
+        let allDataToLocalstorage = JSON.stringify(dataFromLocalStorage);
+        localStorage.setItem('student-data', allDataToLocalstorage);
+
+
+        if (studentList.children.length > 0) {
+            while (studentList.lastElementChild) {
+                studentList.removeChild(studentList.lastElementChild);
+            }
+        }
+
+        generateListInHtml(dataFromLocalStorage);
+
+        alertSwitch();
+
+        divAlert.textContent = 'Student created successfully' + ' ' + fname + ' ' + lname;
+
+        form.reset();
+
+        window.scrollTo(0, document.body.scrollHeight);
+
+        setTimeout(alertSwitch, 5000);
     }
-
-    data.push({
-        fname,
-        lname,
-        tel,
-        mail,
-        age,
-        experience,
-        text,
-        volume,
-        groupRadio,
-        groupCheckbox
-    });
-
-    generateListInHtml(data);
-
-    alertSwitch();
-
-    divAlert.textContent = 'Student created successfully' + ' ' + fname + ' ' + lname;
-
-    form.reset();
-
-    localStorage.clear();
-
-    window.scrollTo(0, document.body.scrollHeight);
-
-    setTimeout(alertSwitch, 5000);
-})
+)
 
 function formValidation(validation) {
     let mistakes = document.querySelectorAll('.mistake');
@@ -163,87 +204,10 @@ function alertSwitch() {
     }
 }
 
-let volume = document.querySelector('#volume');
-let volumeResult = document.querySelector('.volume-result');
-
 volume.addEventListener('change', () => {
     volumeResult.textContent = volume.value;
 })
 
-let studentList = document.createElement('div');
-studentList.setAttribute('id', 'students-list');
-studentList.style.display = 'flex';
-studentList.style.flexWrap = 'wrap';
-studentList.style.gap = '20px';
-studentList.style.width = '100%';
-output.appendChild(studentList);
-
-function generateHtml(data) {
-    let studentItem = document.createElement('div');
-    studentItem.setAttribute('id', 'students-item');
-    studentItem.classList.add('card');
-    studentItem.style.width = '380px';
-    studentList.appendChild(studentItem);
-
-    let divCard = document.createElement('div');
-    divCard.classList.add('card-header');
-    divCard.textContent = data[data.length - 1].fname + ' ' + data[data.length - 1].lname;
-    studentItem.appendChild(divCard);
-
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    ul.style = 'list-style: none';
-    studentItem.appendChild(ul);
-    let values = Object.values(data[data.length - 1]);
-
-    values.map((value, index) => {
-        let mark;
-        if (index === 3) {
-            value = '*****';
-            mark = 'mark';
-        }
-        let li = document.createElement('li');
-        li.classList.add('list-group-item');
-        if (mark) {
-            li.classList.add(mark);
-        }
-        li.textContent = value;
-        ul.appendChild(li);
-    })
-
-    let buttonStd = document.createElement('button');
-    buttonStd.textContent = 'Rodyti asmens duomenis';
-    ul.appendChild(buttonStd);
-
-    let buttonDeleteStd = document.createElement('button');
-    buttonDeleteStd.textContent = 'Ištrinti studentą';
-    buttonDeleteStd.classList.add('btn', 'btn-danger');
-    ul.appendChild(buttonDeleteStd);
-
-    buttonDeleteStd.addEventListener('click', () => {
-        studentItem.remove();
-        divAlertDelete.textContent = 'Student ' + values[0] + ' ' + values[1] + ' successfully deleted';
-        divAlertDelete.style.display = 'block';
-        setTimeout(() => {
-            divAlertDelete.style.display = 'none';
-        }, 5000);
-    });
-
-    let dataHidden = true;
-
-    buttonStd.addEventListener('click', () => {
-        let email = document.querySelector('.mark');
-
-        if (dataHidden) {
-            email.textContent = values[3];
-            buttonStd.textContent = 'Slėpti asmens duomenis';
-        } else {
-            email.textContent = '*****';
-            buttonStd.textContent = 'Rodyti asmens duomenis';
-        }
-        dataHidden = !dataHidden;
-    })
-}
 
 function createErrorMessage(text) {
     let p = document.createElement('p');
@@ -252,8 +216,6 @@ function createErrorMessage(text) {
 
     return p;
 }
-
-let inputs = document.querySelectorAll('input:not([type="submit"]), select');
 
 inputs.forEach((element, index, nodelst) => {
 
@@ -272,13 +234,11 @@ inputs.forEach((element, index, nodelst) => {
     }
 })
 
-let reset = document.querySelector('button[type="reset"]');
-
 reset.addEventListener('click', () => {
     localStorage.clear();
 })
 
-let radioBox = document.querySelectorAll('input[type=radio]');
+
 
 radioBox.forEach(element => {
     element.addEventListener('change', () => {
@@ -330,25 +290,7 @@ function allCheckBoxesData() {
     }
 }
 
-// Local Storage 2
-// function formDataInLocalStorage(studentForm) {
-//     studentForm.addEventListener('change', (event) => {
-//         console.log(event.target);
-//         let activeName = event.target.name;
-//         let activeValue = event.target.value;
-//         localStorage.setItem(activeName, activeValue);
-//
-//         // localStorage.setItem(event.target.name, event.target.value);
-//     })
-// }
-//
-// formDataInLocalStorage(form);
-
-// ŠEŠTA UŽDUOTIS:
-// 1. Sukurti pradinius duomenų masyvą, kuriame būtų bent 5 studentų duomenys (objektų formatu).
-// 2. Sukurti funkciją, kuri priima šiuos duomenis ir užkrovus puslapį į ekraną iškart išveda duomenis iš šio masyvo.
-
-let studentsList = [
+let studentsListData = [
     {
         firstName: 'Petras',
         secondName: 'Petrauskas',
@@ -357,14 +299,14 @@ let studentsList = [
         studentAge: 20,
         studentExperience: 2,
         studentInformation: 'Some a lot of text',
-        knowledgeRating: 8,
         studentGroup: 'First',
         studentStack: [
             'JS',
             'PHP',
             'CSS',
             'HTML'
-        ]
+        ],
+        knowledgeRating: 8
     },
     {
         firstName: 'Jonas',
@@ -374,13 +316,13 @@ let studentsList = [
         studentAge: 23,
         studentExperience: 3,
         studentInformation: 'Some a lot of text',
-        knowledgeRating: 9,
         studentGroup: 'Second',
         studentStack: [
             'PHP',
             'CSS',
             'HTML'
-        ]
+        ],
+        knowledgeRating: 9
     },
     {
         firstName: 'Darius',
@@ -390,11 +332,11 @@ let studentsList = [
         studentAge: 19,
         studentExperience: 1,
         studentInformation: 'Some a lot of text',
-        knowledgeRating: 5,
         studentGroup: 'Third',
         studentStack: [
             'HTML'
-        ]
+        ],
+        knowledgeRating: 5
     },
     {
         firstName: 'Pranas',
@@ -404,11 +346,11 @@ let studentsList = [
         studentAge: 18,
         studentExperience: 0,
         studentInformation: 'Some a lot of text',
-        knowledgeRating: 3,
         studentGroup: 'First',
         studentStack: [
             'HTML'
-        ]
+        ],
+        knowledgeRating: 3
     },
     {
         firstName: 'Zofija',
@@ -418,7 +360,6 @@ let studentsList = [
         studentAge: 65,
         studentExperience: 50,
         studentInformation: 'Some a lot of text',
-        knowledgeRating: 10,
         studentGroup: 'Best',
         studentStack: [
             'HTML',
@@ -431,18 +372,31 @@ let studentsList = [
             'PHP',
             'Go',
             'Swift'
-        ]
+        ],
+        knowledgeRating: 10
     }
-]
+];
+
+let dataToLocalStorage = JSON.stringify(studentsListData);
+
+let isDataInLocalStorage = localStorage.getItem('student-data');
+
+if (!isDataInLocalStorage) {
+    localStorage.setItem('student-data', dataToLocalStorage);
+}
+
+let studentsListRaw = localStorage.getItem('student-data');
+
+let studentsList = JSON.parse(studentsListRaw);
 
 generateListInHtml(studentsList);
 
 function generateListInHtml(data) {
 
-    data.map((data, index, arr) => {
+    data.map((data, index) => {
 
         let studentItem = document.createElement('div');
-        studentItem.setAttribute('id', `students-item${index}`);
+        studentItem.setAttribute('id', `students-card-${index}`);
         studentItem.classList.add('card');
         studentItem.style.width = '380px';
         studentList.appendChild(studentItem);
@@ -454,13 +408,14 @@ function generateListInHtml(data) {
 
         let ul = document.createElement('ul');
         ul.classList.add('list-group', 'list-group-flush');
-        ul.style = 'list-style: none';
+        ul.classList.add('students-item-' + index);
+        ul.style.listStyle = 'none';
         studentItem.appendChild(ul);
 
         let values = Object.values(data);
-        values.map((value, which, inArr) => {
+        values.map((value, whichIx) => {
             let mark;
-            if (which === 3) {
+            if (whichIx === 3) {
                 value = '*****';
                 mark = `mark${index}`;
             }
@@ -469,7 +424,7 @@ function generateListInHtml(data) {
             if (mark) {
                 li.classList.add(mark);
             }
-            li.textContent = value;
+            li.innerHTML = allFields[whichIx] + ': ' + '<span class=\"' + 'item-' + whichIx + '\">' + value + '</span>';
             ul.appendChild(li);
         })
 
@@ -489,6 +444,15 @@ function generateListInHtml(data) {
             setTimeout(() => {
                 divAlertDelete.style.display = 'none';
             }, 5000);
+
+            let dataFromLocalStorage = JSON.parse(localStorage.getItem('student-data'));
+
+            let dataToLocalStorage = dataFromLocalStorage.filter(value => {
+                if (value.firstName !== values[0] && value.secondName !== values[1]) {
+                    return value;
+                }
+            })
+            localStorage.setItem('student-data', JSON.stringify(dataToLocalStorage));
         });
 
         let dataHidden = true;
@@ -507,32 +471,61 @@ function generateListInHtml(data) {
     })
 }
 
-// 1. Selektinti paieškos forma javascript'e ir priskirti ją kintamąjam. +
-// 2. Šiam kintamąjam pridėti event listener'į - jo tipas submit. +
-// 3. Submit metu, išsaugoti duomenis, kurie įvesti paieškos formoje (text input'e).
-// 4. Selektinti visus studentų elementus, juos pridedam į kintamąjį.
-// 5. Leisti ciklą per studentų masyvą ir kiekvieno ciklo metu:
-// 5.1. Paselektinti studento vardą.
-// 5.2. Paselektinti studento pavardę.
-// 5.3. Patikrinti ar varde arba pavardėje yra ieškoma frazė.
-// 5.3.1. Jeigu nėra, tai reikia paslėpti studento elementą (display: none).
-// 5.3.2. Jeigu yra, tai reikia parodyti studento elementą (display: block).
+function filterByParameter() {
+    filterForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let searchByItem = document.querySelector('.search-item').value;
 
-let filterForm = document.querySelector('.filter-form');
+        let searchFormValue = event.target.elements.searchText.value.toLowerCase();
+        let numberOfStudents = studentList.childNodes.length;
 
-filterForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    let searchFormValue = event.target.elements.searchText.value;
-    let numberOfStudents = studentList.childNodes.length;
+        for (let i = 0; i < numberOfStudents; i++) {
 
-    for (let i = 0; i < numberOfStudents; i++) {
-        let isTrueFirstName = studentList.childNodes[i].textContent.includes(searchFormValue);
-        let isTrueSecondName = studentList.childNodes[i].textContent.includes(searchFormValue);
+            let selector = '.students-item-' + i;
+            let studentFirstName = document.querySelector(`${selector}`).childNodes[0].textContent.toLowerCase();
+            let studentLastName = document.querySelector(`${selector}`).childNodes[1].textContent.toLowerCase();
+            let studentAge = document.querySelector(`${selector}`).childNodes[4].textContent.toLowerCase();
+            let studentGroup = document.querySelector(`${selector}`).childNodes[7].textContent.toLowerCase();
+            let studentGrade = document.querySelector(`${selector}`).childNodes[9].textContent.toLowerCase();
 
-        if (isTrueFirstName || isTrueSecondName) {
-            studentList.childNodes[i].style.display = 'block';
-        } else {
-            studentList.childNodes[i].style.display = 'none';
+            let isTrueFirstName = studentFirstName.includes(searchFormValue);
+            let isTrueSecondName = studentLastName.includes(searchFormValue);
+            let isTrueAge = studentAge.includes(searchFormValue);
+            let isTrueGroup = studentGroup.includes(searchFormValue);
+            let isTrueGrade = studentGrade.includes(searchFormValue);
+
+            if (searchByItem === 'firstName' && isTrueFirstName) {
+                studentList.childNodes[i].style.display = 'block';
+            } else if (searchByItem === 'secondName' && isTrueSecondName) {
+                studentList.childNodes[i].style.display = 'block';
+            } else if (searchByItem === 'age' && isTrueAge) {
+                studentList.childNodes[i].style.display = 'block';
+            } else if (searchByItem === 'group' && isTrueGroup) {
+                studentList.childNodes[i].style.display = 'block';
+            } else if (searchByItem === 'grade' && isTrueGrade) {
+                studentList.childNodes[i].style.display = 'block';
+            } else {
+                studentList.childNodes[i].style.display = 'none';
+            }
         }
-    }
+    })
+}
+
+filterByParameter();
+
+function filterButtonDisable() {
+    let submitButtonFilter = document.querySelector('.filter-submit-button');
+    submitButtonFilter.disabled = true;
+
+    filterForm.addEventListener('change', (e) => {
+        submitButtonFilter.disabled = !(e.target.value.length > 0 && e.target.value !== 0);
+    })
+}
+
+filterButtonDisable();
+
+let filterResetButton = document.querySelector('.filter-reset-button');
+
+filterResetButton.addEventListener('click', () => {
+    document.location.reload();
 })

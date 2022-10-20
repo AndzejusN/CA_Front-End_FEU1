@@ -27,6 +27,7 @@ body {
 
       .form-wrapper {
         width: 40%;
+        padding: 20px;
 
         .car-form {
           display: flex;
@@ -136,11 +137,23 @@ body {
               width: 200px;
             }
           }
+
+          .car-color-input-wrapper {
+            width: 100%;
+            display: grid;
+            place-content: center;
+
+            select {
+              width: 50%;
+              justify-self: center;
+            }
+          }
         }
       }
 
       .product-list-wrapper {
         width: 60%;
+        padding: 20px;
 
         .product-list {
           width: 100%;

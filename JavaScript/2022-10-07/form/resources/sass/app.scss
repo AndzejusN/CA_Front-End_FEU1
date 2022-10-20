@@ -19,14 +19,12 @@ body {
       max-width: 1230px;
       margin-right: auto;
       margin-left: auto;
-      margin-top: 25px;
       border-radius: 5px;
       padding-right: 25px;
       padding-left: 25px;
 
       .form-wrapper {
         min-width: 500px;
-        padding: 25px;
 
         .contact-form {
           display: flex;
@@ -126,6 +124,15 @@ body {
 
           .range-input-wrapper {
             width: calc(50% - 15px);
+            text-align: center;
+
+            .slider {
+              width: 100%;
+
+              input {
+                width: 100%;
+              }
+            }
           }
 
 
@@ -147,6 +154,17 @@ body {
             button {
               width: 200px;
             }
+          }
+        }
+        .filter-form {
+          margin-top: 30px;
+
+          .search-by-item {
+            margin: 20px 0;
+          }
+
+          button {
+            margin-top: 30px;
           }
         }
       }
