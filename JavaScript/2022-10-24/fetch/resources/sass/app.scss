@@ -1,0 +1,47 @@
+@import 'variables';
+@import 'buttons';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+//For separate parts of page - for example header / main / footer (Please rename, example: .background-header-container)
+
+.background-container {
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+@media screen and (max-width: 1320px) {
+
+}
+
+@media screen and (max-width: 1140px) {
+  
+}
+
+@media screen and (max-width: 960px) {
+
+}
+
+@media screen and (max-width: 720px) {
+
+}
+
+@media screen and (max-width: 540px) {
+
+}
