@@ -1,28 +1,50 @@
 let container = document.querySelector('.container');
-let button = document.createElement('button');
+
+let divWrapperFirst = document.createElement('div');
+divWrapperFirst.style.width = '800px';
+container.append(divWrapperFirst);
+
+let buttonRandom = document.createElement('button');
 let divJoke = document.createElement('div');
-button.textContent = 'New Joke';
-container.append(divJoke);
-container.append(button);
+divJoke.style.minHeight = '100px';
 
-let category = 'animal';
+divJoke.style.display = 'grid';
+divJoke.style.placeContent = 'center';
 
-button.addEventListener('click', () => {
-    fetchData(category);
+buttonRandom.textContent = 'New Random Joke';
+
+divWrapperFirst.append(divJoke);
+divWrapperFirst.append(buttonRandom);
+
+let hr = document.createElement('hr');
+container.append(hr);
+
+buttonRandom.addEventListener('click', () => {
+    fetchDataRandom();
 })
 
-function fetchData(category = 'animal') {
-    fetch('https://api.chucknorris.io/jokes/random?category=' + category)
+function fetchDataRandom() {
+    fetch('https://api.chucknorris.io/jokes/random')
         .then((response) => response.json())
         .then((data) => {
             divJoke.textContent = data.value;
         });
 }
 
-fetchData();
+fetchDataRandom();
+
+let divWrapperSecond = document.createElement('div');
+divWrapperSecond.style.width = '200px';
+divWrapperSecond.style.minHeight = '100px';
+divWrapperSecond.style.display = 'flex';
+divWrapperSecond.style.alignItems = 'center';
+divWrapperSecond.style.flexWrap = 'wrap';
+container.append(divWrapperSecond);
+
+let category;
 
 let select = document.createElement('select');
-container.append(select);
+divWrapperSecond.append(select);
 
 fetch('https://api.chucknorris.io/jokes/categories')
     .then((response) => response.json())
@@ -40,15 +62,45 @@ select.addEventListener('change', () => {
     category = select.value;
 })
 
+let buttonByCategory = document.createElement('button');
+buttonByCategory.textContent = 'New Joke by category';
+divWrapperSecond.append(buttonByCategory);
+
+
+buttonByCategory.addEventListener('click', () => {
+    fetchDataByCategory(category);
+})
+
+function fetchDataByCategory(category = 'animal') {
+    fetch('https://api.chucknorris.io/jokes/random?category=' + category)
+        .then((response) => response.json())
+        .then((data) => {
+            divJoke.textContent = data.value;
+        });
+}
+
+let hrTwo = document.createElement('hr');
+container.append(hrTwo);
+
+
 // 3. Sukurti galimybę ieškoti juokelių pagal užklausos frazę.
+
+let divWrapperThird = document.createElement('div');
+divWrapperThird.style.width = '200px';
+divWrapperThird.style.minHeight = '100px';
+divWrapperThird.style.display = 'flex';
+divWrapperThird.style.alignItems = 'center';
+divWrapperThird.style.flexWrap = 'wrap';
+container.append(divWrapperThird);
+
 
 let inputSearch = document.createElement('input');
 inputSearch.setAttribute('type', 'text');
-container.append(inputSearch);
+divWrapperThird.append(inputSearch);
 
 let buttonSubmit = document.createElement('button');
 buttonSubmit.textContent = 'Search';
-container.append(buttonSubmit);
+divWrapperThird.append(buttonSubmit);
 
 buttonSubmit.addEventListener('click', () => {
     let query = inputSearch.value;
