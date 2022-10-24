@@ -2,12 +2,19 @@ let form = document.querySelector('.contact-form');
 let filterForm = document.querySelector('.filter-form');
 let output = document.querySelector('.info-output');
 let volume = document.querySelector('#volume');
-let volumeResult = document.querySelector('.volume-result');
-let inputs = document.querySelectorAll('input, select');
-let reset = document.querySelector('button[type="reset"]');
+let reset = document.querySelector('button[type=reset]');
 let radioBox = document.querySelectorAll('input[type=radio]');
 
-let data = [];
+let keysLocalStorage = [
+    'fname',
+    'lname',
+    'tel',
+    'mail',
+    'age',
+    'experience',
+    'groupRadio',
+    'groupCheckbox',
+    'volume'];
 
 let allFields = [
     'Vardas',
@@ -22,6 +29,90 @@ let allFields = [
     'Įvertinimas'
 ];
 
+let studentsListData = [
+    {
+        firstName: 'Petras',
+        secondName: 'Petrauskas',
+        phoneNumber: '+37068600001',
+        emailAddress: 'some@petrauskas.eu',
+        studentAge: 20,
+        studentExperience: 2,
+        studentInformation: 'Some a lot of text',
+        studentGroup: 'first',
+        studentStack: [
+            'JS',
+            'PHP',
+            'CSS',
+            'HTML'
+        ],
+        knowledgeRating: 8
+    },
+    {
+        firstName: 'Jonas',
+        secondName: 'Jonauskas',
+        phoneNumber: '+37068600002',
+        emailAddress: 'some@jonauskas.eu',
+        studentAge: 23,
+        studentExperience: 3,
+        studentInformation: 'Some a lot of text',
+        studentGroup: 'second',
+        studentStack: [
+            'PHP',
+            'CSS',
+            'HTML'
+        ],
+        knowledgeRating: 9
+    },
+    {
+        firstName: 'Darius',
+        secondName: 'Dariauskas',
+        phoneNumber: '+37068600003',
+        emailAddress: 'some@dariauskas.eu',
+        studentAge: 19,
+        studentExperience: 1,
+        studentInformation: 'Some a lot of text',
+        studentGroup: 'third',
+        studentStack: [
+            'HTML'
+        ],
+        knowledgeRating: 5
+    },
+    {
+        firstName: 'Pranas',
+        secondName: 'Pranauskas',
+        phoneNumber: '+37068600004',
+        emailAddress: 'some@pranauskas.eu',
+        studentAge: 18,
+        studentExperience: 0,
+        studentInformation: 'Some a lot of text',
+        studentGroup: 'first',
+        studentStack: [
+            'HTML'
+        ],
+        knowledgeRating: 3
+    },
+    {
+        firstName: 'Zofija',
+        secondName: 'Zofijauska',
+        phoneNumber: '+37068600005',
+        emailAddress: 'some@zofijauska.eu',
+        studentAge: 65,
+        studentExperience: 50,
+        studentInformation: 'Some a lot of text',
+        studentGroup: 'second',
+        studentStack: [
+            'HTML',
+            'C++',
+            'C#',
+            'JS',
+            'Java',
+            'Python',
+            'Ruby',
+            'PHP',
+        ],
+        knowledgeRating: 10
+    }
+];
 
 let studentList = document.createElement('div');
 studentList.setAttribute('id', 'students-list');
@@ -56,8 +147,8 @@ form.addEventListener('submit', async (e) => {
         let age = document.querySelector('input[name=age]').value;
         let experience = document.querySelector('input[name=experience]').value;
         let text = document.querySelector('#text').value;
-        let groupRadio = document.querySelector('input[name=group]:checked');
-        let groupCheckbox = document.querySelector('input[name=groupCheckbox]:checked').value;
+        let groupRadio = document.querySelector('input[name=group]:checked').value;
+        let groupCheckbox = document.querySelectorAll('input[name=groupCheckbox]:checked');
         let volume = document.querySelector('input[name=volume]').value;
 
         let validation = document.querySelectorAll('.required');
@@ -67,6 +158,14 @@ form.addEventListener('submit', async (e) => {
         if (response) {
             return;
         }
+
+        let groupCheckboxToData = [...groupCheckbox].map((element, index) => {
+            if (index !== 0) {
+                return ' ' + element.value;
+            } else {
+                return element.value
+            }
+        });
 
         let dataToStorage =
             {
@@ -78,16 +177,15 @@ form.addEventListener('submit', async (e) => {
                 studentExperience: experience,
                 studentInformation: text,
                 studentGroup: groupRadio,
-                studentStack: groupCheckbox,
+                studentStack: groupCheckboxToData,
                 knowledgeRating: volume
             }
 
-        let dataFromLocalStorage = JSON.parse(localStorage.getItem('student-data'));
-        dataFromLocalStorage.push(dataToStorage);
+        let dataFromLocalStorage = getStudentsDataFromLocalstorage();
 
-        let allDataToLocalstorage = JSON.stringify(dataFromLocalStorage);
-        localStorage.setItem('student-data', allDataToLocalstorage);
+        dataFromLocalStorage.unshift(dataToStorage);
 
+        setStudentsDataToLocalstorage(dataFromLocalStorage);
 
         if (studentList.children.length > 0) {
             while (studentList.lastElementChild) {
@@ -102,8 +200,9 @@ form.addEventListener('submit', async (e) => {
         divAlert.textContent = 'Student created successfully' + ' ' + fname + ' ' + lname;
 
         form.reset();
+        resetLocalStorage();
 
-        window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, document.body.scrollHeight / 4);
 
         setTimeout(alertSwitch, 5000);
     }
@@ -205,9 +304,9 @@ function alertSwitch() {
 }
 
 volume.addEventListener('change', () => {
+    let volumeResult = document.querySelector('.volume-result');
     volumeResult.textContent = volume.value;
 })
-
 
 function createErrorMessage(text) {
     let p = document.createElement('p');
@@ -217,6 +316,7 @@ function createErrorMessage(text) {
     return p;
 }
 
+let inputs = document.querySelectorAll('input:not([type=radio]):not([type=checkbox]), select');
 inputs.forEach((element, index, nodelst) => {
 
     element.value = localStorage.getItem(element.id);
@@ -235,10 +335,14 @@ inputs.forEach((element, index, nodelst) => {
 })
 
 reset.addEventListener('click', () => {
-    localStorage.clear();
+    resetLocalStorage();
 })
 
-
+function resetLocalStorage() {
+    keysLocalStorage.forEach(value => {
+        localStorage.removeItem(`${value}`);
+    })
+}
 
 radioBox.forEach(element => {
     element.addEventListener('change', () => {
@@ -290,106 +394,23 @@ function allCheckBoxesData() {
     }
 }
 
-let studentsListData = [
-    {
-        firstName: 'Petras',
-        secondName: 'Petrauskas',
-        phoneNumber: '+37068600001',
-        emailAddress: 'some@petrauskas.eu',
-        studentAge: 20,
-        studentExperience: 2,
-        studentInformation: 'Some a lot of text',
-        studentGroup: 'First',
-        studentStack: [
-            'JS',
-            'PHP',
-            'CSS',
-            'HTML'
-        ],
-        knowledgeRating: 8
-    },
-    {
-        firstName: 'Jonas',
-        secondName: 'Jonauskas',
-        phoneNumber: '+37068600002',
-        emailAddress: 'some@jonauskas.eu',
-        studentAge: 23,
-        studentExperience: 3,
-        studentInformation: 'Some a lot of text',
-        studentGroup: 'Second',
-        studentStack: [
-            'PHP',
-            'CSS',
-            'HTML'
-        ],
-        knowledgeRating: 9
-    },
-    {
-        firstName: 'Darius',
-        secondName: 'Dariauskas',
-        phoneNumber: '+37068600003',
-        emailAddress: 'some@dariauskas.eu',
-        studentAge: 19,
-        studentExperience: 1,
-        studentInformation: 'Some a lot of text',
-        studentGroup: 'Third',
-        studentStack: [
-            'HTML'
-        ],
-        knowledgeRating: 5
-    },
-    {
-        firstName: 'Pranas',
-        secondName: 'Pranauskas',
-        phoneNumber: '+37068600004',
-        emailAddress: 'some@pranauskas.eu',
-        studentAge: 18,
-        studentExperience: 0,
-        studentInformation: 'Some a lot of text',
-        studentGroup: 'First',
-        studentStack: [
-            'HTML'
-        ],
-        knowledgeRating: 3
-    },
-    {
-        firstName: 'Zofija',
-        secondName: 'Zofijauska',
-        phoneNumber: '+37068600005',
-        emailAddress: 'some@zofijauska.eu',
-        studentAge: 65,
-        studentExperience: 50,
-        studentInformation: 'Some a lot of text',
-        studentGroup: 'Best',
-        studentStack: [
-            'HTML',
-            'C++',
-            'C#',
-            'JS',
-            'Java',
-            'Python',
-            'Ruby',
-            'PHP',
-            'Go',
-            'Swift'
-        ],
-        knowledgeRating: 10
-    }
-];
-
-let dataToLocalStorage = JSON.stringify(studentsListData);
-
-let isDataInLocalStorage = localStorage.getItem('student-data');
+let isDataInLocalStorage = getStudentsDataFromLocalstorage();
 
 if (!isDataInLocalStorage) {
-    localStorage.setItem('student-data', dataToLocalStorage);
+    localStorage.setItem('student-data', JSON.stringify(studentsListData));
+} else {
+    let studentsList = getStudentsDataFromLocalstorage();
+    generateListInHtml(studentsList);
 }
 
-let studentsListRaw = localStorage.getItem('student-data');
+function getStudentsDataFromLocalstorage() {
+    let studentsListRaw = localStorage.getItem('student-data');
+    return JSON.parse(studentsListRaw);
+}
 
-let studentsList = JSON.parse(studentsListRaw);
-
-generateListInHtml(studentsList);
+function setStudentsDataToLocalstorage(data) {
+    localStorage.setItem('student-data', JSON.stringify(data));
+}
 
 function generateListInHtml(data) {
 
@@ -524,8 +545,6 @@ function filterButtonDisable() {
 
 filterButtonDisable();
 
-let filterResetButton = document.querySelector('.filter-reset-button');
-
-filterResetButton.addEventListener('click', () => {
+document.querySelector('.filter-reset-button').addEventListener('click', () => {
     document.location.reload();
 })
