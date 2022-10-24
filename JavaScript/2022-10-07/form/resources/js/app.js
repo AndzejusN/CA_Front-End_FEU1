@@ -5,7 +5,6 @@ let volume = document.querySelector('#volume');
 let reset = document.querySelector('button[type=reset]');
 let radioBox = document.querySelectorAll('input[type=radio]');
 
-let data = [];
 let keysLocalStorage = [
     'fname',
     'lname',
@@ -29,7 +28,6 @@ let allFields = [
     'Žinias',
     'Įvertinimas'
 ];
-
 
 let studentsListData = [
     {
@@ -165,7 +163,7 @@ form.addEventListener('submit', async (e) => {
             if (index !== 0) {
                 return ' ' + element.value;
             } else {
-               return element.value
+                return element.value
             }
         });
 
@@ -396,12 +394,13 @@ function allCheckBoxesData() {
     }
 }
 
-setStudentsDataToLocalstorage(studentsListData);
-
 let isDataInLocalStorage = getStudentsDataFromLocalstorage();
 
 if (!isDataInLocalStorage) {
-    localStorage.setItem('student-data', dataToLocalStorage);
+    localStorage.setItem('student-data', JSON.stringify(studentsListData));
+} else {
+    let studentsList = getStudentsDataFromLocalstorage();
+    generateListInHtml(studentsList);
 }
 
 function getStudentsDataFromLocalstorage() {
@@ -412,10 +411,6 @@ function getStudentsDataFromLocalstorage() {
 function setStudentsDataToLocalstorage(data) {
     localStorage.setItem('student-data', JSON.stringify(data));
 }
-
-let studentsList = getStudentsDataFromLocalstorage();
-
-generateListInHtml(studentsList);
 
 function generateListInHtml(data) {
 

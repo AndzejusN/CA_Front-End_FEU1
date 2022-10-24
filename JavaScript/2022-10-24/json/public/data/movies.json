@@ -1,0 +1,235 @@
+[
+  {
+    "movieName": "The Shawshank Redemption",
+    "rating": {
+      "ratingScore": 9.3,
+      "numberOfVoters": 2700000
+    },
+    "productionYear": 1994,
+    "shortInformation": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "genre": [
+      "Drama"
+    ],
+    "director": [
+      {
+        "firstName": "Frank",
+        "secondName": "Darabont"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Tim",
+        "secondName": "Robbins"
+      },
+      {
+        "firstName": "Morgan",
+        "secondName": "FreeMan"
+      },
+      {
+        "firstName": "Bob",
+        "secondName": "Gunton"
+      }
+    ]
+  },
+  {
+    "movieName": "The Godfather",
+    "rating": {
+      "ratingScore": 9.2,
+      "numberOfVoters": 1800000
+    },
+    "productionYear": 1972,
+    "shortInformation": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
+    "genre": [
+      "Crime",
+      "Drama"
+    ],
+    "director": [
+      {
+        "firstName": "Francis Ford",
+        "secondName": "Coppola"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Marlon",
+        "secondName": "Brando"
+      },
+      {
+        "firstName": "Al",
+        "secondName": "Pacino"
+      },
+      {
+        "firstName": "James",
+        "secondName": "Caan"
+      }
+    ]
+  },
+  {
+    "movieName": "The Dark Knight",
+    "rating": {
+      "ratingScore": 9,
+      "numberOfVoters": 2600000
+    },
+    "productionYear": 2008,
+    "shortInformation": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "genre": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "director": [
+      {
+        "firstName": "Christopher",
+        "secondName": "Nolan"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Christian",
+        "secondName": "Bale"
+      },
+      {
+        "firstName": "Heath",
+        "secondName": "Ledger"
+      },
+      {
+        "firstName": "Aaron",
+        "secondName": "Eckhart"
+      }
+    ]
+  },
+  {
+    "movieName": "The Godfather Part II",
+    "rating": {
+      "ratingScore": 9,
+      "numberOfVoters": 1300000
+    },
+    "productionYear": 1974,
+    "shortInformation": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+    "genre": [
+      "Crime",
+      "Drama"
+    ],
+    "director": [
+      {
+        "firstName": "Francis Ford",
+        "secondName": "Coppola"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Al",
+        "secondName": "Pacino"
+      },
+      {
+        "firstName": "Robert",
+        "secondName": "De Niro"
+      },
+      {
+        "firstName": "Robert",
+        "secondName": "Duvall"
+      }
+    ]
+  },
+  {
+    "movieName": "12 Angry Men",
+    "rating": {
+      "ratingScore": 9,
+      "numberOfVoters": 783000
+    },
+    "productionYear": 1957,
+    "shortInformation": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+    "genre": [
+      "Crime",
+      "Drama"
+    ],
+    "director": [
+      {
+        "firstName": "Sidney",
+        "secondName": "Lumet"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Henry",
+        "secondName": "Fonda"
+      },
+      {
+        "firstName": "Lee",
+        "secondName": "J. Cobb"
+      },
+      {
+        "firstName": "Martin",
+        "secondName": "Balsam"
+      }
+    ]
+  },
+  {
+    "movieName": "Schindler's List",
+    "rating": {
+      "ratingScore": 9,
+      "numberOfVoters": 1300000
+    },
+    "productionYear": 1993,
+    "shortInformation": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+    "genre": [
+      "Biography",
+      "Drama",
+      "History"
+    ],
+    "director": [
+      {
+        "firstName": "Steven",
+        "secondName": "Spielberg"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Liam",
+        "secondName": "Neeson"
+      },
+      {
+        "firstName": "Ralph",
+        "secondName": "Fiennes"
+      },
+      {
+        "firstName": "Ben",
+        "secondName": "Kingsley"
+      }
+    ]
+  },
+  {
+    "movieName": "The Lord of the Rings: The Return of the King",
+    "rating": {
+      "ratingScore": 9,
+      "numberOfVoters": 1800000
+    },
+    "productionYear": 2003,
+    "shortInformation": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    "genre": [
+      "Action",
+      "Adventure",
+      "Drama"
+    ],
+    "director": [
+      {
+        "firstName": "Peter",
+        "secondName": "Jackson"
+      }
+    ],
+    "majorActors": [
+      {
+        "firstName": "Elijah",
+        "secondName": "Wood"
+      },
+      {
+        "firstName": "Viggo",
+        "secondName": "Mortensen"
+      },
+      {
+        "firstName": "Ian",
+        "secondName": "MoKellen"
+      }
+    ]
+  }
+]
