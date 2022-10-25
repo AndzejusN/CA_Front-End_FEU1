@@ -1,0 +1,64 @@
+button,
+a.button {
+  background-color: $color-primary;
+  color: $color-white;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $color-primary;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+button {
+  cursor: pointer;
+}
+
+a.button {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+button:hover,
+a.button:hover {
+  background-color: transparent;
+  color: $color-primary;
+}
+
+button.secondary,
+a.button.secondary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+}
+
+button.secondary:hover,
+a.button.secondary:hover {
+  background-color: transparent;
+  color: $color-secondary;
+}
+
+button.outline,
+a.button.outline {
+  background-color: transparent;
+  color: $color-primary;
+}
+
+button.outline:hover,
+a.button.outline:hover {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+button.outline.secondary,
+a.button.outline.secondary {
+  color: $color-secondary;
+}
+
+button.outline.secondary:hover,
+a.button.outline.secondary:hover {
+  background-color: $color-secondary;
+  color: $color-white;
+}

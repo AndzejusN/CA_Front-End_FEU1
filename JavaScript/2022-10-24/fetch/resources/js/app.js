@@ -82,9 +82,7 @@ function fetchDataByCategory(category = 'animal') {
 let hrTwo = document.createElement('hr');
 container.append(hrTwo);
 
-
 // 3. Sukurti galimybę ieškoti juokelių pagal užklausos frazę.
-
 let divWrapperThird = document.createElement('div');
 divWrapperThird.style.width = '200px';
 divWrapperThird.style.minHeight = '100px';
@@ -92,7 +90,6 @@ divWrapperThird.style.display = 'flex';
 divWrapperThird.style.alignItems = 'center';
 divWrapperThird.style.flexWrap = 'wrap';
 container.append(divWrapperThird);
-
 
 let inputSearch = document.createElement('input');
 inputSearch.setAttribute('type', 'text');
@@ -102,17 +99,29 @@ let buttonSubmit = document.createElement('button');
 buttonSubmit.textContent = 'Search';
 divWrapperThird.append(buttonSubmit);
 
+inputSearch.addEventListener('change', () => {
+
+    if (inputSearch.value.length < 3 || inputSearch.value.length > 120) {
+        buttonSubmit.setAttribute('disabled', true);
+    } else {
+        buttonSubmit.removeAttribute('disabled');
+    }
+})
+
 buttonSubmit.addEventListener('click', () => {
     let query = inputSearch.value;
     bySearchText(query);
 })
 
 function bySearchText(query) {
-    console.log(query);
     fetch('https://api.chucknorris.io/jokes/search?query=' + query)
         .then((response) => response.json())
         .then((joke) => {
-            let random = Math.floor(Math.random() * joke.result.length);
-            divJoke.textContent = joke.result[random].value;
+            if (joke.result) {
+                let random = Math.floor(Math.random() * joke.result.length);
+                divJoke.textContent = joke.result[random].value;
+            } else {
+                divJoke.textContent = 'No joke was found, please try again';
+            }
         });
 }
