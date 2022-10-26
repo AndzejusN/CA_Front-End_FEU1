@@ -1,27 +1,15 @@
-// API nuoroda: https://jsonplaceholder.typicode.com
-//
-//   1. Sukurti puslapį, kuriame bus atvaizduojami įrašai (posts.html). Kiekvienas įrašas turi:
-// 1.1. Pavadinimą.
-// 1.2. Pastraipą su įrašo (post) turiniu.
-// 1.3. Autorių. Tai turi būti nuoroda. Kol kas ji gali niekur nevesti.
-//
-// 2. Po kiekvienu įrašu (post) pridėti posto komentarus. Kiekvienas komentaras turi:
-// 2.1. Komentaro pavadinimą.
-// 2.2. Komentaro turinį - pastraipą.
-// 2.3. Komentarą parašiusio asmens el. pašto adresą.
-
-function generatePostsList(userName, postId, postTitle, postText) {
+function generatePostsList(postData) {
     let container = document.querySelector('.container');
 
     let divCard = document.createElement('div');
-    divCard.style.width = '240px';
-    divCard.style.margin = '10px';
-    divCard.classList.add('card', 'post-id-' + postId);
+    divCard.style.width = '100%';
+    divCard.style.margin = '30px';
+    divCard.classList.add('card', 'post-id-' + postData.id);
     container.append(divCard);
 
     let divCardHeader = document.createElement('div');
     divCardHeader.classList.add('card-header');
-    divCardHeader.textContent = postId;
+    divCardHeader.textContent = postData.id;
     divCard.appendChild(divCardHeader)
 
     let ul = document.createElement('ul');
@@ -30,17 +18,17 @@ function generatePostsList(userName, postId, postTitle, postText) {
 
     let liFirst = document.createElement('li');
     liFirst.classList.add('list-group-item');
-    liFirst.textContent = postTitle;
+    liFirst.textContent = postData.title;
     ul.appendChild(liFirst)
 
     let liSecond = document.createElement('li');
     liSecond.classList.add('list-group-item');
-    liSecond.textContent = postText;
+    liSecond.textContent = postData.body;
     ul.appendChild(liSecond)
 
     let liThird = document.createElement('li');
     liThird.classList.add('list-group-item');
-    liThird.textContent = userName;
+    liThird.textContent = postData.username;
     ul.appendChild(liThird)
 }
 
@@ -49,7 +37,7 @@ function addPostComments(commentName, commentBody, commentEmail, commentPostId) 
     let postById = document.querySelector(`.post-id-${commentPostId}`);
 
     let divCardComment = document.createElement('div');
-    divCardComment.style.width = '240px';
+    divCardComment.style.width = 'calc (100% - 50px)';
     divCardComment.style.margin = '10px';
     divCardComment.classList.add('card');
     postById.append(divCardComment);
@@ -75,15 +63,23 @@ function addPostComments(commentName, commentBody, commentEmail, commentPostId) 
 }
 
 function getPosts() {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
         .then(response => response.json())
         .then(data => {
             data.map(post => {
-
                 fetch('https://jsonplaceholder.typicode.com/users/' + post.userId)
                     .then(response => response.json())
                     .then(data => {
-                        generatePostsList(data.username, post.id, post.title, post.body);
+
+                        let postData = {
+                            'username': data.username,
+                            'id': post.id,
+                            'title': post.title,
+                            'body': post.body
+                        }
+
+                        generatePostsList(postData);
+
                         fetch('https://jsonplaceholder.typicode.com/comments?postId=' + post.id)
                             .then(response => response.json())
                             .then(comments => {
