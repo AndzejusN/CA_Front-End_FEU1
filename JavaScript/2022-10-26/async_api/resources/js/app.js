@@ -32,9 +32,9 @@ function generatePostsList(postData) {
     ul.appendChild(liThird)
 }
 
-function addPostComments(commentName, commentBody, commentEmail, commentPostId) {
+function addPostComments(commentsList) {
 
-    let postById = document.querySelector(`.post-id-${commentPostId}`);
+    let postById = document.querySelector(`.post-id-${commentsList.postId}`);
 
     let divCardComment = document.createElement('div');
     divCardComment.style.width = 'calc (100% - 50px)';
@@ -44,7 +44,7 @@ function addPostComments(commentName, commentBody, commentEmail, commentPostId) 
 
     let divCardHeaderComment = document.createElement('div');
     divCardHeaderComment.classList.add('card-header');
-    divCardHeaderComment.textContent = commentName;
+    divCardHeaderComment.textContent = commentsList.name;
     divCardComment.appendChild(divCardHeaderComment)
 
     let ulComment = document.createElement('ul');
@@ -53,12 +53,12 @@ function addPostComments(commentName, commentBody, commentEmail, commentPostId) 
 
     let liFirstComment = document.createElement('li');
     liFirstComment.classList.add('list-group-item');
-    liFirstComment.textContent = commentBody;
+    liFirstComment.textContent = commentsList.body;
     ulComment.appendChild(liFirstComment)
 
     let liSecondComment = document.createElement('li');
     liSecondComment.classList.add('list-group-item');
-    liSecondComment.textContent = commentEmail;
+    liSecondComment.textContent = commentsList.email;
     ulComment.appendChild(liSecondComment)
 }
 
@@ -84,7 +84,15 @@ function getPosts() {
                             .then(response => response.json())
                             .then(comments => {
                                 comments.map(comment => {
-                                    addPostComments(comment.name, comment.body, comment.email, comment.postId);
+
+                                    let commentsList = {
+                                        'name': comment.name,
+                                        'body': comment.body,
+                                        'email': comment.email,
+                                        'postId': comment.postId
+                                    }
+
+                                    addPostComments(commentsList);
                                 })
                             })
                     })
