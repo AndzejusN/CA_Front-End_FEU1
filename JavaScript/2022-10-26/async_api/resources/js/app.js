@@ -1,11 +1,10 @@
-function generatePostsList(postData) {
-    let container = document.querySelector('.container');
+let leftColumn = document.querySelector('.left-column');
+let rightColumn = document.querySelector('.right-column');
 
+function generatePostsList(postData) {
     let divCard = document.createElement('div');
-    divCard.style.width = '100%';
-    divCard.style.margin = '30px';
-    divCard.classList.add('card', 'post-id-' + postData.id);
-    container.append(divCard);
+    divCard.classList.add('card', 'post-id-' + postData.id, 'card-parameters');
+    leftColumn.append(divCard);
 
     let divCardHeader = document.createElement('div');
     divCardHeader.classList.add('card-header');
@@ -63,45 +62,97 @@ function addPostComments(commentsList) {
 }
 
 function getPosts() {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user')
         .then(response => response.json())
         .then(data => {
             data.map(post => {
-                fetch('https://jsonplaceholder.typicode.com/users/' + post.userId)
-                    .then(response => response.json())
-                    .then(data => {
 
-                        let postData = {
-                            'username': data.username,
-                            'id': post.id,
-                            'title': post.title,
-                            'body': post.body
-                        }
+                let dataToPost = {
+                    'id': post.id,
+                    'title': post.title,
+                    'body': post.body,
+                    'username': post.user.name
+                }
 
-                        generatePostsList(postData);
+                generatePostsList(dataToPost);
 
-                        fetch('https://jsonplaceholder.typicode.com/comments?postId=' + post.id)
-                            .then(response => response.json())
-                            .then(comments => {
-                                comments.map(comment => {
+                let postComments = post.comments;
+                postComments.map(comment => {
+                    let dataComments = {
+                        'postId': dataToPost.id,
+                        'name': comment.name,
+                        'body': comment.body,
+                        'email': comment.email
+                    }
 
-                                    let commentsList = {
-                                        'name': comment.name,
-                                        'body': comment.body,
-                                        'email': comment.email,
-                                        'postId': comment.postId
-                                    }
-
-                                    addPostComments(commentsList);
-                                })
-                            })
-                    })
+                    addPostComments(dataComments);
+                })
             })
         })
 }
 
+// 5. Pagrindiniame (index.html) puslapyje pridėti skiltį, kurioje atvaizduojamas albumų sąrašas. Kiekvienas albumas turės:
+// 5.1. Pavadinimą, o paspaudus ant jo - nukreipiama į albumą (album.html).
+// 5.2. Albumo autoriaus vardą.
+// 5.3. Nuotrauką.
+
+function albumsList() {
+    fetch('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos')
+        .then(res => res.json())
+        .then(data => {
+            data.map(album => {
+                let albumsDataToDom = {
+                    'userId': album.userId,
+                    'userName' : album.user.name,
+                    'albumId': album.id,
+                    'title': album.title,
+                    'photo': album.photos[0].thumbnailUrl
+                };
+
+                generateAlbumsList(albumsDataToDom);
+            })
+        })
+}
+
+function generateAlbumsList(albumsDataToDom) {
+    let divCard = document.createElement('div');
+    divCard.classList.add('card', 'card-parameters');
+    rightColumn.append(divCard);
+
+    let divCardHeader = document.createElement('div');
+    divCardHeader.classList.add('card-header');
+    divCardHeader.innerHTML = '<strong>Albumo pavadinimas: <a href="album.html?albumid=' + albumsDataToDom.albumId + '">' + albumsDataToDom.title + '</a></strong>';
+    divCard.appendChild(divCardHeader)
+
+    let ul = document.createElement('ul');
+    ul.classList.add('list-group', 'list-group-flush');
+    divCard.appendChild(ul);
+
+    let liPostId = document.createElement('li');
+    liPostId.classList.add('list-group-item');
+    liPostId.textContent = 'Albumo unikalus numeris: ' + albumsDataToDom.albumId;
+    ul.appendChild(liPostId)
+
+    let liUserId = document.createElement('li');
+    liUserId.classList.add('list-group-item');
+    liUserId.textContent = 'Vartotojo unikalus numeris: ' + albumsDataToDom.userId;
+    ul.appendChild(liUserId)
+
+    let liUserName = document.createElement('li');
+    liUserName.classList.add('list-group-item');
+    liUserName.textContent = 'Vartotojo vardas/pavardė: ' + albumsDataToDom.userName;
+    ul.appendChild(liUserName)
+
+    let liPhoto = document.createElement('li');
+    liPhoto.classList.add('list-group-item');
+    liPhoto.innerHTML ='<img src="' + albumsDataToDom.photo + '">';
+    ul.appendChild(liPhoto)
+}
+
+
 function init() {
     getPosts();
+    albumsList();
 }
 
 init();

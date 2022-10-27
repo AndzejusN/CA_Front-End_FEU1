@@ -1,4 +1,16 @@
 {
-    "/js/app.js": "/js/app.js?id=92ac1deeced459cd84ffbf84df37a6e0",
-    "/css/app.css": "/css/app.css?id=16cb9a3ca942e5b56d062cdf16aa83d8"
+    "/js/posts.js": "/js/posts.js?id=088d8a66636b0900fec0c901cd0375df",
+    "/js/post.js": "/js/post.js?id=b7f7586ba0c209bfb3b1430cb533ff09",
+    "/js/app.js": "/js/app.js?id=525dbeaab3cb6a5975fbd08be8cb59ac",
+    "/js/users.js": "/js/users.js?id=f59a7e34aebb9aa6d8dceacf4ae07e3a",
+    "/js/user.js": "/js/user.js?id=1010e6c875ebd11c9e2115e7b1a943f7",
+    "/js/albums.js": "/js/albums.js?id=0a7a3df294185d74d30d29847d9b1d5a",
+    "/js/album.js": "/js/album.js?id=75d6f574c27092b81527a74865da8385",
+    "/css/post.css": "/css/post.css?id=20fd3ef81db8a1be54f3dc71b07c6b8c",
+    "/css/posts.css": "/css/posts.css?id=20fd3ef81db8a1be54f3dc71b07c6b8c",
+    "/css/app.css": "/css/app.css?id=20fd3ef81db8a1be54f3dc71b07c6b8c",
+    "/css/users.css": "/css/users.css?id=7a41c7658da0a6151fdcf722e9997733",
+    "/css/user.css": "/css/user.css?id=7a41c7658da0a6151fdcf722e9997733",
+    "/css/album.css": "/css/album.css?id=20fd3ef81db8a1be54f3dc71b07c6b8c",
+    "/css/albums.css": "/css/albums.css?id=20fd3ef81db8a1be54f3dc71b07c6b8c"
 }

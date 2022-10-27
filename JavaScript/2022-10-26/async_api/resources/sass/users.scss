@@ -17,15 +17,8 @@
     padding-right: 25px;
     padding-left: 25px;
 
-    .left-column,
-    .right-column {
-      width: 50%;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
     .card-parameters {
-      width: calc(100% - 30px);
+      width: 100%;
       margin: 30px;
     }
   }
