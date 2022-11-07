@@ -1,80 +1,51 @@
-function userPageDom(id = 1) {
-    fetch('https://jsonplaceholder.typicode.com/users/' + id)
-        .then(resp => resp.json())
-        .then(user => {
-            let address = user.address.street + ' ' + user.address.suite + ' ' + user.address.zipcode + ', ' + user.address.city;
+import headerNavigation from './header.js';
+import { getSearchPhrase, fetchData, generateBootstrapCard } from './functions';
+
+async function init() {
+    const userId = getSearchPhrase ('userid');
+    await userPageDom(userId);
+    headerNavigation();
+}
+
+async function userPageDom(id = 1) {
+    let userData = await fetchData(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+            let address = userData.address.street + ' ' + userData.address.suite + ' ' + userData.address.zipcode + ', ' + userData.address.city;
 
             let userDataToDom = {
-                'name': user.name,
-                'username': user.username,
-                'email': user.email,
+                'name': userData.name,
+                'username': userData.username,
+                'email': userData.email,
                 'address': {
                     'address': address,
-                    'lat': user.address.geo.lat,
-                    'lng': user.address.geo.lng
+                    'lat': userData.address.geo.lat,
+                    'lng': userData.address.geo.lng
                 },
-                'phone': user.phone,
-                'website': user.website,
-                'company': user.company.name
+                'phone': userData.phone,
+                'website': userData.website,
+                'company': userData.company.name
             }
 
             generatePostsList(userDataToDom);
-        })
-}
+        }
 
 function generatePostsList(userDataToDom) {
     let container = document.querySelector('.container');
 
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'card-parameters');
-    container.append(divCard);
+    let obj = {
+        header : `User name: ${userDataToDom.name}`,
+        list : [ `User full name: ${userDataToDom.username}`,
+                userDataToDom.email,
+                `<a href="https://maps.google.com/?q=${userDataToDom.address.lat},${userDataToDom.address.lng}">${userDataToDom.address.address}</a>`,
+                `User phone: ${userDataToDom.phone}`,
+                `User website: ${userDataToDom.website}`,
+                `User job name: ${userDataToDom.company}`
+                ]
+            }
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.textContent = userDataToDom.name;
-    divCard.appendChild(divCardHeader)
+    let result = generateBootstrapCard(obj);
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    divCard.appendChild(ul);
-
-    let usernameLi = document.createElement('li');
-    usernameLi.classList.add('list-group-item');
-    usernameLi.textContent = userDataToDom.username;
-    ul.appendChild(usernameLi)
-
-    let liFirst = document.createElement('li');
-    liFirst.classList.add('list-group-item');
-    liFirst.textContent = userDataToDom.email;
-    ul.appendChild(liFirst)
-
-    let liEmail = document.createElement('li');
-    liEmail.classList.add('list-group-item');
-    liEmail.innerHTML = '<a href="https://maps.google.com/?q=' + userDataToDom.address.lat + ',' + userDataToDom.address.lng + '">' + userDataToDom.address.address + '</a>';
-    ul.appendChild(liEmail)
-
-    let liSecond = document.createElement('li');
-    liSecond.classList.add('list-group-item');
-    liSecond.textContent = userDataToDom.phone;
-    ul.appendChild(liSecond)
-
-    let liThird = document.createElement('li');
-    liThird.classList.add('list-group-item');
-    liThird.textContent = userDataToDom.website;
-    ul.appendChild(liThird)
-
-    let liFourth = document.createElement('li');
-    liFourth.classList.add('list-group-item');
-    liFourth.textContent = userDataToDom.company;
-    ul.appendChild(liFourth)
-}
-
-function init() {
-    const queryParams = document.location.search;
-    const urlParams = new URLSearchParams(queryParams);
-    const userId = urlParams.get('userid');
-
-    userPageDom(userId);
+    container.append(result);
 }
 
 init();

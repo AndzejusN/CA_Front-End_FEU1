@@ -1,30 +1,27 @@
-let container = document.querySelector('.container');
-let leftColumn = document.querySelector('.left-column');
+import headerNavigation from './header.js';
+import { getSearchPhrase, firstLetterToUpperCase, fetchData, createDomElement } from './functions';
 
-const queryParams = document.location.search;
-const urlParams = new URLSearchParams(queryParams);
-const albumId = urlParams.get('postid');
+async function init(){
+    const inputSearch = getSearchPhrase('postid');
+    await getOnePost(inputSearch);
+    headerNavigation();
+}
 
-getOnePost(albumId);
+async function getOnePost(post = 1) {
 
+let postData = await fetchData(`https://jsonplaceholder.typicode.com/posts/${post}/?_expand=user&_embed=comments`);
 
-function getOnePost(post = 1) {
-    fetch('https://jsonplaceholder.typicode.com/posts/' + post + '/?_expand=user&_embed=comments')
-        .then(res => res.json())
-        .then(post => {
-            console.log(post);
             let postsDataToDom = {
-                'userId': post.userId,
-                'postId': post.id,
-                'title': post.title,
-                'body': post.body,
-                'username': post.user.name
+                'userId': postData.userId,
+                'postId': postData.id,
+                'title': postData.title,
+                'body': postData.body,
+                'username': postData.user.name
             };
 
             generatePostsList(postsDataToDom)
 
-            let comments = post.comments;
-
+            let comments = postData.comments;
             comments.map(comment => {
                 let commentList = {
                     'id': comment.id,
@@ -34,50 +31,36 @@ function getOnePost(post = 1) {
                 }
 
                 addPostComments(commentList);
-
             })
-
-        })
-}
+        }
 
 function generatePostsList(postsDataToDom) {
+    let leftColumn = document.querySelector('.left-column');
 
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'card-parameters', 'post-id-' + postsDataToDom.id);
+    let divCard = createDomElement('div', '', `card card-parameters post-id-${postsDataToDom.id}`);
     leftColumn.append(divCard);
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.innerHTML = '<a href="#">' + postsDataToDom.title + '</a>';
+    let headerTextToHtml = `Post title: <a href="#">${firstLetterToUpperCase(postsDataToDom.title)}</a>`;
+    let divCardHeader = createDomElement('div', headerTextToHtml, 'card-header');
     divCard.appendChild(divCardHeader)
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
+    let ul = createDomElement('ul', '', 'list-group list-group-flush');
     divCard.appendChild(ul);
 
-    let liUsername = document.createElement('li');
-    liUsername.classList.add('list-group-item');
-    liUsername.textContent = postsDataToDom.body;
+    let liUsername = createDomElement('li', `Post content: ${firstLetterToUpperCase(postsDataToDom.body)}`, 'list-group-item');
     ul.appendChild(liUsername)
 
-    let liPostId = document.createElement('li');
-    liPostId.classList.add('list-group-item');
-    liPostId.textContent = 'Post id: ' + postsDataToDom.postId;
+    let liPostId = createDomElement('li', `Post id: ${postsDataToDom.postId}`, 'list-group-item');
     ul.appendChild(liPostId)
 
-    let liUserId = document.createElement('li');
-    liUserId.classList.add('list-group-item');
-    liUserId.textContent = 'User id: ' + postsDataToDom.userId;
+    let liUserId = createDomElement('li', `User id: ${postsDataToDom.userId}`, 'list-group-item');
     ul.appendChild(liUserId);
 
-    let liUserName = document.createElement('li');
-    liUserName.classList.add('list-group-item');
-    liUserName.innerHTML ='User name: <a href="user.html">' + postsDataToDom.username + '</a>';
+    let listTextToHtml =`User name: <a href="user.html?userid=${postsDataToDom.userId}">${postsDataToDom.username}</a>`;
+    let liUserName = createDomElement('li', listTextToHtml, 'list-group-item');
     ul.appendChild(liUserName);
 
-    let liUserAllPosts = document.createElement('li');
-    liUserAllPosts.classList.add('list-group-item');
-    liUserAllPosts.innerHTML ='<a href="posts.html">Kiti autoriaus įrašai</a>';
+    let liUserAllPosts = createDomElement('li', `<a href="posts.html">Kiti autoriaus įrašai</a>`, 'list-group-item');
     ul.appendChild(liUserAllPosts);
 }
 
@@ -91,22 +74,17 @@ function addPostComments(commentsList) {
     divCardComment.classList.add('card');
     postById.append(divCardComment);
 
-    let divCardHeaderComment = document.createElement('div');
-    divCardHeaderComment.classList.add('card-header');
-    divCardHeaderComment.textContent = commentsList.name;
+    let divCardHeaderComment = createDomElement('div', commentsList.name, 'card-header');
     divCardComment.appendChild(divCardHeaderComment)
 
-    let ulComment = document.createElement('ul');
-    ulComment.classList.add('list-group', 'list-group-flush');
+    let ulComment = createDomElement('ul', '', 'list-group list-group-flush');
     divCardHeaderComment.appendChild(ulComment);
 
-    let liFirstComment = document.createElement('li');
-    liFirstComment.classList.add('list-group-item');
-    liFirstComment.textContent = commentsList.body;
+    let liFirstComment = createDomElement('li', firstLetterToUpperCase(commentsList.body), 'list-group-item');
     ulComment.appendChild(liFirstComment)
 
-    let liSecondComment = document.createElement('li');
-    liSecondComment.classList.add('list-group-item');
-    liSecondComment.textContent = commentsList.email;
+    let liSecondComment = createDomElement('li', commentsList.email, 'list-group-item');
     ulComment.appendChild(liSecondComment)
 }
+
+init();

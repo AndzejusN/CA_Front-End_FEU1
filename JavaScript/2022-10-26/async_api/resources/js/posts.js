@@ -1,11 +1,15 @@
-let container = document.querySelector('.container');
-let leftColumn = document.querySelector('.left-column');
-let rightColumn = document.querySelector('.right-column');
+import headerNavigation from './header.js';
+import { generateBootstrapCard, firstLetterToUpperCase, fetchData} from './functions';
 
-function allPostsByUser(userId = 1) {
-    fetch('https://jsonplaceholder.typicode.com/posts?userId=' + userId)
-        .then(res => res.json())
-        .then(data => {
+async function init() {
+    await allPostsByUser();
+    await allAlbumsByUser();
+    headerNavigation();
+}
+
+async function allPostsByUser(userId = 1) {
+
+    let data = await fetchData(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
 
             data.map(post => {
                 let postsDataToDom = {
@@ -17,84 +21,52 @@ function allPostsByUser(userId = 1) {
 
                 generatePostsList(postsDataToDom)
             })
-        })
-}
+        }
 
 function generatePostsList(postsDataToDom) {
+    let leftColumn = document.querySelector('.left-column');
 
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'card-parameters');
-    leftColumn.append(divCard);
+    let obj = {
+        header : `Post title: <a href="post.html?postid=${postsDataToDom.postId}">${firstLetterToUpperCase(postsDataToDom.title)}</a>`,
+        list : [`Post content: ${firstLetterToUpperCase(postsDataToDom.body)}`,
+                `Post id: ${postsDataToDom.postId}`,
+                `User id: ${postsDataToDom.userId}`
+        ]
+    }
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.innerHTML = '<a href="post.html?postid=' + postsDataToDom.postId + '">' + postsDataToDom.title + '</a>';
-    divCard.appendChild(divCardHeader)
+    let result = generateBootstrapCard(obj);
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    divCard.appendChild(ul);
-
-    let liUsername = document.createElement('li');
-    liUsername.classList.add('list-group-item');
-    liUsername.textContent = postsDataToDom.body;
-    ul.appendChild(liUsername)
-
-    let liPostId = document.createElement('li');
-    liPostId.classList.add('list-group-item');
-    liPostId.textContent = 'Post id: ' + postsDataToDom.postId;
-    ul.appendChild(liPostId)
-
-    let liUserId = document.createElement('li');
-    liUserId.classList.add('list-group-item');
-    liUserId.textContent = 'User id: ' + postsDataToDom.userId;
-    ul.appendChild(liUserId)
+    leftColumn.append(result);
 }
 
-function allAlbumsByUser(userId = 1) {
-    fetch('https://jsonplaceholder.typicode.com/albums/?userId=' + userId)
-        .then(res => res.json())
-        .then(data => {
-            data.map(album => {
-                let albumsDataToDom = {
-                    'userId': album.userId,
-                    'postId': album.id,
-                    'title': album.title,
+async function allAlbumsByUser(userId = 1) {
+
+    let data = await fetchData(`https://jsonplaceholder.typicode.com/posts/?userId=${userId}`)
+
+            data.map(post => {
+                let postsDataToDom = {
+                    'userId': post.userId,
+                    'postId': post.id,
+                    'title': post.title,
                 };
 
-                generateAlbumsList(albumsDataToDom);
+                generateAlbumsList(postsDataToDom);
             })
-        })
-}
+        }
 
-function generateAlbumsList(albumsDataToDom) {
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'card-parameters');
-    rightColumn.append(divCard);
+function generateAlbumsList(postsDataToDom) {
+    let rightColumn = document.querySelector('.right-column');
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.innerHTML = '<a href="#">' + albumsDataToDom.title + '</a>';
-    divCard.appendChild(divCardHeader)
+    let obj = {
+        header : `Album title: <a href="post.html?postid=${postsDataToDom.postId}">${firstLetterToUpperCase(postsDataToDom.title)}</a>`,
+        list : [`Post id: ${postsDataToDom.postId}`,
+                `User id: ${postsDataToDom.userId}`
+        ]
+    }
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    divCard.appendChild(ul);
+    let result = generateBootstrapCard(obj);
 
-    let liPostId = document.createElement('li');
-    liPostId.classList.add('list-group-item');
-    liPostId.textContent = 'Post id: ' + albumsDataToDom.postId;
-    ul.appendChild(liPostId)
-
-    let liUserId = document.createElement('li');
-    liUserId.classList.add('list-group-item');
-    liUserId.textContent = 'User id: ' + albumsDataToDom.userId;
-    ul.appendChild(liUserId)
-}
-
-function init() {
-    allPostsByUser();
-    allAlbumsByUser();
+    rightColumn.append(result);
 }
 
 init();

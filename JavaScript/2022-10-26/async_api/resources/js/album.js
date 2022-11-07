@@ -1,46 +1,40 @@
-let leftColumn = document.querySelector('.left-column');
+import headerNavigation from './header.js';
+import { getSearchPhrase, fetchData,  firstLetterToUpperCase, generateBootstrapCard } from './functions';
 
-function getAlbum(id = 1) {
-    fetch('https://jsonplaceholder.typicode.com/albums/' + id)
-        .then(res => res.json())
-        .then(album => {
+function init(){
+    const inputSearch = getSearchPhrase('albumid');
+    getAlbum(inputSearch);
+    headerNavigation();
+}
+
+async function getAlbum(id = 1) {
+
+    let album = await fetchData(`https://jsonplaceholder.typicode.com/albums/${id}/?_expand=user`);
+
             let albumsDataToDom = {
                 'userId': album.userId,
                 'albumId': album.id,
                 'title': album.title,
+                'userName': album.user.name
             }
 
             generateAlbumsList(albumsDataToDom);
-        })
 }
 
 function generateAlbumsList(albumsDataToDom) {
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'card-parameters');
-    leftColumn.append(divCard);
+    let leftColumn = document.querySelector('.left-column');
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.textContent = albumsDataToDom.title;
-    divCard.appendChild(divCardHeader)
+    let obj = {
+        header : `Album title: ${firstLetterToUpperCase(albumsDataToDom.title)}`,
+        list : [`User id: ${albumsDataToDom.userId}`,
+                `Album id: ${albumsDataToDom.albumId}`,
+                `User name: <a href="user.html?userid=${albumsDataToDom.userId}"> ${albumsDataToDom.userName}</a>`
+        ]
+    }
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    divCard.appendChild(ul);
+    let result = generateBootstrapCard(obj);
 
-    let liPostId = document.createElement('li');
-    liPostId.classList.add('list-group-item');
-    liPostId.textContent = 'User id: ' + albumsDataToDom.userId;
-    ul.appendChild(liPostId)
-
-    let liUserId = document.createElement('li');
-    liUserId.classList.add('list-group-item');
-    liUserId.textContent = 'Album id: ' + albumsDataToDom.albumId;
-    ul.appendChild(liUserId)
+    leftColumn.append(result);
 }
 
-const queryParams = document.location.search;
-const urlParams = new URLSearchParams(queryParams);
-const albumId = urlParams.get('albumid');
-
-getAlbum(albumId);
+init();

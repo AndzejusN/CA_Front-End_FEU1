@@ -1,33 +1,31 @@
-let leftColumn = document.querySelector('.left-column');
-let rightColumn = document.querySelector('.right-column');
+import headerNavigation from './header.js';
+import { firstLetterToUpperCase, fetchData, createDomElement, generateBootstrapCard } from './functions';
+
+async function init() {
+    await getPosts();
+    await albumsList();
+    headerNavigation();
+}
 
 function generatePostsList(postData) {
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'post-id-' + postData.id, 'card-parameters');
+    let leftColumn = document.querySelector('.left-column');
+
+    let divCard = createDomElement('div', '', `card post-id-${postData.id} card-parameters`);
     leftColumn.append(divCard);
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.textContent = postData.id;
-    divCard.appendChild(divCardHeader)
+    let divCardHeader = createDomElement('div', `Post id:${postData.id}`, 'card-header');
+    divCard.append(divCardHeader)
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    divCard.appendChild(ul);
+    let ul = createDomElement('ul', '', 'list-group list-group-flush');
+    divCard.append(ul);
 
-    let liFirst = document.createElement('li');
-    liFirst.classList.add('list-group-item');
-    liFirst.textContent = postData.title;
-    ul.appendChild(liFirst)
+    let liFirst = createDomElement('li', `Post title:${firstLetterToUpperCase(postData.title)}`, 'list-group-item');
+    ul.append(liFirst)
 
-    let liSecond = document.createElement('li');
-    liSecond.classList.add('list-group-item');
-    liSecond.textContent = postData.body;
-    ul.appendChild(liSecond)
+    let liSecond = createDomElement('li', `Post content: ${firstLetterToUpperCase(postData.body)}`, 'list-group-item');
+    ul.append(liSecond)
 
-    let liThird = document.createElement('li');
-    liThird.classList.add('list-group-item');
-    liThird.textContent = postData.username;
+    let liThird = createDomElement('li', `User name: ${postData.username}`, 'list-group-item');
     ul.appendChild(liThird)
 }
 
@@ -41,31 +39,23 @@ function addPostComments(commentsList) {
     divCardComment.classList.add('card');
     postById.append(divCardComment);
 
-    let divCardHeaderComment = document.createElement('div');
-    divCardHeaderComment.classList.add('card-header');
-    divCardHeaderComment.textContent = commentsList.name;
-    divCardComment.appendChild(divCardHeaderComment)
+    let divCardHeaderComment = createDomElement('div', `Comment header: ${firstLetterToUpperCase(commentsList.name)}`, 'card-header');
+    divCardComment.appendChild(divCardHeaderComment);
 
-    let ulComment = document.createElement('ul');
-    ulComment.classList.add('list-group', 'list-group-flush');
+    let ulComment = createDomElement('ul', '', 'list-group list-group-flush');
     divCardHeaderComment.appendChild(ulComment);
 
-    let liFirstComment = document.createElement('li');
-    liFirstComment.classList.add('list-group-item');
-    liFirstComment.textContent = commentsList.body;
-    ulComment.appendChild(liFirstComment)
+    let liFirstComment = createDomElement('li', `Comment content: ${firstLetterToUpperCase(commentsList.body)}`, 'list-group-item');
+    ulComment.appendChild(liFirstComment);
 
-    let liSecondComment = document.createElement('li');
-    liSecondComment.classList.add('list-group-item');
-    liSecondComment.textContent = commentsList.email;
+    let liSecondComment = createDomElement('li', `Author e-mail address: ${commentsList.email}`, 'list-group-item');
     ulComment.appendChild(liSecondComment)
 }
 
-function getPosts() {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user')
-        .then(response => response.json())
-        .then(data => {
-            data.map(post => {
+async function getPosts() {
+
+    let data = await fetchData('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user');
+            data.map( post => {
 
                 let dataToPost = {
                     'id': post.id,
@@ -88,19 +78,12 @@ function getPosts() {
                     addPostComments(dataComments);
                 })
             })
-        })
-}
+        }
 
-// 5. Pagrindiniame (index.html) puslapyje pridėti skiltį, kurioje atvaizduojamas albumų sąrašas. Kiekvienas albumas turės:
-// 5.1. Pavadinimą, o paspaudus ant jo - nukreipiama į albumą (album.html).
-// 5.2. Albumo autoriaus vardą.
-// 5.3. Nuotrauką.
+async function albumsList() {
 
-function albumsList() {
-    fetch('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos')
-        .then(res => res.json())
-        .then(data => {
-            data.map(album => {
+let data = await fetchData('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos')
+                data.map( album => {
                 let albumsDataToDom = {
                     'userId': album.userId,
                     'userName' : album.user.name,
@@ -111,48 +94,23 @@ function albumsList() {
 
                 generateAlbumsList(albumsDataToDom);
             })
-        })
-}
+        }
 
 function generateAlbumsList(albumsDataToDom) {
-    let divCard = document.createElement('div');
-    divCard.classList.add('card', 'card-parameters');
-    rightColumn.append(divCard);
+    let rightColumn = document.querySelector('.right-column');
 
-    let divCardHeader = document.createElement('div');
-    divCardHeader.classList.add('card-header');
-    divCardHeader.innerHTML = '<strong>Albumo pavadinimas: <a href="album.html?albumid=' + albumsDataToDom.albumId + '">' + albumsDataToDom.title + '</a></strong>';
-    divCard.appendChild(divCardHeader)
+    let obj = {
+        header : `<strong>Albumo pavadinimas: <a href="album.html?albumid=${albumsDataToDom.albumId}">${firstLetterToUpperCase(albumsDataToDom.title)}</a></strong>`,
+        list : [`Albumo id: ${albumsDataToDom.albumId}`,
+                `Vartotojo id: ${albumsDataToDom.userId}`,
+                `Vartotojo vardas/pavardė: ${albumsDataToDom.userName}`,
+                `<img src="${albumsDataToDom.photo}">`
+        ]
+    }
 
-    let ul = document.createElement('ul');
-    ul.classList.add('list-group', 'list-group-flush');
-    divCard.appendChild(ul);
+    let result = generateBootstrapCard(obj);
 
-    let liPostId = document.createElement('li');
-    liPostId.classList.add('list-group-item');
-    liPostId.textContent = 'Albumo unikalus numeris: ' + albumsDataToDom.albumId;
-    ul.appendChild(liPostId)
-
-    let liUserId = document.createElement('li');
-    liUserId.classList.add('list-group-item');
-    liUserId.textContent = 'Vartotojo unikalus numeris: ' + albumsDataToDom.userId;
-    ul.appendChild(liUserId)
-
-    let liUserName = document.createElement('li');
-    liUserName.classList.add('list-group-item');
-    liUserName.textContent = 'Vartotojo vardas/pavardė: ' + albumsDataToDom.userName;
-    ul.appendChild(liUserName)
-
-    let liPhoto = document.createElement('li');
-    liPhoto.classList.add('list-group-item');
-    liPhoto.innerHTML ='<img src="' + albumsDataToDom.photo + '">';
-    ul.appendChild(liPhoto)
-}
-
-
-function init() {
-    getPosts();
-    albumsList();
+    rightColumn.append(result);
 }
 
 init();
