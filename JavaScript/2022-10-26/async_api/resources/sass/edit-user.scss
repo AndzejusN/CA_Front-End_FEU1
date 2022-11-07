@@ -1,0 +1,33 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  .background-container {
+    width: 100%;
+    background-color: whitesmoke;
+    margin: 0;
+  
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1230px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 25px;
+      padding-left: 25px;
+      gap: 50px;
+
+        form {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        }   
+
+        .right-column {
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+      }
+    }
+  }

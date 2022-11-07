@@ -41,7 +41,8 @@ function generatePostsList(userDataToDom) {
                 `<a href="https://maps.google.com/?q=${userDataToDom.address.lat},${userDataToDom.address.lng}">${userDataToDom.address.address}</a>`,
                 userDataToDom.phone,
                 userDataToDom.website,
-                userDataToDom.company                
+                userDataToDom.company,
+                `<a href="edit-user.html?userid=${userDataToDom.id}">Edit user information</a>`     
         ]
     }
 

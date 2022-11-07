@@ -1,9 +1,15 @@
+// KOMENTARAI:
+// 14.1.1. Po posto komentarais, sukurti formą, kurioje būtų galima sukurti naują komentarą.
+// 14.1.2. Sukurtą komentarą nusiųsti į API (POST metodas).
+// 14.1.3. Iš API gautą rezultatą pridėti prie ankstesnių komentarų.
+
 import headerNavigation from './header.js';
 import { getSearchPhrase, firstLetterToUpperCase, fetchData, createDomElement } from './functions';
 
 async function init(){
     const inputSearch = getSearchPhrase('postid');
     await getOnePost(inputSearch);
+    await formCreatePostComment(inputSearch);
     headerNavigation();
 }
 
@@ -85,6 +91,41 @@ function addPostComments(commentsList) {
 
     let liSecondComment = createDomElement('li', commentsList.email, 'list-group-item');
     ulComment.appendChild(liSecondComment)
+}
+
+
+async function formCreatePostComment(postId){
+
+
+let formCreateComment = document.querySelector('.comment-form');
+
+formCreateComment.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    let name = event.target.elements['comment-name'].value;
+    let email = event.target.elements['comment-email'].value;
+    let body = event.target.elements['comment-body'].value;
+
+    let data = {
+        postId,
+        name,
+        email,
+        body,
+    };
+
+    let response = await fetchData(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, data, 'POST');
+
+    let commentList = {
+            'id': response.id,
+            'name': response.name,
+            'email': response.email,
+            'body': response.body
+    }
+
+    addPostComments(commentList);
+
+    formCreateComment.reset();
+})
 }
 
 init();

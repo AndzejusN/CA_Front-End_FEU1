@@ -16,12 +16,19 @@
       margin-left: auto;
       padding-right: 25px;
       padding-left: 25px;
+      gap: 50px;
 
         form {
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 40%;
         }   
+
+        .right-column {
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+      }
     }
   }
   

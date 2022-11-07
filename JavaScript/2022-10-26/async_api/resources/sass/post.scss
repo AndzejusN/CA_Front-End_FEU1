@@ -24,6 +24,18 @@
       flex-wrap: wrap;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      align-items: center;
+
+      }   
+
+      form > * {
+        width: 90%;
+      }
+
     .card-parameters {
       width: calc(100% - 30px);
       margin: 30px;

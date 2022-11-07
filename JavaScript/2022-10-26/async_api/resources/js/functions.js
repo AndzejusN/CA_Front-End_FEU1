@@ -26,11 +26,11 @@ export function waitingForDataSpinner() {
     }
 }
 
-export async function fetchData(url, obj){
+export async function fetchData(url, obj, methodSend = 'POST'){
  
     if(obj) {
         let response = await fetch(url,{
-            method: 'POST',
+            method: methodSend,
             body: JSON.stringify(obj),
         headers: {'Content-type': 'application/json; charset=UTF-8'},
       })

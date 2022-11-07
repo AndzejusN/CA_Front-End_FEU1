@@ -30,7 +30,8 @@ function generatePostsList(postsDataToDom) {
         header : `Post title: <a href="post.html?postid=${postsDataToDom.postId}">${firstLetterToUpperCase(postsDataToDom.title)}</a>`,
         list : [`Post content: ${firstLetterToUpperCase(postsDataToDom.body)}`,
                 `Post id: ${postsDataToDom.postId}`,
-                `User id: ${postsDataToDom.userId}`
+                `User id: ${postsDataToDom.userId}`,
+                `<a href="edit-post.html?postid=${postsDataToDom.postId}"><strong>REDAGUOTI</strong></a>`
         ]
     }
 
