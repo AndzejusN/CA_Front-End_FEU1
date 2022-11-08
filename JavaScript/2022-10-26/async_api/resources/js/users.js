@@ -1,14 +1,38 @@
 import headerNavigation from './header.js';
-import { fetchData, generateBootstrapCard } from './functions';
+import { fetchData, generateBootstrapCard, getSearchPhrase, generatePaginationToDom} from './functions';
 
 async function init(){
-    await userPageDom();
+    let userId = getSearchPhrase('userId');
+    await userPageDom(userId);
     headerNavigation();
 }
 
-async function userPageDom() {
+async function userPageDom(userId) {
 
-    let data = await fetchData('https://jsonplaceholder.typicode.com/users');
+    let container = document.querySelector('.container');
+    let currentPage = getSearchPhrase('_page') ? getSearchPhrase('_page') : 1;
+    let limitPage = getSearchPhrase('_limit');
+
+    let data = {};
+
+    if (userId) {
+      data = await fetchData(`https://jsonplaceholder.typicode.com/users?userId=${userId}`);
+    } else {
+      data = await fetchData(`https://jsonplaceholder.typicode.com/users?_page=${currentPage}&_limit=${limitPage}`);
+    }
+
+    let source = `https://jsonplaceholder.typicode.com/users`;
+
+    let numberPerPage = 5;
+
+    let dataToPagination = {
+        currentPage,
+        appendDomTag : container,
+        source,
+        numberPerPage
+    }
+
+    await generatePaginationToDom(dataToPagination);
     
             data.map(user => {
                 let address = user.address.street + ' ' + user.address.suite + ' ' + user.address.zipcode + ', ' + user.address.city;

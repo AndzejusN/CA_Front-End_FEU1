@@ -89,3 +89,81 @@ function checkIsHtml(elem){
 
     return isHtml;
 }
+
+export async function generatePaginationToDom(dataToPagination){
+
+    let { currentPage, appendDomTag, source, numberPerPage } = dataToPagination;
+
+    const queryString = window.location.pathname;
+
+    let dataTotal = await fetchData(source);
+    let total = dataTotal.length;
+ 
+    let paginationWrapper = document.createElement('div');
+    paginationWrapper.style.width = '100%';
+    paginationWrapper.style.display = 'flex';
+    appendDomTag.prepend(paginationWrapper);
+ 
+     let limit = numberPerPage;
+     let pages = Math.ceil(total/limit);
+     
+     for (let i = 1; i <= pages; i++){
+ 
+         if (i===1 && currentPage==1){
+             let span = document.createElement('span');
+             span.innerText = 'First page';
+             span.style.padding = '15px';
+             span.style.margin = '0 3px';
+             span.style.backgroundColor = 'white';
+             span.style.border = 'solid black 1px';
+             paginationWrapper.append(span);
+         } else if (i===1){
+             let a = document.createElement('a');
+             a.href = `${queryString}?_page=${i}&_limit=${limit}`;
+             a.textContent = 'First page';
+             a.style.padding = '15px';
+             a.style.backgroundColor = 'white';
+             a.style.border = 'solid black 1px';
+             a.style.margin = '0 3px';
+             paginationWrapper.append(a);
+         }
+ 
+         if (currentPage == i){
+         let span = document.createElement('span');
+         span.innerText = currentPage;
+         span.style.padding = '15px';
+         span.style.margin = '0 3px';
+         span.style.backgroundColor = 'white';
+         span.style.border = 'solid black 1px';
+         paginationWrapper.append(span);
+         } else {
+             let a = document.createElement('a');
+             a.href = `${queryString}?_page=${i}&_limit=${limit}`;
+             a.textContent = i;
+             a.style.padding = '15px';
+             a.style.backgroundColor = 'white';
+             a.style.border = 'solid black 1px';
+             a.style.margin = '0 3px';
+             paginationWrapper.append(a);
+         }
+ 
+         if (i==pages && currentPage==pages){
+             let span = document.createElement('span');
+             span.innerText = 'Last page';
+             span.style.padding = '15px';
+             span.style.margin = '0 3px';
+             span.style.backgroundColor = 'white';
+             span.style.border = 'solid black 1px';
+             paginationWrapper.append(span);
+         } else if (i==pages){
+             let a = document.createElement('a');
+             a.href = `${queryString}?_page=${i}&_limit=${limit}`;
+             a.textContent = 'Last page';
+             a.style.padding = '15px';
+             a.style.backgroundColor = 'white';
+             a.style.border = 'solid black 1px';
+             a.style.margin = '0 3px';
+             paginationWrapper.append(a);
+         }
+     }
+ }
