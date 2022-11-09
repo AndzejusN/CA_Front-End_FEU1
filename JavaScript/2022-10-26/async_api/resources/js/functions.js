@@ -94,6 +94,8 @@ export async function generatePaginationToDom(dataToPagination){
 
     let { currentPage, appendDomTag, source, numberPerPage } = dataToPagination;
 
+    currentPage = parseInt(currentPage);
+
     const queryString = window.location.pathname;
 
     let dataTotal = await fetchData(source);
@@ -107,63 +109,134 @@ export async function generatePaginationToDom(dataToPagination){
      let limit = numberPerPage;
      let pages = Math.ceil(total/limit);
      
-     for (let i = 1; i <= pages; i++){
+    for (let i = 1; i <= pages; i++){
  
-         if (i===1 && currentPage==1){
+        if (i===1 && currentPage==1){
              let span = document.createElement('span');
              span.innerText = 'First page';
              span.style.padding = '15px';
              span.style.margin = '0 3px';
              span.style.backgroundColor = 'white';
-             span.style.border = 'solid black 1px';
+             span.style.border = 'solid grey 1px';
              paginationWrapper.append(span);
-         } else if (i===1){
+        } else if (i===1) {
              let a = document.createElement('a');
              a.href = `${queryString}?_page=${i}&_limit=${limit}`;
              a.textContent = 'First page';
              a.style.padding = '15px';
              a.style.backgroundColor = 'white';
-             a.style.border = 'solid black 1px';
+             a.style.border = 'solid grey 1px';
              a.style.margin = '0 3px';
              paginationWrapper.append(a);
-         }
- 
-         if (currentPage == i){
-         let span = document.createElement('span');
-         span.innerText = currentPage;
-         span.style.padding = '15px';
-         span.style.margin = '0 3px';
-         span.style.backgroundColor = 'white';
-         span.style.border = 'solid black 1px';
-         paginationWrapper.append(span);
-         } else {
+        }
+
+        if (i===1 && currentPage==1) {
+            let span = document.createElement('span');
+            span.innerText = '<';
+            span.style.padding = '15px';
+            span.style.margin = '0 3px';
+            span.style.backgroundColor = 'white';
+            span.style.border = 'solid grey 1px';
+            paginationWrapper.append(span);
+        } else if (i===1) {
+            let a = document.createElement('a');
+            a.href = `${queryString}?_page=${currentPage-1}&_limit=${limit}`;
+            a.textContent = '<';
+            a.style.padding = '15px';
+            a.style.backgroundColor = 'white';
+            a.style.border = 'solid grey 1px';
+            a.style.margin = '0 3px';
+            paginationWrapper.append(a);
+        }
+
+        if (currentPage == i) {
+            let span = document.createElement('span');
+            span.innerText = currentPage;
+            span.style.padding = '15px';
+            span.style.margin = '0 3px';
+            span.style.backgroundColor = 'white';
+            span.style.border = 'solid grey 1px';
+            paginationWrapper.append(span);
+        } else {
              let a = document.createElement('a');
              a.href = `${queryString}?_page=${i}&_limit=${limit}`;
              a.textContent = i;
              a.style.padding = '15px';
              a.style.backgroundColor = 'white';
-             a.style.border = 'solid black 1px';
+             a.style.border = 'solid grey 1px';
              a.style.margin = '0 3px';
              paginationWrapper.append(a);
-         }
+        }
+
+        if (i==pages && currentPage==pages) {
+            let span = document.createElement('span');
+            span.innerText = '>';
+            span.style.padding = '15px';
+            span.style.margin = '0 3px';
+            span.style.backgroundColor = 'white';
+            span.style.border = 'solid grey 1px';
+            paginationWrapper.append(span);
+        } else if (i==pages){
+            let a = document.createElement('a');
+            a.href = `${queryString}?_page=${currentPage+1}&_limit=${limit}`;
+            a.textContent = '>';
+            a.style.padding = '15px';
+            a.style.backgroundColor = 'white';
+            a.style.border = 'solid grey 1px';
+            a.style.margin = '0 3px';
+            paginationWrapper.append(a);
+        }
  
-         if (i==pages && currentPage==pages){
+        if (i==pages && currentPage==pages) {
              let span = document.createElement('span');
              span.innerText = 'Last page';
              span.style.padding = '15px';
              span.style.margin = '0 3px';
              span.style.backgroundColor = 'white';
-             span.style.border = 'solid black 1px';
+             span.style.border = 'solid grey 1px';
              paginationWrapper.append(span);
-         } else if (i==pages){
+        } else if (i==pages) {
              let a = document.createElement('a');
              a.href = `${queryString}?_page=${i}&_limit=${limit}`;
              a.textContent = 'Last page';
              a.style.padding = '15px';
              a.style.backgroundColor = 'white';
-             a.style.border = 'solid black 1px';
+             a.style.border = 'solid grey 1px';
              a.style.margin = '0 3px';
              paginationWrapper.append(a);
-         }
+        }
      }
+
+    let perPageContainerDom = document.createElement('div');
+    perPageContainerDom.style.width = '100%';
+    perPageContainerDom.style.display = 'flex';
+
+    let linkPerPageFive = document.createElement('a');
+    linkPerPageFive.href = `${queryString}?_page=${currentPage}&_limit=10`;
+    linkPerPageFive.textContent = 'Per page results: 10';
+    linkPerPageFive.style.padding = '15px';
+    linkPerPageFive.style.backgroundColor = 'white';
+    linkPerPageFive.style.border = 'solid grey 1px';
+    linkPerPageFive.style.margin = '0 3px';
+    perPageContainerDom.append(linkPerPageFive);
+
+    let linkPerPageTen = document.createElement('a');
+    linkPerPageTen.href = `${queryString}?_page=${currentPage}&_limit=20`;
+    linkPerPageTen.textContent = 'Per page results: 20';
+    linkPerPageTen.style.padding = '15px';
+    linkPerPageTen.style.backgroundColor = 'white';
+    linkPerPageTen.style.border = 'solid grey 1px';
+    linkPerPageTen.style.margin = '0 3px';
+    perPageContainerDom.append(linkPerPageTen);
+
+    let linkPerPageTwenty = document.createElement('a');
+    linkPerPageTwenty.href = `${queryString}?_page=${currentPage}&_limit=50`;
+    linkPerPageTwenty.textContent = 'Per page results: 50';
+    linkPerPageTwenty.style.padding = '15px';
+    linkPerPageTwenty.style.backgroundColor = 'white';
+    linkPerPageTwenty.style.border = 'solid grey 1px';
+    linkPerPageTwenty.style.margin = '0 3px';
+    perPageContainerDom.append(linkPerPageTwenty);
+
+    appendDomTag.append(perPageContainerDom);
  }

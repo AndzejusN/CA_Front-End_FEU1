@@ -1,15 +1,30 @@
 import headerNavigation from './header.js';
-import { firstLetterToUpperCase, waitingForDataSpinner, fetchData, createDomElement, generateBootstrapCard } from './functions';
+import { firstLetterToUpperCase, waitingForDataSpinner, fetchData, generatePaginationToDom, generateBootstrapCard, getSearchPhrase } from './functions';
 
 async function init(){
-    await fetchDataAlbums();
+    let leftColumn = document.querySelector('.left-column');
+    await fetchDataAlbums(leftColumn);
     waitingForDataSpinner();
     headerNavigation();
 }
 
-async function fetchDataAlbums() {
+async function fetchDataAlbums(leftColumn) {
+    let currentPage = getSearchPhrase('_page') ? getSearchPhrase('_page') : 1;
+    let numberPerPage = getSearchPhrase('_limit') ? getSearchPhrase('_limit') : 20;
 
-    let data = await fetchData('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos');
+    let data = await fetchData(`https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos&_page=${currentPage}&_limit=${numberPerPage}`);
+
+    let source = `https://jsonplaceholder.typicode.com/albums`;
+
+    let dataToPagination = {
+        currentPage,
+        appendDomTag : leftColumn,
+        source,
+        numberPerPage
+    }
+
+    await generatePaginationToDom(dataToPagination);
+
         data.map(album => {
             let numberOfPhotos = album.photos.length;
             let firstPhotoAddress = album.photos[0].thumbnailUrl;
@@ -26,14 +41,14 @@ async function fetchDataAlbums() {
                 return photo;
             })
 
-            generateAlbumsList(albumsDataToDom);
+            generateAlbumsList(albumsDataToDom, leftColumn);
             generateAllPhotosList(photoes);
 
         })
     }
 
-function generateAlbumsList(albumsDataToDom) {
-    let leftColumn = document.querySelector('.left-column');
+function generateAlbumsList(albumsDataToDom, leftColumn) {
+
 
     let obj = {
         header : `Album title: <a href="album.html?albumid=${albumsDataToDom.albumId}">${firstLetterToUpperCase(albumsDataToDom.title)}</a>`,

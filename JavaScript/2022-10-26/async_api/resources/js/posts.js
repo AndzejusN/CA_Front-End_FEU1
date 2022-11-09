@@ -1,5 +1,5 @@
 import headerNavigation from './header.js';
-import { generateBootstrapCard, firstLetterToUpperCase, fetchData, getSearchPhrase, generatePaginationToDom} from './functions';
+import { generateBootstrapCard, firstLetterToUpperCase, fetchData, getSearchPhrase, generatePaginationToDom } from './functions';
 
 async function init() {
     let userId = getSearchPhrase('userid');
@@ -11,19 +11,18 @@ async function init() {
 async function allPostsByUser(userId) {
     let leftColumn = document.querySelector('.left-column');
     let currentPage = getSearchPhrase('_page') ? getSearchPhrase('_page') : 1;
-    let limitPage = getSearchPhrase('_limit');
+    let numberPerPage = getSearchPhrase('_limit') ? getSearchPhrase('_limit') : 20;
 
     let data = {};
 
     if (userId) {
       data = await fetchData(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
     } else {
-      data = await fetchData(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${limitPage}`);
+      data = await fetchData(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${numberPerPage}`);
     }
 
     let source = `https://jsonplaceholder.typicode.com/posts`;
 
-    let numberPerPage = 20;
 
     let dataToPagination = {
         currentPage,
@@ -31,7 +30,6 @@ async function allPostsByUser(userId) {
         source,
         numberPerPage
     }
-
 
     await generatePaginationToDom(dataToPagination);
 
