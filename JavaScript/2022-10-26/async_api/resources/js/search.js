@@ -41,7 +41,8 @@ async function searchFetch (column, searchBy, parameter) {
 
 let cuttedLastSimbol = searchBy.slice(0, searchBy.length - 1);
 
-let data = await fetchData(`https://jsonplaceholder.typicode.com/${searchBy}?q=${parameter}`)
+let res = await fetchData(`https://jsonplaceholder.typicode.com/${searchBy}?q=${parameter}`);
+let data = res.data;
 
 column.innerHTML = '';
 

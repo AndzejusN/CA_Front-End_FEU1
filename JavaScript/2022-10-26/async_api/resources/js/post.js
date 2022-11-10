@@ -15,7 +15,9 @@ async function init(){
 
 async function getOnePost(post = 1) {
 
-let postData = await fetchData(`https://jsonplaceholder.typicode.com/posts/${post}/?_expand=user&_embed=comments`);
+    let res = await fetchData(`https://jsonplaceholder.typicode.com/posts/${post}/?_expand=user&_embed=comments`);
+    let postData = res.data;
+
 
             let postsDataToDom = {
                 'userId': postData.userId,
@@ -113,7 +115,8 @@ formCreateComment.addEventListener('submit', async (event) => {
         body,
     };
 
-    let response = await fetchData(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, data, 'POST');
+    let res = await fetchData(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, data, 'POST');
+    let response = res.data;
 
     let commentList = {
             'id': response.id,

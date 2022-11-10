@@ -13,22 +13,23 @@ async function allPostsByUser(userId) {
     let currentPage = getSearchPhrase('_page') ? getSearchPhrase('_page') : 1;
     let numberPerPage = getSearchPhrase('_limit') ? getSearchPhrase('_limit') : 20;
 
-    let data = {};
+    let data;
+    let total;
 
     if (userId) {
-      data = await fetchData(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+      let res = await fetchData(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+      data = res.data;
     } else {
-      data = await fetchData(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${numberPerPage}`);
+      let res = await fetchData(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${numberPerPage}`);
+      data = res.data;
+      total = res.total;
     }
-
-    let source = `https://jsonplaceholder.typicode.com/posts`;
-
 
     let dataToPagination = {
         currentPage,
         appendDomTag : leftColumn,
-        source,
-        numberPerPage
+        numberPerPage,
+        total
     }
 
     await generatePaginationToDom(dataToPagination);
@@ -66,7 +67,9 @@ async function allAlbumsByUser(userId) {
 
     userId = (userId == null) ? 1 : userId;
 
-    let data = await fetchData(`https://jsonplaceholder.typicode.com/posts/?userId=${userId}`)
+    let res = await fetchData(`https://jsonplaceholder.typicode.com/posts/?userId=${userId}`);
+
+    let data = res.data;
 
             data.map(post => {
                 let postsDataToDom = {
@@ -95,3 +98,8 @@ function generateAlbumsList(postsDataToDom) {
 }
 
 init();
+
+// let params = new URLSearchParams(location.search);
+// params.set('limit', '15');
+// params.set('page', '1');
+// location.search = params.toString();

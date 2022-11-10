@@ -1,0 +1,28 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.background-container {
+  width: 100%;
+  background-color: whitesmoke;
+  margin: 0;
+}
+.background-container .container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1230px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.background-container .container .left-column {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.background-container .container .card-parameters {
+  width: calc(100% - 30px);
+  margin: 30px;
+}

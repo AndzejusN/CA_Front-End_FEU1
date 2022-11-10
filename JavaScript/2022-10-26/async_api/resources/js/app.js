@@ -54,7 +54,9 @@ function addPostComments(commentsList) {
 
 async function getPosts() {
 
-    let data = await fetchData('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user');
+    let res = await fetchData('https://jsonplaceholder.typicode.com/posts?_limit=10&_embed=comments&_expand=user');
+    let data = res.data;
+
             data.map( post => {
 
                 let dataToPost = {
@@ -82,7 +84,10 @@ async function getPosts() {
 
 async function albumsList() {
 
-let data = await fetchData('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos')
+let res = await fetchData('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos');
+
+let data = res.data;
+
                 data.map( album => {
                 let albumsDataToDom = {
                     'userId': album.userId,

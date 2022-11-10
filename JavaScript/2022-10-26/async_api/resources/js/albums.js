@@ -12,15 +12,15 @@ async function fetchDataAlbums(leftColumn) {
     let currentPage = getSearchPhrase('_page') ? getSearchPhrase('_page') : 1;
     let numberPerPage = getSearchPhrase('_limit') ? getSearchPhrase('_limit') : 20;
 
-    let data = await fetchData(`https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos&_page=${currentPage}&_limit=${numberPerPage}`);
-
-    let source = `https://jsonplaceholder.typicode.com/albums`;
+    let res = await fetchData(`https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos&_page=${currentPage}&_limit=${numberPerPage}`);
+    let total = res.total;
+    let data = res.data;
 
     let dataToPagination = {
         currentPage,
         appendDomTag : leftColumn,
-        source,
-        numberPerPage
+        numberPerPage,
+        total
     }
 
     await generatePaginationToDom(dataToPagination);

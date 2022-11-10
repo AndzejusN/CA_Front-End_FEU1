@@ -13,21 +13,23 @@ async function userPageDom(userId) {
     let currentPage = getSearchPhrase('_page') ? getSearchPhrase('_page') : 1;
     let numberPerPage = getSearchPhrase('_limit') ? getSearchPhrase('_limit') : 10;
 
-    let data = {};
+    let data;
+    let total;
 
     if (userId) {
-      data = await fetchData(`https://jsonplaceholder.typicode.com/users?userId=${userId}`);
+        let res = await fetchData(`https://jsonplaceholder.typicode.com/users?userId=${userId}`);
+        data = res.data;
     } else {
-      data = await fetchData(`https://jsonplaceholder.typicode.com/users?_page=${currentPage}&_limit=${numberPerPage}`);
+        let res = await fetchData(`https://jsonplaceholder.typicode.com/users?_page=${currentPage}&_limit=${numberPerPage}`);
+        data = res.data;
+        total = res.total;
     }
-
-    let source = `https://jsonplaceholder.typicode.com/users`;
 
     let dataToPagination = {
         currentPage,
         appendDomTag : container,
-        source,
-        numberPerPage
+        numberPerPage,
+        total
     }
 
     await generatePaginationToDom(dataToPagination);

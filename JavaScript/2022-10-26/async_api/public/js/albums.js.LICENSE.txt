@@ -1,0 +1,6 @@
+/*!
+  * PhotoSwipe Lightbox 5.3.3 - https://photoswipe.com
+  * (c) 2022 Dmytro Semenov
+  */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */

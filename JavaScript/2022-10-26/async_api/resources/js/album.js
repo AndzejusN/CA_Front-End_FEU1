@@ -9,7 +9,9 @@ function init(){
 
 async function getAlbum(id = 1) {
 
-    let album = await fetchData(`https://jsonplaceholder.typicode.com/albums/${id}/?_expand=user`);
+    let res = await fetchData(`https://jsonplaceholder.typicode.com/albums/${id}/?_expand=user`);
+    let album = res.data;
+
 
             let albumsDataToDom = {
                 'userId': album.userId,

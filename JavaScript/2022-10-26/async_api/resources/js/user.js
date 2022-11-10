@@ -8,7 +8,9 @@ async function init() {
 }
 
 async function userPageDom(id = 1) {
-    let userData = await fetchData(`https://jsonplaceholder.typicode.com/users/${id}`);
+    let res = await fetchData(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+    let userData = res.data;
 
             let address = userData.address.street + ' ' + userData.address.suite + ' ' + userData.address.zipcode + ', ' + userData.address.city;
 

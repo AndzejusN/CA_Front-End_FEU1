@@ -28,18 +28,30 @@ export function waitingForDataSpinner() {
 
 export async function fetchData(url, obj, methodSend = 'POST'){
  
+    let res;
+
     if(obj) {
-        let response = await fetch(url,{
+        res = await fetch(url,{
             method: methodSend,
             body: JSON.stringify(obj),
         headers: {'Content-type': 'application/json; charset=UTF-8'},
       })
 
-      return await response.json();
+        let total = res.headers.get('x-total-count');
+
+        let data = await res.json();
+
+        return { data, total };
     }
 
-    let response = await fetch(url);
-    return await response.json();   
+    res = await fetch(url);
+
+    let total = res.headers.get('x-total-count');
+
+    let data = await res.json();
+
+
+    return { data, total };  
 }
 
 export function createDomElement(tagName, content, asignClass){
@@ -92,14 +104,14 @@ function checkIsHtml(elem){
 
 export async function generatePaginationToDom(dataToPagination){
 
-    let { currentPage, appendDomTag, source, numberPerPage } = dataToPagination;
+    let { currentPage, appendDomTag, numberPerPage, total } = dataToPagination;
 
     currentPage = parseInt(currentPage);
 
     const queryString = window.location.pathname;
 
-    let dataTotal = await fetchData(source);
-    let total = dataTotal.length;
+
+    total = parseInt(total);
  
     let paginationWrapper = document.createElement('div');
     paginationWrapper.style.width = '100%';
