@@ -23,7 +23,11 @@
 }
 
 @include xxl {
-  .content-background-container .container .grid-container {
-    grid-template-columns: 1fr;
+  .content-background-container {
+    .container {
+      .grid-container {
+      grid-template-columns: 1fr;
+      }
+    }
   }
 }

@@ -10972,10 +10972,10 @@ textarea.form-control-lg {
   margin-bottom: 5px;
   margin-right: 10px;
   fill: black;
-  transition: fill 2s ease-out;
+  transition: fill 1s ease-out;
 }
 .content-background-container .container .grid-container .flex-container-first .content .svg-modification:hover {
-  fill: darkblue;
+  fill: blue;
 }
 .content-background-container .container .grid-container .flex-container-first .content .content-info {
   transition: all 1s ease-out;

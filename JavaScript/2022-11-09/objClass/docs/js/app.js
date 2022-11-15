@@ -122,7 +122,7 @@ var thirdSquare = {
   }
 };
 var dataToOutput = "".concat(firstSquare.outputAllParameters(), ", ").concat(secondSquare.outputAllParameters(), ", ").concat(thirdSquare.outputAllParameters());
-console.log(dataToOutput);
+// console.log(dataToOutput);
 
 // 5. Antram keturkampiui pridėti spalvą. +
 
@@ -141,7 +141,7 @@ thirdSquare.outputParametersLengthWidth = function () {
 };
 
 // 8. Į konsolę išvesti šiuos naujus duomenis.
-console.log(thirdSquare.outputParametersLengthWidth());
+// console.log(thirdSquare.outputParametersLengthWidth());
 
 // 9. Visų keturkampių objektuose sukurti funkciją, kuri į html išveda tekstą apie keturkampių informaciją:
 //    „Keturkampio plotis: x, keturkampio ilgis: y, keturkampio perimetras: z, keturkampio plotas: y."
@@ -152,14 +152,19 @@ secondSquare.outputParametersLengthWidth = function () {
 firstSquare.outputParametersLengthWidth = function () {
   return "Keturkampio plotis: ".concat(this.width, ", keturkampio auk\u0161tis: ").concat(this.length);
 };
-var container = document.querySelector('.container');
-var divFirst = document.createElement('div');
-divFirst.textContent = firstSquare.outputAllParameters() + ' ' + firstSquare.outputParametersLengthWidth();
-var divSecond = document.createElement('div');
-divSecond.textContent = secondSquare.outputAllParameters() + ' ' + secondSquare.outputParametersLengthWidth();
-var divThird = document.createElement('div');
-divThird.textContent = thirdSquare.outputAllParameters() + ' ' + thirdSquare.outputParametersLengthWidth();
-container.append(divFirst, divSecond, divThird);
+
+// let container = document.querySelector('.container');
+
+// let divFirst = document.createElement('div');
+// divFirst.textContent = firstSquare.outputAllParameters() + ' ' + firstSquare.outputParametersLengthWidth();
+
+// let divSecond = document.createElement('div');
+// divSecond.textContent = secondSquare.outputAllParameters() + ' ' + secondSquare.outputParametersLengthWidth();
+
+// let divThird = document.createElement('div');
+// divThird.textContent = thirdSquare.outputAllParameters() + ' ' + thirdSquare.outputParametersLengthWidth();
+
+// container.append(divFirst, divSecond, divThird);
 
 /***/ }),
 

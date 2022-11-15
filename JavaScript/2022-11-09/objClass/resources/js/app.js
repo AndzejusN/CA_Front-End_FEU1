@@ -118,7 +118,7 @@ let thirdSquare = {
 };
 
 let dataToOutput = `${firstSquare.outputAllParameters()}, ${secondSquare.outputAllParameters()}, ${thirdSquare.outputAllParameters()}`;
-console.log(dataToOutput);
+// console.log(dataToOutput);
 
 // 5. Antram keturkampiui pridėti spalvą. +
 
@@ -137,7 +137,7 @@ secondSquare.color = 'red';
   }
 
   // 8. Į konsolę išvesti šiuos naujus duomenis.
-console.log(thirdSquare.outputParametersLengthWidth());
+// console.log(thirdSquare.outputParametersLengthWidth());
 
   // 9. Visų keturkampių objektuose sukurti funkciją, kuri į html išveda tekstą apie keturkampių informaciją:
   //    „Keturkampio plotis: x, keturkampio ilgis: y, keturkampio perimetras: z, keturkampio plotas: y."
@@ -150,17 +150,15 @@ console.log(thirdSquare.outputParametersLengthWidth());
     return `Keturkampio plotis: ${this.width}, keturkampio aukštis: ${this.length}`;
   }
 
-let container = document.querySelector('.container');
+// let container = document.querySelector('.container');
 
-let divFirst = document.createElement('div');
-divFirst.textContent = firstSquare.outputAllParameters() + ' ' + firstSquare.outputParametersLengthWidth();
+// let divFirst = document.createElement('div');
+// divFirst.textContent = firstSquare.outputAllParameters() + ' ' + firstSquare.outputParametersLengthWidth();
 
-let divSecond = document.createElement('div');
-divSecond.textContent = secondSquare.outputAllParameters() + ' ' + secondSquare.outputParametersLengthWidth();
+// let divSecond = document.createElement('div');
+// divSecond.textContent = secondSquare.outputAllParameters() + ' ' + secondSquare.outputParametersLengthWidth();
 
-let divThird = document.createElement('div');
-divThird.textContent = thirdSquare.outputAllParameters() + ' ' + thirdSquare.outputParametersLengthWidth();
+// let divThird = document.createElement('div');
+// divThird.textContent = thirdSquare.outputAllParameters() + ' ' + thirdSquare.outputParametersLengthWidth();
 
-container.append(divFirst, divSecond, divThird);
-
-
+// container.append(divFirst, divSecond, divThird);

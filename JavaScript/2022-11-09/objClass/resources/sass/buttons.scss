@@ -1,10 +1,10 @@
 button,
 a.button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: $color-primary;
+  color: $color-white;
   border-width: 2px;
   border-style: solid;
-  border-color: #4CAF50;
+  border-color: $color-primary;
   border-radius: 15px;
   padding: 10px 15px;
   font-weight: 600;
@@ -25,67 +25,40 @@ a.button {
 button:hover,
 a.button:hover {
   background-color: transparent;
-  color: #4CAF50;
+  color: $color-primary;
 }
 
 button.secondary,
 a.button.secondary {
-  background-color: #008CBA;
-  border-color: #008CBA;
+  background-color: $color-secondary;
+  border-color: $color-secondary;
 }
 
 button.secondary:hover,
 a.button.secondary:hover {
   background-color: transparent;
-  color: #008CBA;
+  color: $color-secondary;
 }
 
 button.outline,
 a.button.outline {
   background-color: transparent;
-  color: #4CAF50;
+  color: $color-primary;
 }
 
 button.outline:hover,
 a.button.outline:hover {
-  background-color: #4CAF50;
-  color: white;
+  background-color: $color-primary;
+  color: $color-white;
 }
 
 button.outline.secondary,
 a.button.outline.secondary {
-  color: #008CBA;
+  color: $color-secondary;
 }
 
 button.outline.secondary:hover,
 a.button.outline.secondary:hover {
-  background-color: #008CBA;
-  color: white;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f0f0f0;
-  margin: 0;
-}
-body .container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1230px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 25px;
-  padding-left: 25px;
-}
-body .container form input,
-body .container form button {
-  margin: 5px 0;
-}
-body .container .result-container {
-  display: flex;
-  flex-wrap: wrap;
+  background-color: $color-secondary;
+  color: $color-white;
 }
