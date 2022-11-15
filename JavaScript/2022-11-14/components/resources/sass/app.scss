@@ -267,10 +267,6 @@
 }
 
 @include screen-responsive($screen-lg) {
-  body {
-    background-color: powderblue;
-  }
-
   .main-part {
     .main-content {
       grid-template-columns: 57fr 43fr;
@@ -285,10 +281,6 @@
 }
 
 @include screen-responsive($screen-md) {
-  body {
-    background-color: violet;
-  }
-
   .main-part {
     .main-content {
       grid-template-columns: 1fr;
@@ -300,11 +292,5 @@
         grid-row: 2/3;
       }
     }
-  }
-}
-
-@include screen-responsive($screen-sm) {
-  body {
-    background-color: bisque;
   }
 }

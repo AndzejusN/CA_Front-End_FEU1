@@ -321,9 +321,6 @@ body {
   }
 }
 @media screen and (max-width: 960px) {
-  body {
-    background-color: powderblue;
-  }
   .main-part .main-content {
     grid-template-columns: 57fr 43fr;
   }
@@ -332,9 +329,6 @@ body {
   }
 }
 @media screen and (max-width: 720px) {
-  body {
-    background-color: violet;
-  }
   .main-part .main-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -343,10 +337,5 @@ body {
   .main-part .main-content .podcasts-wrapper {
     grid-column: 1/2;
     grid-row: 2/3;
-  }
-}
-@media screen and (max-width: 540px) {
-  body {
-    background-color: bisque;
   }
 }

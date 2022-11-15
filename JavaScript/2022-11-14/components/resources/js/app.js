@@ -1,7 +1,10 @@
+import root from './root';
 import header from './components/header/header.js';
 import topNews from './components/news/topNews.js';
 import bottomNews from './components/news/bottomNews.js';
 import podcast from './components/podcast/podcast.js';
+
+root();
 
 let containerHeader = document.querySelector('.background-header-container .container');
 let headerResponse = header();
