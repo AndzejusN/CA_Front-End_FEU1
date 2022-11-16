@@ -13,23 +13,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_header_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/header/header.js */ "./resources/js/components/header/header.js");
 /* harmony import */ var _components_news_topNews_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/news/topNews.js */ "./resources/js/components/news/topNews.js");
 /* harmony import */ var _components_news_bottomNews_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/news/bottomNews.js */ "./resources/js/components/news/bottomNews.js");
-/* harmony import */ var _components_podcast_podcast_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/podcast/podcast.js */ "./resources/js/components/podcast/podcast.js");
+/* harmony import */ var _components_podcast_podcasts_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/podcast/podcasts.js */ "./resources/js/components/podcast/podcasts.js");
+/* harmony import */ var _components_podcast_events_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/podcast/events.js */ "./resources/js/components/podcast/events.js");
+/* harmony import */ var _components_buttons_buttonMore_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/buttons/buttonMore.js */ "./resources/js/components/buttons/buttonMore.js");
+/* harmony import */ var _components_floating_apply_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/floating/apply.js */ "./resources/js/components/floating/apply.js");
+
+
+
 
 
 
 
 
 (0,_root__WEBPACK_IMPORTED_MODULE_0__["default"])();
+var rootContainer = (0,_root__WEBPACK_IMPORTED_MODULE_0__["default"])();
+rootContainer.append((0,_components_floating_apply_js__WEBPACK_IMPORTED_MODULE_7__["default"])());
 var containerHeader = document.querySelector('.background-header-container .container');
 var headerResponse = (0,_components_header_header_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 containerHeader.append(headerResponse);
 var newsWrapper = document.querySelector('.background-main-container .container .main-part .main-content .news-wrapper');
 var topNewsResponse = (0,_components_news_topNews_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 var bottomNewsResponse = (0,_components_news_bottomNews_js__WEBPACK_IMPORTED_MODULE_3__["default"])();
-newsWrapper.append(topNewsResponse, bottomNewsResponse);
-var mainContent = document.querySelector('.background-main-container .container .main-part .main-content');
-var podcastResponse = (0,_components_podcast_podcast_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
-mainContent.append(podcastResponse);
+var buttonMoreNews = (0,_components_buttons_buttonMore_js__WEBPACK_IMPORTED_MODULE_6__["default"])('Visos naujienos');
+newsWrapper.append(topNewsResponse, bottomNewsResponse, buttonMoreNews);
+var podcastEventWrapper = document.querySelector('.background-main-container .container .main-part .main-content .podcast-event-wrapper');
+podcastEventWrapper.append((0,_components_podcast_podcasts_js__WEBPACK_IMPORTED_MODULE_4__["default"])(), (0,_components_podcast_events_js__WEBPACK_IMPORTED_MODULE_5__["default"])(), (0,_components_buttons_buttonMore_js__WEBPACK_IMPORTED_MODULE_6__["default"])('Daugiau'));
+
+/***/ }),
+
+/***/ "./resources/js/components/buttons/buttonMore.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/buttons/buttonMore.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ buttonMore)
+/* harmony export */ });
+function buttonMore(props) {
+  var buttonMore = document.createElement('div');
+  buttonMore.classList.add('more-info', 'bold-text');
+  buttonMore.innerHTML = "<div>".concat(props, "</div>\n                        <div class=\"more-symbol\">></div>");
+  return buttonMore;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/floating/apply.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/floating/apply.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ apply)
+/* harmony export */ });
+function apply() {
+  var floating = document.createElement('a');
+  floating.href = '#';
+  floating.innerHTML = "<img class=\"floating-image\" src=\"./img/site-contact-form-button.png\" alt=\"Floating image\">";
+  return floating;
+}
 
 /***/ }),
 
@@ -62,11 +108,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ BottomNews)
 /* harmony export */ });
+/* harmony import */ var _oneBlockBottomNews_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./oneBlockBottomNews.js */ "./resources/js/components/news/oneBlockBottomNews.js");
+
 function BottomNews() {
   var bottomNews = document.createElement('div');
   bottomNews.classList.add('bottom-news');
-  bottomNews.innerHTML = "<a href=\"#\" class=\"text-decoration bottom-news-box\">\n                                    <div>\n                                        <img class=\"image-bottom-news\"\n                                             src=\"https://codeacademy.lt/wp-content/uploads/2021/09/pexels-tima-miroshnichenko-5428258-1536x1038.jpg\"\n                                             alt=\"News photo\">\n                                    </div>\n                                    <div>\n                                        <p class=\"bottom-news-header upper-case\">technologij\u0173 ritmu</p>\n                                        <h4 class=\"bold-text black-text\">Kaip po chaoti\u0161k\u0173 mokslo met\u0173 pandemijos apsuptyje\n                                            pad\u0117ti vaikams sugr\u012F\u017Eti \u012F klases?</h4>\n                                        <p class=\"black-text\">2021-09-01</p>\n                                    </div>\n                                </a>\n                                <a href=\"#\" class=\"text-decoration bottom-news-box\">\n                                    <div>\n                                        <img class=\"image-bottom-news\"\n                                             src=\"https://codeacademy.lt/wp-content/uploads/2021/09/pexels-tima-miroshnichenko-5428258-1536x1038.jpg\"\n                                             alt=\"News photo\">\n                                </div>\n                                <div>\n                                        <p class=\"bottom-news-header upper-case\">technologij\u0173 ritmu</p>\n                                        <h4 class=\"bold-text black-text\">Kaip po chaoti\u0161k\u0173 mokslo met\u0173 pandemijos apsuptyje\n                                            pad\u0117ti vaikams sugr\u012F\u017Eti \u012F klases?</h4>\n                                        <p class=\"black-text\">2021-09-01</p>\n                                    </div>\n                                </a>\n                                <a href=\"#\" class=\"text-decoration bottom-news-box\">\n                                    <div>\n                                        <img class=\"image-bottom-news\"\n                                             src=\"https://codeacademy.lt/wp-content/uploads/2021/09/pexels-tima-miroshnichenko-5428258-1536x1038.jpg\"\n                                             alt=\"News photo\">\n                                    </div>\n                                    <div>\n                                        <p class=\"bottom-news-header upper-case\">technologij\u0173 ritmu</p>\n                                        <h4 class=\"bold-text black-text\">Kaip po chaoti\u0161k\u0173 mokslo met\u0173 pandemijos apsuptyje\n                                            pad\u0117ti vaikams sugr\u012F\u017Eti \u012F klases?</h4>\n                                        <p class=\"black-text\">2021-09-01</p>                               \n                                    </div>\n                                </a>\n                                <a href=\"#\" class=\"text-decoration bottom-news-box\">\n                                   <div>\n                                       <img class=\"image-bottom-news\"\n                                            src=\"https://codeacademy.lt/wp-content/uploads/2021/09/pexels-tima-miroshnichenko-5428258-1536x1038.jpg\"\n                                            alt=\"News photo\">\n                                   </div>\n                                   <div>\n                                       <p class=\"bottom-news-header upper-case\">technologij\u0173 ritmu</p>\n                                        <h4 class=\"bold-text black-text\">Kaip po chaoti\u0161k\u0173 mokslo met\u0173 pandemijos apsuptyje\n                                           pad\u0117ti vaikams sugr\u012F\u017Eti \u012F klases?</h4>\n                                       <p class=\"black-text\">2021-09-01</p>\n                                   </div>\n                                </a>\n                                <div class=\"more-info bold-text\">\n                                    <div>Visos naujienos</div>\n                                    <div class=\"more-symbol\">></div>\n                                </div>";
+  bottomNews.append((0,_oneBlockBottomNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_oneBlockBottomNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_oneBlockBottomNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_oneBlockBottomNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])());
   return bottomNews;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/news/oneBlockBottomNews.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/news/oneBlockBottomNews.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ oneBlockBottomNews)
+/* harmony export */ });
+function oneBlockBottomNews() {
+  var elementBlockNews = document.createElement('a');
+  elementBlockNews.href = '#';
+  elementBlockNews.classList.add('text-decoration', 'bottom-news-box');
+  elementBlockNews.innerHTML = "<div>\n                                        <img class=\"image-bottom-news\"\n                                             src=\"https://codeacademy.lt/wp-content/uploads/2021/09/pexels-tima-miroshnichenko-5428258-1536x1038.jpg\"\n                                             alt=\"News photo\">\n                                    </div>\n                                    <div>\n                                        <p class=\"bottom-news-header upper-case\">technologij\u0173 ritmu</p>\n                                        <h4 class=\"bold-text black-text\">Kaip po chaoti\u0161k\u0173 mokslo met\u0173 pandemijos apsuptyje\n                                            pad\u0117ti vaikams sugr\u012F\u017Eti \u012F klases?</h4>\n                                        <p class=\"black-text\">2021-09-01</p>\n                                    </div>";
+  return elementBlockNews;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/news/oneBlockTopNews.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/news/oneBlockTopNews.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ oneBlockTopNews)
+/* harmony export */ });
+function oneBlockTopNews() {
+  var elementBlockNews = document.createElement('a');
+  elementBlockNews.classList.add('text-decoration', 'white');
+  elementBlockNews.href = '#';
+  elementBlockNews.innerHTML = "<div><img class=\"image-top-news\"\n                                src=\"https://codeacademy.lt/wp-content/uploads/2021/11/120840956_3665630673483886_440856791753000379_n-1024x683.jpg\"\n                                alt=\"News photo\">\n                                </div>\n                                <div class=\"top-news-text\">\n                                    <p class=\"upper-case\">naujienos</p>\n                                    <h2 class=\"bold-text black-text\">Dezinformacija ir kibernetinis pavojus: kaip\n                                        apsisaugoti?</h2>\n                                    <p class=\"black-text\">2022-03-23</p>\n                                </div>";
+  return elementBlockNews;
 }
 
 /***/ }),
@@ -81,11 +169,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ topNews)
 /* harmony export */ });
+/* harmony import */ var _oneBlockTopNews_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./oneBlockTopNews.js */ "./resources/js/components/news/oneBlockTopNews.js");
+
 function topNews() {
   var topNews = document.createElement('div');
   topNews.classList.add('top-news');
-  topNews.innerHTML = "   <a href=\"#\" class=\"text-decoration white\">\n                        <div><img class=\"image-top-news\"\n                                  src=\"https://codeacademy.lt/wp-content/uploads/2021/11/120840956_3665630673483886_440856791753000379_n-1024x683.jpg\"\n                                  alt=\"News photo\">\n                        </div>\n                        <div class=\"top-news-text\">\n                            <p class=\"upper-case\">naujienos</p>\n                            <h2 class=\"bold-text black-text\">Dezinformacija ir kibernetinis pavojus: kaip\n                                apsisaugoti?</h2>\n                            <p class=\"black-text\">2022-03-23</p>\n                        </div>\n                    </a>\n                    <a href=\"#\" class=\"text-decoration white\">\n                        <div><img class=\"image-top-news\"\n                                  src=\"https://codeacademy.lt/wp-content/uploads/2021/11/120840956_3665630673483886_440856791753000379_n-1024x683.jpg\"\n                                  alt=\"News photo\">\n                        </div>\n                        <div class=\"top-news-text\">\n                            <p class=\"upper-case\">naujienos</p>\n                            <h2 class=\"bold-text black-text\">Dezinformacija ir kibernetinis pavojus: kaip\n                                apsisaugoti?</h2>\n                            <p class=\"black-text\">2022-03-23</p>\n                        </div>\n                    </a>";
+  var h1 = document.createElement('h1');
+  h1.textContent = 'Naujienos';
+  h1.style.gridColumn = '1 / 3';
+  h1.style.gridRow = '1';
+  topNews.append(h1, (0,_oneBlockTopNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_oneBlockTopNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_oneBlockTopNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_oneBlockTopNews_js__WEBPACK_IMPORTED_MODULE_0__["default"])());
   return topNews;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/podcast/event.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/podcast/event.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ event)
+/* harmony export */ });
+function event(props) {
+  var event = document.createElement('div');
+  event.classList.add('event');
+  event.innerHTML = " <a class=\"text-decoration\" href=\"".concat(props.linkHref, "\">\n                                <div class=\"promo-text black white-text\">\n                                    <div class=\"promo-date\">\n                                        <div class=\"promo-number white black-text\"><h2>").concat(props.day, "</h2></div>\n                                        <div class=\"promo-month pink\"><h4>").concat(props.month, "</h4></div>\n                                    </div>\n                                    <p class=\"upper-case\">").concat(props.state, "</p>\n                                    <h2>").concat(props.eventName, "</h2>\n                                </div>\n                            </a>");
+  return event;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/podcast/events.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/podcast/events.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ events)
+/* harmony export */ });
+/* harmony import */ var _event__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./event */ "./resources/js/components/podcast/event.js");
+/* harmony import */ var _promo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./promo.js */ "./resources/js/components/podcast/promo.js");
+
+
+function events() {
+  var events = document.createElement('div');
+  events.innerHTML = "<h1>Renginiai</h1>";
+  var props = [{
+    linkHref: '#',
+    day: 20,
+    month: 'NOV',
+    state: 'online',
+    eventName: 'CodeAcademy Talents'
+  }, {
+    linkHref: '#',
+    day: 27,
+    month: 'DEC',
+    state: 'live',
+    eventName: 'Intro: „Salesforce“ CRM'
+  }, {
+    linkHref: '#',
+    day: 5,
+    month: 'JAN',
+    state: 'live',
+    eventName: 'Intro: Dirbtinis intelektas ir Duomenų mokslas'
+  }];
+  events.append((0,_promo_js__WEBPACK_IMPORTED_MODULE_1__["default"])());
+  props.map(function (elem) {
+    events.append((0,_event__WEBPACK_IMPORTED_MODULE_0__["default"])(elem));
+  });
+  return events;
 }
 
 /***/ }),
@@ -101,10 +259,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ podcast)
 /* harmony export */ });
 function podcast() {
+  var podcast = document.createElement('div');
+  podcast.classList.add('podcast');
+  podcast.innerHTML = "<div class=\"podcast\">\n                            <div class=\"podcast-track\">\n                                <img src=\"https://codeacademy.lt/wp-content/uploads/2021/04/Untitled-design-300x300.png\"\n                                     class=\"image-podcast\" alt=\"Man on photo\">\n                                <p class=\"track-long\">Trukm\u0117: 7:55</p>\n                                <a class=\"track-link\" href=\"#\"><img class=\"track-play\" src=\"img/play.jpg\" alt=\"Play button\"></a>\n                            </div>\n                            <div class=\"podcast-text\">\n                                <p class=\"bold-text\">Poj\u016B\u010Dius pir\u0161t\u0173 galiukams sugr\u0105\u017Einti gali smegen\u0173 implantas</p>\n                                <p>2021-09-02</p>\n                            </div>\n                        </div>";
+  return podcast;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/podcast/podcasts.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/podcast/podcasts.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ podcasts)
+/* harmony export */ });
+/* harmony import */ var _podcast_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./podcast.js */ "./resources/js/components/podcast/podcast.js");
+
+function podcasts() {
   var podcastWrapper = document.createElement('div');
   podcastWrapper.classList.add('podcasts-wrapper');
-  podcastWrapper.innerHTML = "<h1>Podcastai ir radijo laidos</h1>\n                            <div class=\"podcast\">\n                                <div class=\"podcast-track\">\n                                    <img src=\"https://codeacademy.lt/wp-content/uploads/2021/04/Untitled-design-300x300.png\"\n                                         class=\"image-podcast\" alt=\"Man on photo\">\n                                    <p class=\"track-long\">Trukm\u0117: 7:55</p>\n                                    <a class=\"track-link\" href=\"#\"><img class=\"track-play\" src=\"img/play.jpg\" alt=\"Play button\"></a>\n                                </div>\n                                <div class=\"podcast-text\">\n                                    <p class=\"bold-text\">Poj\u016B\u010Dius pir\u0161t\u0173 galiukams sugr\u0105\u017Einti gali smegen\u0173 implantas</p>\n                                    <p>2021-09-02</p>\n                                </div>\n                            </div>\n                            <div class=\"podcast\">\n                                <div class=\"podcast-track\">\n                                    <img src=\"https://codeacademy.lt/wp-content/uploads/2021/04/Untitled-design-300x300.png\"\n                                         class=\"image-podcast\" alt=\"Man on photo\">\n                                    <p class=\"track-long\">Trukm\u0117: 7:55</p>\n                                    <a class=\"track-link\" href=\"#\"><img class=\"track-play\" src=\"img/play.jpg\" alt=\"Play button\"></a>\n                                </div>\n                                <div class=\"podcast-text\">\n                                    <p class=\"bold-text\">Poj\u016B\u010Dius pir\u0161t\u0173 galiukams sugr\u0105\u017Einti gali smegen\u0173 implantas</p>\n                                        <p>2021-09-02</p>\n                                    </div>\n                                </div>\n                                <div class=\"podcast\">\n                                    <div class=\"podcast-track\">\n                                        <img src=\"https://codeacademy.lt/wp-content/uploads/2021/04/Untitled-design-300x300.png\"\n                                             class=\"image-podcast\" alt=\"Man on photo\">\n                                        <p class=\"track-long\">Trukm\u0117: 7:55</p>\n                                        <a class=\"track-link\" href=\"#\"><img class=\"track-play\" src=\"img/play.jpg\" alt=\"Play button\"></a>\n                                                </div>\n                                                <div class=\"podcast-text\">\n                                                    <p class=\"bold-text\">Poj\u016B\u010Dius pir\u0161t\u0173 galiukams sugr\u0105\u017Einti gali smegen\u0173 implantas</p>\n                                                    <p>2021-09-02</p>\n                                                </div>\n                                            </div>\n                                            <div class=\"podcast\">\n                                                <div class=\"podcast-track\">\n                                                    <img src=\"https://codeacademy.lt/wp-content/uploads/2021/04/Untitled-design-300x300.png\"\n                                                         class=\"image-podcast\" alt=\"Man on photo\">\n                                            <p class=\"track-long\">Trukm\u0117: 7:55</p>\n                                        <a class=\"track-link\" href=\"#\"><img class=\"track-play\" src=\"img/play.jpg\" alt=\"Play button\"></a>\n                                    </div>\n                                    <div class=\"podcast-text\">\n                                        <p class=\"bold-text\">Poj\u016B\u010Dius pir\u0161t\u0173 galiukams sugr\u0105\u017Einti gali smegen\u0173 implantas</p>\n                                        <p>2021-09-02</p>\n                                    </div>\n                                </div>\n                                <h1>Renginiai</h1>\n                                    <a href=\"#\">\n                                        <img class=\"promo-testcon\" src=\"img/testcon.png\"\n                                             alt=\"Promo on-line registration TestCon Europe 2022\">\n                                    </a>\n                                    <div class=\"event\">\n                                        <a class=\"text-decoration\" href=\"#\">\n                                            <div class=\"promo-text black white-text\">\n                                                <div class=\"promo-date\">\n                                                    <div class=\"promo-number white black-text\"><h2>26</h2></div>\n                                                    <div class=\"promo-month pink\"><h4>SPA</h4></div>\n                                                </div>\n                                                <p class=\"upper-case\">online</p>\n                                                <h2>TestCon Europe 2022</h2>\n                                            </div>\n                                        </a>\n                                    </div>\n                                    <div class=\"event\">\n                                        <a class=\"text-decoration\" href=\"#\">\n                                            <div class=\"promo-text black white-text\">\n                                                <div class=\"promo-date\">\n                                                    <div class=\"promo-number white black-text\"><h2>26</h2></div>\n                                                    <div class=\"promo-month pink\"><h4>SPA</h4></div>\n                                                </div>\n                                                <p class=\"upper-case\">online</p>\n                                                <h2>TestCon Europe 2022</h2>\n                                            </div>\n                                        </a>\n                                    </div>\n                                    <div class=\"event\">\n                                        <a class=\"text-decoration\" href=\"#\">\n                                            <div class=\"promo-text black white-text\">\n                                                <div class=\"promo-date\">\n                                                    <div class=\"promo-number white black-text\"><h2>26</h2></div>\n                                                    <div class=\"promo-month pink\"><h4>SPA</h4></div>\n                                                </div>\n                                                <p class=\"upper-case\">online</p>\n                                                <h2>TestCon Europe 2022</h2>\n                                            </div>\n                                        </a>\n                                    </div>\n                                    <div class=\"event\">\n                                        <a class=\"text-decoration\" href=\"#\">\n                                            <div class=\"promo-text black white-text\">\n                                                <div class=\"promo-date\">\n                                                    <div class=\"promo-number white black-text\"><h2>26</h2></div>\n                                                    <div class=\"promo-month pink\"><h4>SPA</h4></div>\n                                                </div>\n                                                <p class=\"upper-case\">online</p>\n                                                <h2>TestCon Europe 2022</h2>\n                                            </div>\n                                        </a>\n                                    </div>\n                                    <div class=\"more-info bold-text\">\n                                        <div>Daugiau</div>\n                                        <div class=\"more-symbol\">></div>\n                                    </div>";
+  podcastWrapper.innerHTML = "<h1>Podcastai ir radijo laidos</h1>";
+  podcastWrapper.append((0,_podcast_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_podcast_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_podcast_js__WEBPACK_IMPORTED_MODULE_0__["default"])(), (0,_podcast_js__WEBPACK_IMPORTED_MODULE_0__["default"])());
   return podcastWrapper;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/podcast/promo.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/podcast/promo.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ promo)
+/* harmony export */ });
+function promo() {
+  var promo = document.createElement('div');
+  promo.innerHTML = "<a href=\"#\">\n                            <img class=\"promo-testcon\" src=\"img/testcon.png\"\n                                 alt=\"Promo on-line registration TestCon Europe 2022\">\n                        </a>";
+  return promo;
 }
 
 /***/ }),
@@ -121,7 +319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function root() {
   var rootContainer = document.querySelector('.root');
-  rootContainer.innerHTML = "<div class=\"background-header-container\">\n                            <div class=\"container\">\n                            </div>\n                            </div>\n                            <div class=\"background-main-container\">\n                            <div class=\"container\">\n                                <main class=\"main-part\">\n                                    <div class=\"main-content\">\n                                        <div class=\"news-wrapper\">\n                                            <h1>Naujienos</h1>\n                                        </div>\n                                    </div>\n                                </main>\n                            </div>\n                            </div>\n                            <a href=\"\">\n                            <img class=\"floating-image\" src=\"img/site-contact-form-button.png\" alt=\"Floating image\">\n                            </a>";
+  rootContainer.innerHTML = "<div class=\"background-header-container\">\n                            <div class=\"container\">\n                            </div>\n                            </div>\n                            <div class=\"background-main-container\">\n                            <div class=\"container\">\n                                <main class=\"main-part\">\n                                    <div class=\"main-content\">\n                                        <div class=\"news-wrapper\">\n                                        </div>\n                                        <div class=\"podcast-event-wrapper\">\n                                        </div>\n                                    </div>\n                                </main>\n                            </div>\n                            </div>";
   return rootContainer;
 }
 

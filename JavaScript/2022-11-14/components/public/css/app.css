@@ -122,8 +122,7 @@ body {
   grid-template-rows: 1fr;
   width: 100%;
   height: auto;
-  -moz-column-gap: 30px;
-       column-gap: 30px;
+  gap: 30px;
   margin-bottom: 30px;
 }
 .main-part .main-content .news-wrapper .top-news:nth-of-type(1) {
@@ -184,32 +183,32 @@ body {
 .main-part .main-content .news-wrapper .bottom-news .bottom-news-box:nth-of-type(2) .bottom-news-header {
   margin: 0;
 }
-.main-part .main-content .podcasts-wrapper {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper {
   grid-column: 2/3;
   grid-row: 1/2;
 }
-.main-part .main-content .podcasts-wrapper .podcast {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast {
   margin-bottom: 40px;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-track {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-track {
   display: flex;
   align-items: center;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-track .image-podcast {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-track .image-podcast {
   height: 70px;
   width: 70px;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-track .track-link {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-track .track-link {
   height: 70px;
   width: 70px;
   border: 1px solid black;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-track .track-link .track-play {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-track .track-link .track-play {
   background-color: white;
   width: 68px;
   height: 100%;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-track .track-long {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-track .track-long {
   display: flex;
   background-color: black;
   color: white;
@@ -220,12 +219,12 @@ body {
   font-size: 20px;
   margin: 0;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-text {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-text {
   height: 100%;
   background-color: white;
   padding: 20px;
 }
-.main-part .main-content .podcasts-wrapper .podcast .podcast-text p {
+.main-part .main-content .podcast-event-wrapper .podcasts-wrapper .podcast .podcast-text p {
   margin-top: 0;
 }
 
@@ -256,14 +255,14 @@ body {
   display: block;
 }
 
-.event {
+.podcast-event-wrapper .event {
   position: relative;
   padding-bottom: 40px;
 }
-.event a .promo-text {
+.podcast-event-wrapper .event a .promo-text {
   padding: 15px;
 }
-.event a .promo-text .promo-date {
+.podcast-event-wrapper .event a .promo-text .promo-date {
   background-color: green;
   display: flex;
   flex-wrap: wrap;
@@ -275,7 +274,7 @@ body {
   position: absolute;
   top: -30px;
 }
-.event a .promo-text .promo-date .promo-number {
+.podcast-event-wrapper .event a .promo-text .promo-date .promo-number {
   width: 100%;
   text-align: center;
   border-left: 2px;
@@ -286,10 +285,10 @@ body {
   border-top-right-radius: 10px;
   padding: 10px 5px;
 }
-.event a .promo-text .promo-date .promo-number h2 {
+.podcast-event-wrapper .event a .promo-text .promo-date .promo-number h2 {
   margin: 5px;
 }
-.event a .promo-text .promo-date .promo-month {
+.podcast-event-wrapper .event a .promo-text .promo-date .promo-month {
   width: 100%;
   text-align: center;
   border-left: 2px;
@@ -300,7 +299,7 @@ body {
   border-bottom-right-radius: 10px;
   padding: 5px;
 }
-.event a .promo-text .promo-date .promo-month h4 {
+.podcast-event-wrapper .event a .promo-text .promo-date .promo-month h4 {
   margin: 5px;
 }
 
