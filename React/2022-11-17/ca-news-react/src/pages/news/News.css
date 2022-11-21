@@ -170,7 +170,7 @@
   }
   
   .container .footer-wrapper .footer-menu {
-    /* background-image: url("./images/footer.svg"); */
+    background-image: url("../../images/footer.svg");
     background-repeat: no-repeat;
     background-size: 40%;
     background-position: right bottom;

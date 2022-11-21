@@ -54,7 +54,6 @@ a.button {
 .main-header .main-header-content-wrapper .main-navigation {
   display: flex;
   align-items: center;
-  column-gap: 30px;
   margin-left: 60px;
 }
 
