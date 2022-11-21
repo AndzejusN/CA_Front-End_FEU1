@@ -8,7 +8,6 @@ content.classList.add('content-wrapper');
 
 root.append(content);
 
-
 let props =
 {
     mainTitle: 'Find us',
@@ -39,9 +38,4 @@ let props =
     ]
 };
 
-
-
 content.append(addresses(props), map());
-
-
-

@@ -1,0 +1,11 @@
+.map-wrapper {
+  min-width: 700px;
+  min-height: 700px;
+}
+
+iframe {
+  min-width: 700px;
+  min-height: 700px;
+  border: 0;
+  padding: 10px;
+}

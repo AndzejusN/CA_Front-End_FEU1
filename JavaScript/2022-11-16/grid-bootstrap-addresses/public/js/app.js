@@ -63,7 +63,7 @@ function addresses(props) {
   var mainTitleElement = document.createElement('h2');
   mainTitleElement.classList.add('shops-section-title');
   mainTitleElement.innerText = props.mainTitle;
-  address.append(mainTitleElement, (0,_shop_js__WEBPACK_IMPORTED_MODULE_0__["default"])(props));
+  address.append(mainTitleElement, (0,_shop_js__WEBPACK_IMPORTED_MODULE_0__["default"])(props.shopList));
   return address;
 }
 
@@ -82,25 +82,62 @@ __webpack_require__.r(__webpack_exports__);
 function shop(props) {
   var shopListContainer = document.createElement('div');
   shopListContainer.classList.add('shops-list');
-  props.shopList.map(function (element) {
+  props.map(function (element) {
     var shopContainer = document.createElement('div');
     shopContainer.classList.add('shop');
-    var shopTitle = document.createElement('h3');
-    shopTitle.classList.add('shop-title');
-    shopTitle.innerHTML = element.shopTitle;
+
+    if (element.shopTitle) {
+      var shopTitle = document.createElement('h3');
+      shopTitle.classList.add('shop-title');
+      shopTitle.innerHTML = element.shopTitle;
+      shopContainer.append(shopTitle);
+    }
+
     var shopList = document.createElement('ul');
     shopList.classList.add('shop-address-list');
-    var liPhone = document.createElement('li');
-    liPhone.innerHTML = "Phone: <a href=\"tel:".concat(element.contactPhone, "\">").concat(element.contactPhone, "</a>");
-    var liEmail = document.createElement('li');
-    liEmail.innerHTML = "Phone: <a href=\"mailto:".concat(element.contactEmail, "\">").concat(element.contactEmail, "</a>");
-    var liAddress = document.createElement('li');
-    liAddress.innerHTML = "Phone: <a href=\"".concat(element.contactAddress, "\" target=\"_blank\">").concat(element.contactAddress, "</a>");
-    shopList.append(liPhone, liEmail, liAddress);
-    shopContainer.append(shopTitle, shopList);
+
+    if (element.contactPhone) {
+      var liPhone = document.createElement('li');
+      liPhone.innerHTML = "Phone: <a href=\"tel:".concat(element.contactPhone, "\">").concat(element.contactPhone, "</a>");
+      shopContainer.append(liPhone);
+    }
+
+    if (element.contactEmail) {
+      var liEmail = document.createElement('li');
+      liEmail.innerHTML = "Email: <a href=\"mailto:".concat(element.contactEmail, "\">").concat(element.contactEmail, "</a>");
+      shopContainer.append(liEmail);
+    }
+
+    if (element.contactAddress) {
+      var liAddress = document.createElement('li');
+      liAddress.innerHTML = "Address: <a href=\"".concat(element.contactAddress, "\" target=\"_blank\">").concat(element.contactAddress, "</a>");
+      shopContainer.append(liAddress);
+    }
+
+    shopContainer.append(shopList);
     shopListContainer.append(shopContainer);
   });
   return shopListContainer;
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/rightSide/googleMap.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/rightSide/googleMap.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ googleMap)
+/* harmony export */ });
+function googleMap(props) {
+  var mapContainer = document.createElement('div');
+  mapContainer.style.width = '600px';
+  mapContainer.style.height = '450px';
+  mapContainer.innerHTML = "<iframe src=\"".concat(props.linkSrc, "\" ").concat(props.style, "></iframe>");
+  return mapContainer;
 }
 
 /***/ }),
@@ -115,10 +152,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ map)
 /* harmony export */ });
+/* harmony import */ var _googleMap_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./googleMap.js */ "./resources/js/components/rightSide/googleMap.js");
+
 function map() {
   var map = document.createElement('div');
   map.classList.add('map-wrapper');
-  map.innerHTML = "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2306.2995081927884!2d25.290643799999998!3d54.6867569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd9417621fb72d%3A0x9f881e6eb7ad7bd9!2sArsenalo%20g.%205%2C%20Vilnius%2001143!5e0!3m2!1sen!2slt!4v1662103169886!5m2!1sen!2slt\"\n            width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"\n            referrerpolicy=\"no-referrer-when-downgrade\"></iframe>";
+  var props = {
+    linkSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2306.2995081927884!2d25.290643799999998!3d54.6867569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd9417621fb72d%3A0x9f881e6eb7ad7bd9!2sArsenalo%20g.%205%2C%20Vilnius%2001143!5e0!3m2!1sen!2slt!4v1662103169886!5m2!1sen!2slt',
+    style: 'width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"referrerpolicy="no-referrer-when-downgrade"'
+  };
+  map.append((0,_googleMap_js__WEBPACK_IMPORTED_MODULE_0__["default"])(props));
   return map;
 }
 

@@ -1,0 +1,39 @@
+.text-decoration {
+    text-decoration: none;
+}
+
+.bottom-news-box {
+    display: flex;
+    column-gap: 10px;
+}
+
+.bottom-news-box:nth-of-type(1) {
+    width: 100%;
+}
+
+.bottom-news-box:nth-of-type(2) {
+    width: 100%;
+}
+
+.bottom-news-header {
+    margin: 0;
+}
+
+.image-bottom-news {
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.black-text {
+    color: var(--color-black);
+}
+
+.bold-text {
+    font-weight: 700;
+}

@@ -9,7 +9,7 @@ let mainTitleElement = document.createElement('h2');
 mainTitleElement.classList.add('shops-section-title');
 mainTitleElement.innerText = props.mainTitle;
 
-address.append(mainTitleElement, shop(props));
+address.append(mainTitleElement, shop(props.shopList));
 
 return address;
 }

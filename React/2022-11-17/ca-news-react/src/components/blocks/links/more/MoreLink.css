@@ -1,0 +1,25 @@
+.more-info-link {
+    text-decoration: none;
+    color: black;
+}
+
+.more-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+    border-radius: 10px;
+    font-size: 30px;
+    background-color: var(--color-white);
+    text-decoration: none;
+}
+
+.more-symbol {
+    font-size: 60px;
+    text-decoration: none;
+}
+
+.bold-text {
+    font-weight: 700;
+  }

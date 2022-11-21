@@ -1,0 +1,29 @@
+.text-decoration {
+    text-decoration: none;
+}
+
+.white {
+    background-color: var(--color-white);
+}
+
+.image-top-news {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top-news-text {
+    padding: 20px;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.black-text {
+    color: var(--color-black);
+}
+
+.bold-text {
+    font-weight: 700;
+}

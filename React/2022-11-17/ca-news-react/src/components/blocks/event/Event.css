@@ -1,0 +1,74 @@
+.event {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.promo-date {
+    background-color: green;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80px;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 200;
+    position: absolute;
+    top: -30px;
+}
+
+.promo-number {
+    width: 100%;
+    text-align: center;
+    border-left: 2px;
+    border-top: 2px;
+    border-right: 2px;
+    border-color: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px 5px;
+}
+
+.promo-month {
+    width: 100%;
+    text-align: center;
+    border-left: 2px;
+    border-bottom: 2px;
+    border-right: 2px;
+    border-color: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+}
+
+.promo-number h2,
+.promo-month h4 {
+    margin: 5px;
+}
+
+.text-decoration {
+    text-decoration: none;
+}
+
+.promo-text {
+    padding: 15px;
+}
+
+.black {
+    background-color: var(--color-black);
+}
+
+.white-text {
+    color: var(--color-white);
+}
+
+.black-text {
+    color: var(--color-black);
+}
+
+.pink {
+    background-color: deeppink;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
